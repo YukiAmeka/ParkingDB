@@ -1,4 +1,4 @@
-CREATE DATABASE Lv_501_Parking_TEST1;  TEST1
+CREATE DATABASE Lv_501_Parking_TEST1;
 GO
 USE Lv_501_Parking_TEST1
 GO
@@ -20,9 +20,8 @@ GO
 CREATE TABLE Parking.Lots (
     LotID int NOT NULL PRIMARY KEY IDENTITY,
     LotName varchar (50)  NULL,
-    PriceIndex decimal (4,2) CONSTRAINT DEF_ParkingLots_PriceIndex DEFAULT 1.0,
     CityID int NULL,
-    Address varchar(50),
+    Address varchar(50) NULL,
     ManagerId int  NULL,
     PhoneNumber varchar (30) NULL,
     Email varchar (50) NULL
@@ -30,53 +29,54 @@ CREATE TABLE Parking.Lots (
 
 CREATE TABLE Parking.Slots (
   SlotID int NOT NULL PRIMARY KEY IDENTITY,
-  IsOccupied bit CONSTRAINT DEF_ParkingSlots_IsOccupied DEFAULT 'FALSE',
+  IsOccupied bit CONSTRAINT DEF_ParkingSlots_IsOccupied DEFAULT 'FALSE' NULL,
   SlotNumber int NULL,
-  ZoneID int NOT NULL
+  ZoneID int NULL
 );
 
 CREATE TABLE Parking.Zones (
   ZoneID int NOT NULL PRIMARY KEY IDENTITY,
   Capacity int NULL,
-  LotID int NOT NULL,
-  ZoneTypeID int NOT NULL
+  LotID int NULL,
+  ZoneTypeID int NULL
 );
 
 CREATE TABLE Parking.ZoneTypes(
     ZoneTypeID int NOT NULL PRIMARY KEY IDENTITY,
     ZoneTypeName varchar(50) NULL,
-    SlotSizeID int NOT NULL
+    Description varchar (100) NULL,
+    SlotSizeID int NULL
 );
 
 CREATE TABLE Parking.SlotSizes (
     SlotSizeID int NOT NULL PRIMARY KEY IDENTITY,
-    SlotDescription VARCHAR(20)
-)
+    SlotDescription VARCHAR(20) NULL
+);
 
 
 CREATE TABLE Location.Cities (
     CityID int NOT NULL PRIMARY KEY IDENTITY,
-    CityName varchar(50) NOT NULL
+    CityName varchar(50) NULL
 	);
 
 	CREATE TABLE Staff.Employees (
    EmployeeID int NOT NULL PRIMARY KEY IDENTITY,
-   FirstName varchar(50) NOT NULL,
-   Surname varchar(50) NOT NULL,
-   PatronymicName varchar(50),
-   Gender varchar(1),
-   DateOfBirth date,
-   PhoneNumber varchar(15),
-   Email varchar(30),
-   CityID int,
-   HomeAddress varchar(200),
-   LotID int,
-   DateHired int,
-   PositionID int,
-   Salary decimal(8,2),
-   ManagerID int,
-   DateFired int
-)
+   Photo IMAGE,
+   FirstName varchar(50) NULL,
+   Surname varchar(50) NULL,
+   Gender char(1) NULL,
+   DateOfBirth date NULL,
+   PhoneNumber varchar(15) NULL,
+   Email varchar(30) NULL,
+   CityID int NULL,
+   HomeAddress varchar(200) NULL,
+   LotID int NULL,
+   DateHired int NULL,
+   PositionID int NULL,
+   Salary decimal(8,2) NULL,
+   ManagerID int NULL,
+   DateFired int NULL
+);
 
 CREATE TABLE Staff.Shifts (
     ShiftID int NOT NULL PRIMARY KEY IDENTITY,
@@ -89,12 +89,12 @@ CREATE TABLE Staff.Shifts (
 
 CREATE TABLE Staff.Positions (
    PositionID int NOT NULL PRIMARY KEY IDENTITY,
-   Title varchar(50) NOT NULL
-)
+   Title varchar(50) NULL
+);
 
 CREATE TABLE Staff.PositionChanges (
     PositionChangeID int NOT NULL PRIMARY KEY IDENTITY,
-    EmployeeID int NOT NULL,
+    EmployeeID int NULL,
     PositionID int NULL,
     PositionStartDateID int NULL,
     PositionEndDateID int NULL
@@ -102,106 +102,111 @@ CREATE TABLE Staff.PositionChanges (
 
 CREATE TABLE Staff.SalaryChanges (
    SalaryChangeID int NOT NULL PRIMARY KEY IDENTITY,
-   EmployeeID int,
-   Salary decimal(8,2),
-   SalaryStartDateID int,
-   SalaryEndDateID int,
-   ChangeRatio decimal(5,2)
-)
+   EmployeeID int NULL,
+   Salary decimal(8,2) NULL,
+   SalaryStartDateID int NULL,
+   SalaryEndDateID int NULL,
+   ChangeRatio decimal(5,2) NULL
+);
 
 CREATE TABLE Clientele.Clients (
 ClientID int NOT NULL PRIMARY KEY IDENTITY,
-FirstName varchar(20) NOT NULL,
-Surname varchar(20) NOT NULL,
-Telephone varchar(20),
-Email varchar(50),
-HomeAddress varchar(50),
-CityID int,
-ClientTypeID int,
+FirstName varchar(20) NULL,
+Surname varchar(20) NULL,
+Gender char(1) NULL,
+Telephone varchar(20) NULL,
+Email varchar(50) NULL,
+HomeAddress varchar(50) NULL,
+CityID int NULL,
 );
 
 
 
 CREATE TABLE Clientele.CarModels(
 CarModelID int not null PRIMARY KEY IDENTITY,
-Model varchar(30),
-Brand varchar (30)
+Model varchar(30) NULL,
+Brand varchar (30) NULL
 );
 
 CREATE TABLE Clientele.Cars(
 CarID int not null PRIMARY KEY IDENTITY,
-Plate varchar(20),
-ClientID int,
-CarModelID int
+Plate varchar(20) NULL,
+ClientID int NULL,
+CarModelID int NULL
 );
 
 CREATE TABLE Membership.Cards (
     CardID INT NOT NULL PRIMARY KEY IDENTITY,
-    ClientID INT NOT NULL,
-    MemberCardNumber INT NOT NULL,
-    TariffID INT NOT NULL,
-    StartDate INT NOT NULL,
-    ExpiryDate INT NOT NULL
-)
+    ClientID INT NULL,
+    MemberCardNumber INT NULL,
+    TariffID INT NULL,
+    StartDate INT NULL,
+    ExpiryDate INT NULL
+);
 
 CREATE TABLE Membership.Tariffs (
     TariffID INT NOT NULL PRIMARY KEY IDENTITY,
-    ZoneID INT NOT NULL,
-    DayTimeID INT NOT NULL,
-    PeriodID INT NOT NULL,
-    IsVip bit NOT NULL DEFAULT 0,
-    Price decimal(6,2) NOT NULL
-)
+    ZoneID INT NULL,
+    DayTimeID INT NULL,
+    PeriodID INT NULL,
+    IsVip bit NULL DEFAULT 0,
+    Price decimal(12,2) NULL
+);
 
 CREATE TABLE Membership.Periods (
     PeriodID INT NOT NULL PRIMARY KEY IDENTITY,
-    PeriodName varchar (10) NOT NULL
-)
+    PeriodName varchar (20) NULL
+);
 
 CREATE TABLE Membership.DayTimes (
     DayTimeID INT NOT NULL PRIMARY KEY IDENTITY,
-    TypeName varchar (10) NOT NULL
+    TypeName varchar (10) NULL
 );
 
 CREATE TABLE Membership.Orders (
    OrderID int NOT NULL PRIMARY KEY IDENTITY,
-   LotID int NOT NULL,
-   EmployeeID int NOT NULL,
-   CardID int NOT NULL,
-   ClientID int NOT NULL,
-   PurchaseDate int NOT NULL,
-   PurchaseTime time(7) NOT NULL,
-   TariffID int NOT NULL,
-   Discount decimal(5, 2) NOT NULL DEFAULT 0,
-   TotalCost decimal(6, 2) NOT NULL
+   LotID int NULL,
+   EmployeeID int NULL,
+   CardID int NULL,
+   ClientID int NULL,
+   PurchaseDate int NULL,
+   PurchaseTime time (7) NULL,
+   TariffID int NULL,
+   Discount decimal(5, 2) NULL DEFAULT 0,
+   TotalCost decimal(6, 2) NULL
 );
 
 CREATE TABLE Operation.Orders(
     OrderID int NOT NULL PRIMARY KEY IDENTITY,
-       ZoneID int NOT NULL,
-    CarID int NOT NULL,
-     EmployeeOnEntry int,
-     EmployeeOnExit int,
-DateEntry int NOT NULL,
-    DateExit int NOT NULL,
-    TotalCost decimal(6, 2) NOT NULL,
-    CardID int NULL );
+       ZoneID int NULL,
+    CarID int NULL,
+    EmployeeOnEntry int NULL,
+    EmployeeOnExit int NULL,
+    DateEntry int NULL,
+    TimeEntry int NULL,
+    DateExit int NULL,
+    TimeExit int NULL,
+    TotalCost decimal(6, 2) NULL,
+    CardID int NULL 
+);
 
 CREATE TABLE Operation.Tariffs (
     TariffID INT PRIMARY KEY IDENTITY NOT NULL,
-    TariffNameID INT NOT NULL,
-    IsWeekend bit,
-    TariffStartDate INT NOT NULL,
-    TariffEndDate INT NOT NULL,
-    Price decimal(10,2) NOT NULL,
-    ZoneID INT NOT NULL);
+    TariffNameID INT NULL,
+    IsWeekend bit NULL,
+    TariffStartDate INT NULL,
+    TariffEndDate INT NULL,
+    Price decimal(10,2) NULL,
+    ZoneID INT NULL
+);
 
 
 
 CREATE TABLE Operation.TariffNames (
     TariffNameID INT PRIMARY KEY IDENTITY NOT NULL,
-    Name VARCHAR( 30) NOT NULL,
-    [Description] VARCHAR(50) NULL);
+    Name VARCHAR( 30) NULL,
+    [Description] VARCHAR(50) NULL
+);
 
 
 	DECLARE @StartDate  date = '20100101';
@@ -237,7 +242,8 @@ src AS
 )
 SELECT * INTO Services.CalendarDates
 FROM src
-OPTION (MAXRECURSION 8000);
+OPTION (MAXRECURSION 8000
+       );
 
 
 ALTER TABLE Services.CalendarDates
