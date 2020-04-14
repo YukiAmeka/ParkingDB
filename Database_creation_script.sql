@@ -1,6 +1,6 @@
-CREATE DATABASE Lv_501_Parking_TEST1;
+CREATE DATABASE Lv_501_Parking_TEST3;
 GO
-USE Lv_501_Parking_TEST1
+USE Lv_501_Parking_TEST3
 GO
 CREATE SCHEMA Parking;
 GO
@@ -22,7 +22,6 @@ CREATE TABLE Parking.Lots (
     LotName varchar (50)  NULL,
     CityID int NULL,
     Address varchar(50) NULL,
-    ManagerId int  NULL,
     PhoneNumber varchar (30) NULL,
     Email varchar (50) NULL
 );
@@ -265,7 +264,6 @@ ADD FOREIGN KEY (PositionID) REFERENCES Staff.Positions(PositionID)
 ALTER TABLE Staff.PositionChanges
 ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
 
-
 --(reference PositionChanges --> CalendarDates)
 ALTER TABLE Staff.PositionChanges
 ADD FOREIGN KEY (PositionStartDateID) REFERENCES Services.CalendarDates(DateID)
@@ -274,19 +272,11 @@ ADD FOREIGN KEY (PositionStartDateID) REFERENCES Services.CalendarDates(DateID)
 ALTER TABLE Staff.PositionChanges
 ADD FOREIGN KEY (PositionEndDateID) REFERENCES Services.CalendarDates(DateID)
 
-
 ALTER TABLE Staff.Employees
 ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots(LotID)
 
 ALTER TABLE Staff.Employees
 ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
-
-
-
-
-
-
-
 
 ALTER TABLE Staff.Shifts
 ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
@@ -303,12 +293,8 @@ ADD FOREIGN KEY (DateStart) REFERENCES Services.CalendarDates(DateID)
 ALTER TABLE Staff.Shifts
 ADD FOREIGN KEY (DateEnd) REFERENCES Services.CalendarDates(DateID)
 
-
-
-
 ALTER TABLE Clientele.Cars
 ADD FOREIGN KEY (CarModelID) REFERENCES Clientele.CarModels(CarModelID)
-
 
 ALTER TABLE Clientele.Cars
 ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID)
@@ -316,24 +302,14 @@ ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID)
 ALTER TABLE Clientele.Clients
 ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
 
-
-
-
 ALTER TABLE Operation.Orders
 ADD FOREIGN KEY (CardID) REFERENCES Membership.Cards(CardID)
 
 ALTER TABLE Operation.Orders
 ADD FOREIGN KEY (CarID) REFERENCES Clientele.Cars(CarID)
 
-
-
-
 ALTER TABLE Operation.Orders
 ADD FOREIGN KEY (EmployeeOnEntry) REFERENCES Staff.Employees(EmployeeID)
-
-
-
-
 
 ALTER TABLE Operation.Orders
 ADD FOREIGN KEY (EmployeeOnExit) REFERENCES Staff.Employees(EmployeeID)
@@ -393,9 +369,6 @@ ADD FOREIGN KEY (TariffEndDate) REFERENCES Services.CalendarDates(DateID)
 ALTER TABLE Parking.Lots
 ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
 
-ALTER TABLE Parking.Lots
-    ADD FOREIGN KEY (ManagerId) REFERENCES Staff.Employees(EmployeeID)
-
 
 --(reference ParkingZones --> ParkingLots)
 ALTER TABLE Parking.Zones
@@ -415,18 +388,6 @@ ALTER TABLE Parking.Slots
 --(reference ZoneTypes --> SlotSizes)
 ALTER TABLE Parking.ZoneTypes
     ADD FOREIGN KEY (SlotSizeID) REFERENCES Parking.SlotSizes (SlotSizeID)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	--(link Clients --> Membership.Cards )
@@ -472,13 +433,9 @@ ALTER TABLE Membership.Orders
 ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
 
 
-
-
-
 --(reference MembershipCard --> Membership.Orders)
 ALTER TABLE Membership.Orders
 ADD FOREIGN KEY (CardID) REFERENCES Membership.Cards(CardID)
-
 
 
 --(reference MembershipTariff --> Membership.Orders)
