@@ -1,10 +1,10 @@
 --generating data to Employee Table---------
-INSERT INTO [Staff].[Employees2] (FirstName, Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary, ManagerID, DateFired) 
+INSERT INTO [Staff].[Employees] (FirstName, Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary, ManagerID, DateFired) 
 VALUES 
 ('Jacob', 'Burnett', 'm',	'1977-06-02',	'02032512556',	'jbu3@parkinglot.com', '1', '1970 Napa Ct.', '1', '1254', '1', '1700', '7', '1812'),
 ('Griffith', 'Dalton', 'm',	'1961-11-18',	'02033655479',	'gda2@parkinglot.com', '1',	'1226 Shoe St.', '1', '1123',	'1', '1900', '8', '1812')
 
-INSERT INTO [Staff].[Employees2] (FirstName, Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary, ManagerID) 
+INSERT INTO [Staff].[Employees] (FirstName, Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary, ManagerID) 
 VALUES 
 ('Lionel', 'Key', 'f',	'1971-04-20',	'02032517556',	'lke2@parkinglot.com', '1', '9833 Mt. Dias Blv.', '1',	'1828', '1', '1700', '6'),
 ('Elmo', 'Chapmant', 'm',	'1987-01-02',	'02032556355',	'ech4@parkinglot.com', '1',	'7484 Roundtree Drive',	'1',	'1828', '1', '1700', '6'),
@@ -18,6 +18,6 @@ VALUES
 ('Azalia','Ratliff', 'f',	'1974-11-29',	'02034478963',	'ara4@parkinglot.com', '1',	'Ap #715-3777 Eu Avenue', '1', '1803',	'9', '8000', '14'),
 ('Davis','Livingston', 'm',	'1970-09-24',	'02034478963',	'dli4@parkinglot.com', '1',	'1008 Ipsum. St.', '1', '1816',	'10', '5000', '14')
 
-INSERT INTO [Staff].[Employees2] (FirstName,Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary) 
+INSERT INTO [Staff].[Employees] (FirstName,Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary) 
 VALUES 
 ('Jameson', 'Fulton', 'm',	'1965-10-27',	'02038878964',	'jfu6@parkinglot.com', '1',	'250 Race Court', '1', '1722', '5', '10000')
