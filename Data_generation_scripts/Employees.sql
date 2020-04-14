@@ -1,7 +1,7 @@
 --generating data to Employee Table---------
 INSERT INTO [Staff].[Employees] (FirstName, Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary, ManagerID, DateFired) 
 VALUES 
-('Jacob', 'Burnett', 'm',	'1977-06-02',	'02032512556',	'jbu3@parkinglot.com', '1', '1970 Napa Ct.', '1', '1254', '1', '1700', '7', '1812'),
+('Jacob', 'Burnett', 'm',	'1977-06-02',	'02032512556',	'jbu3@parkinglot.com', '1', '1970 Napa Ct.', '1', '1254', '1', '1700', '7', '1812')
 
 
 INSERT INTO [Staff].[Employees] (FirstName, Surname, Gender, DateOfBirth, PhoneNumber, Email, CityID, HomeAddress, LotID, DateHired, PositionID, Salary, ManagerID) 
