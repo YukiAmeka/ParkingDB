@@ -4,9 +4,7 @@ VALUES
 ('Parking manager'),
 ('Sector manager'),
 ('Chief manager'),
-('Deputy Chief Manager'),
 ('Accountant'),
 ('Chief accountant'),
 ('Head of Human Resources'),
-('Deputy Head of Human Resources'),
 ('Lawyer');
