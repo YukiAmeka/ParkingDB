@@ -192,7 +192,6 @@ CREATE TABLE Operation.Orders(
 CREATE TABLE Operation.Tariffs (
     TariffID INT PRIMARY KEY IDENTITY NOT NULL,
     TariffNameID INT NULL,
-    IsWeekend bit NULL,
     TariffStartDate INT NULL,
     TariffEndDate INT NULL,
     Price decimal(10,2) NULL,
