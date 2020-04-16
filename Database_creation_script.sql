@@ -52,7 +52,7 @@ CREATE TABLE Location.Cities (
     CityID int NOT NULL PRIMARY KEY IDENTITY,
     CityName varchar(50) NULL,
     ClosestCityWithParking INT NULL
-	);
+);
 	
 	CREATE TABLE Staff.Employees (
    EmployeeID int NOT NULL PRIMARY KEY IDENTITY,
@@ -61,8 +61,8 @@ CREATE TABLE Location.Cities (
    Surname varchar(50) NULL,
    Gender char(1) NULL,
    DateOfBirth date NULL,
-   PhoneNumber varchar(15) NULL,
-   Email varchar(30) NULL,
+   PhoneNumber varchar(50) NULL,
+   Email varchar(100) NULL,
    CityID int NULL,
    HomeAddress varchar(200) NULL,
    LotID int NULL,
