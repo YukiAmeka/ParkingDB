@@ -136,8 +136,8 @@ CREATE TABLE Membership.ActiveCards (
     ActiveCardID INT NOT NULL PRIMARY KEY IDENTITY,
     ClientID INT NULL,
     AllCardID INT NULL,
-    StartDate INT NULL,
-    ExpiryDate INT NULL
+    StartDate DATE NULL,
+    ExpiryDate DATE NULL
 );
 CREATE TABLE Membership.Tariffs (
     TariffID INT NOT NULL PRIMARY KEY IDENTITY,
@@ -156,7 +156,7 @@ CREATE TABLE Membership.Orders (
    EmployeeID int NULL,
    AllCardID int NULL,
    ClientID int NULL,
-   PurchaseDate int NULL,
+   PurchaseDate DATE NULL,
    PurchaseTime time (7) NULL,
    Discount decimal(5, 2) NULL DEFAULT 0,
    TotalCost decimal(6, 2) NULL
@@ -194,42 +194,24 @@ CREATE TABLE Operation.TariffNames (
 );
 
 
-	DECLARE @StartDate  date = '20100101';
-DECLARE @CutoffDate date = DATEADD(DAY, -1, DATEADD(YEAR, 20, @StartDate));
-;WITH seq(n) AS
-(
-  SELECT 0 UNION ALL SELECT n + 1 FROM seq
-  WHERE n < DATEDIFF(DAY, @StartDate, @CutoffDate)
-),
-d(d) AS
-(
-  SELECT DATEADD(DAY, n, @StartDate) FROM seq
-),
-src AS
-(
-  SELECT
-    TheDate         = CONVERT(date, d),
-    TheDay          = DATEPART(DAY,       d),
-    TheDayName      = DATENAME(WEEKDAY,   d),
-    TheWeek         = DATEPART(WEEK,      d),
-    TheISOWeek      = DATEPART(ISO_WEEK,  d),
-    TheDayOfWeek    = DATEPART(WEEKDAY,   d),
-    TheMonth        = DATEPART(MONTH,     d),
-    TheMonthName    = DATENAME(MONTH,     d),
-    TheQuarter      = DATEPART(Quarter,   d),
-    TheYear         = DATEPART(YEAR,      d),
-    TheFirstOfMonth = DATEFROMPARTS(YEAR(d), MONTH(d), 1),
-    TheLastOfYear   = DATEFROMPARTS(YEAR(d), 12, 31),
-    TheDayOfYear    = DATEPART(DAYOFYEAR, d)
-  FROM d
-)
-SELECT * INTO Services.CalendarDates
-FROM src
-OPTION (MAXRECURSION 8000
-       );
+CREATE TABLE Services.CalendarDates(
+	DateID int PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	TheDate date NULL,
+	TheDay int NULL,
+	TheDayName nvarchar(30) NULL,
+	TheWeek int NULL,
+	TheISOWeek int NULL,
+	TheDayOfWeek int NULL,
+	TheMonth int NULL,
+	TheMonthName nvarchar(30) NULL,
+	TheQuarter int NULL,
+	TheYear int NULL,
+	TheFirstOfMonth date NULL,
+	TheLastOfYear date NULL,
+	TheDayOfYear int NULL
+	);
 
-ALTER TABLE Services.CalendarDates
-ADD  DateID int not null PRIMARY KEY IDENTITY;
+
 
 ALTER TABLE Staff.Employees
 ADD FOREIGN KEY (DateHired) REFERENCES Services.CalendarDates(DateID);
@@ -376,16 +358,6 @@ ADD FOREIGN KEY (ZoneID) REFERENCES Parking.Zones(ZoneID);
 ALTER TABLE Membership.Tariffs
 ADD FOREIGN KEY (PeriodID) REFERENCES Membership.Periods(PeriodID);
 
---(link CALENDAR!!!!!!!!!!!)
---(link Services.CalendarDates --> Membership.Cards )
-ALTER TABLE Membership.ActiveCards
-ADD FOREIGN KEY (StartDate) REFERENCES Services.CalendarDates(DateID);
-
---(link CALENDAR!!!!!!!!!!!)
---(link Services.CalendarDates --> Membership.Cards )
-ALTER TABLE Membership.ActiveCards
-ADD FOREIGN KEY (ExpiryDate) REFERENCES Services.CalendarDates(DateID);
-
 --(reference ParkingLot --> Membership.Orders)
 ALTER TABLE Membership.Orders
 ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots(LotID);
@@ -398,11 +370,6 @@ ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID);
 ALTER TABLE Membership.Orders
 ADD FOREIGN KEY (AllCardID) REFERENCES Membership.AllCards(AllCardID);
 
---(reference CalendarDate --> Membership.Orders)
-ALTER TABLE Membership.Orders
-ADD FOREIGN KEY (PurchaseDate) REFERENCES Services.CalendarDates(DateID);
-
 ALTER TABLE Location.Cities
 ADD FOREIGN KEY (ClosestCityWithParking) REFERENCES Location.Cities(CityID);
-
 
