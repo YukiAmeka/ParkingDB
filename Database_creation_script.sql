@@ -1,6 +1,6 @@
-CREATE DATABASE Lv_501_Parking_TEST3;
+CREATE DATABASE Lv_501_Parking_TEST4;
 GO
-USE Lv_501_Parking_TEST3
+USE Lv_501_Parking_TEST4
 GO
 CREATE SCHEMA Parking;
 GO
@@ -16,48 +16,44 @@ CREATE SCHEMA Membership;
 GO
 CREATE SCHEMA Services
 GO
-
 CREATE TABLE Parking.Lots (
     LotID int NOT NULL PRIMARY KEY IDENTITY,
     LotName varchar (50)  NULL,
     CityID int NULL,
     Address varchar(50) NULL,
+    ManagerId int  NULL,
     PhoneNumber varchar (30) NULL,
     Email varchar (50) NULL
 );
-
 CREATE TABLE Parking.Slots (
   SlotID int NOT NULL PRIMARY KEY IDENTITY,
   IsOccupied bit CONSTRAINT DEF_ParkingSlots_IsOccupied DEFAULT 'FALSE' NULL,
   SlotNumber int NULL,
   ZoneID int NULL
 );
-
 CREATE TABLE Parking.Zones (
   ZoneID int NOT NULL PRIMARY KEY IDENTITY,
   Capacity int NULL,
   LotID int NULL,
   ZoneTypeID int NULL
 );
-
 CREATE TABLE Parking.ZoneTypes(
     ZoneTypeID int NOT NULL PRIMARY KEY IDENTITY,
     ZoneTypeName varchar(50) NULL,
     Description varchar (100) NULL,
     SlotSizeID int NULL
 );
-
 CREATE TABLE Parking.SlotSizes (
     SlotSizeID int NOT NULL PRIMARY KEY IDENTITY,
     SlotDescription VARCHAR(20) NULL
 );
 
-
 CREATE TABLE Location.Cities (
     CityID int NOT NULL PRIMARY KEY IDENTITY,
-    CityName varchar(50) NULL
+    CityName varchar(50) NULL,
+    ClosestCityWithParking INT NULL
 	);
-
+	
 	CREATE TABLE Staff.Employees (
    EmployeeID int NOT NULL PRIMARY KEY IDENTITY,
    Photo IMAGE,
@@ -76,7 +72,6 @@ CREATE TABLE Location.Cities (
    ManagerID int NULL,
    DateFired int NULL
 );
-
 CREATE TABLE Staff.Shifts (
     ShiftID int NOT NULL PRIMARY KEY IDENTITY,
     EmployeeID int NULL,
@@ -85,12 +80,10 @@ CREATE TABLE Staff.Shifts (
     DateEnd int NULL,
     TimeEnd time(7) NULL
 );
-
 CREATE TABLE Staff.Positions (
    PositionID int NOT NULL PRIMARY KEY IDENTITY,
    Title varchar(50) NULL
 );
-
 CREATE TABLE Staff.PositionChanges (
     PositionChangeID int NOT NULL PRIMARY KEY IDENTITY,
     EmployeeID int NULL,
@@ -98,7 +91,6 @@ CREATE TABLE Staff.PositionChanges (
     PositionStartDateID int NULL,
     PositionEndDateID int NULL
 );
-
 CREATE TABLE Staff.SalaryChanges (
    SalaryChangeID int NOT NULL PRIMARY KEY IDENTITY,
    EmployeeID int NULL,
@@ -107,26 +99,22 @@ CREATE TABLE Staff.SalaryChanges (
    SalaryEndDateID int NULL,
    ChangeRatio decimal(5,2) NULL
 );
-
 CREATE TABLE Clientele.Clients (
 ClientID int NOT NULL PRIMARY KEY IDENTITY,
-FirstName varchar(20) NULL,
-Surname varchar(20) NULL,
-Gender char(1) NULL,
-Telephone varchar(20) NULL,
-Email varchar(50) NULL,
-HomeAddress varchar(50) NULL,
+FirstName varchar (100) NULL,
+Surname varchar (100) NULL,
+Gender char (1) NULL,
+Telephone char (15) NULL,
+Email varchar (100) NULL,
+HomeAddress varchar (200) NULL,
+IsCurrent BIT DEFAULT (0) NULL,
 CityID int NULL,
 );
-
-
-
 CREATE TABLE Clientele.CarModels(
 CarModelID int not null PRIMARY KEY IDENTITY,
 Model varchar(30) NULL,
 Brand varchar (30) NULL
 );
-
 CREATE TABLE Clientele.Cars(
 CarID int not null PRIMARY KEY IDENTITY,
 Plate varchar(20) NULL,
@@ -134,50 +122,50 @@ ClientID int NULL,
 CarModelID int NULL
 );
 
-CREATE TABLE Membership.Cards (
-    CardID INT NOT NULL PRIMARY KEY IDENTITY,
+
+
+CREATE TABLE Membership.AllCards (
+AllCardID INT NOT NULL PRIMARY KEY IDENTITY,
+IsUsed BIT DEFAULT 0 NULL,
+MemberCardNumber INT NULL,
+TariffID INT NULL
+);
+
+
+CREATE TABLE Membership.ActiveCards (
+    ActiveCardID INT NOT NULL PRIMARY KEY IDENTITY,
     ClientID INT NULL,
-    MemberCardNumber INT NULL,
-    TariffID INT NULL,
+    AllCardID INT NULL,
     StartDate INT NULL,
     ExpiryDate INT NULL
 );
-
 CREATE TABLE Membership.Tariffs (
     TariffID INT NOT NULL PRIMARY KEY IDENTITY,
     ZoneID INT NULL,
-    DayTimeID INT NULL,
     PeriodID INT NULL,
-    IsVip bit NULL DEFAULT 0,
     Price decimal(12,2) NULL
 );
-
 CREATE TABLE Membership.Periods (
     PeriodID INT NOT NULL PRIMARY KEY IDENTITY,
     PeriodName varchar (20) NULL
-);
-
-CREATE TABLE Membership.DayTimes (
-    DayTimeID INT NOT NULL PRIMARY KEY IDENTITY,
-    TypeName varchar (10) NULL
 );
 
 CREATE TABLE Membership.Orders (
    OrderID int NOT NULL PRIMARY KEY IDENTITY,
    LotID int NULL,
    EmployeeID int NULL,
-   CardID int NULL,
+   AllCardID int NULL,
    ClientID int NULL,
    PurchaseDate int NULL,
    PurchaseTime time (7) NULL,
-   TariffID int NULL,
    Discount decimal(5, 2) NULL DEFAULT 0,
    TotalCost decimal(6, 2) NULL
 );
 
+
 CREATE TABLE Operation.Orders(
     OrderID int NOT NULL PRIMARY KEY IDENTITY,
-       ZoneID int NULL,
+    ZoneID int NULL,
     CarID int NULL,
     EmployeeOnEntry int NULL,
     EmployeeOnExit int NULL,
@@ -186,8 +174,10 @@ CREATE TABLE Operation.Orders(
     DateExit int NULL,
     TimeExit int NULL,
     TotalCost decimal(6, 2) NULL,
-    CardID int NULL 
+    ActiveCardID int NULL 
 );
+
+
 
 CREATE TABLE Operation.Tariffs (
     TariffID INT PRIMARY KEY IDENTITY NOT NULL,
@@ -197,9 +187,6 @@ CREATE TABLE Operation.Tariffs (
     Price decimal(10,2) NULL,
     ZoneID INT NULL
 );
-
-
-
 CREATE TABLE Operation.TariffNames (
     TariffNameID INT PRIMARY KEY IDENTITY NOT NULL,
     Name VARCHAR( 30) NULL,
@@ -208,9 +195,7 @@ CREATE TABLE Operation.TariffNames (
 
 
 	DECLARE @StartDate  date = '20100101';
-
 DECLARE @CutoffDate date = DATEADD(DAY, -1, DATEADD(YEAR, 20, @StartDate));
-
 ;WITH seq(n) AS
 (
   SELECT 0 UNION ALL SELECT n + 1 FROM seq
@@ -243,97 +228,95 @@ FROM src
 OPTION (MAXRECURSION 8000
        );
 
-
 ALTER TABLE Services.CalendarDates
-ADD  DateID int not null PRIMARY KEY IDENTITY
+ADD  DateID int not null PRIMARY KEY IDENTITY;
 
 ALTER TABLE Staff.Employees
-ADD FOREIGN KEY (DateHired) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (DateHired) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Staff.Employees
-ADD FOREIGN KEY (DateFired) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (DateFired) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Staff.Employees
-ADD FOREIGN KEY (PositionID) REFERENCES Staff.Positions(PositionID)
+ADD FOREIGN KEY (PositionID) REFERENCES Staff.Positions(PositionID);
 
 ALTER TABLE Staff.PositionChanges
-ADD FOREIGN KEY (PositionID) REFERENCES Staff.Positions(PositionID)
+ADD FOREIGN KEY (PositionID) REFERENCES Staff.Positions(PositionID);
 
 --(reference PositionChanges --> Employees)
 ALTER TABLE Staff.PositionChanges
-ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
+ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID);
 
 --(reference PositionChanges --> CalendarDates)
 ALTER TABLE Staff.PositionChanges
-ADD FOREIGN KEY (PositionStartDateID) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (PositionStartDateID) REFERENCES Services.CalendarDates(DateID);
 
 --(reference PositionChanges --> CalendarDates)
 ALTER TABLE Staff.PositionChanges
-ADD FOREIGN KEY (PositionEndDateID) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (PositionEndDateID) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Staff.Employees
-ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots(LotID)
+ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots(LotID);
 
 ALTER TABLE Staff.Employees
-ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
+ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID);
 
 ALTER TABLE Staff.Shifts
-ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
+ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID);
 
 --(reference Employee --> SalaryChanges)
 ALTER TABLE Staff.SalaryChanges
-ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
+ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID);
 
 --(reference CalendarDate --> Shifts)
 ALTER TABLE Staff.Shifts
-ADD FOREIGN KEY (DateStart) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (DateStart) REFERENCES Services.CalendarDates(DateID);
 
 --(reference CalendarDate --> Shifts)
 ALTER TABLE Staff.Shifts
-ADD FOREIGN KEY (DateEnd) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (DateEnd) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Clientele.Cars
-ADD FOREIGN KEY (CarModelID) REFERENCES Clientele.CarModels(CarModelID)
+ADD FOREIGN KEY (CarModelID) REFERENCES Clientele.CarModels(CarModelID);
 
 ALTER TABLE Clientele.Cars
-ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID)
+ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID);
+
+ALTER TABLE Membership.AllCards
+ADD FOREIGN KEY (TariffID) REFERENCES Membership.Tariffs(TariffID);
+
+ALTER TABLE Membership.ActiveCards
+ADD FOREIGN KEY (AllCardID)  REFERENCES Membership.AllCards(AllCardID)
 
 ALTER TABLE Clientele.Clients
-ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
+ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID);
 
 ALTER TABLE Operation.Orders
-ADD FOREIGN KEY (CardID) REFERENCES Membership.Cards(CardID)
+ADD FOREIGN KEY (ActiveCardID) REFERENCES Membership.ActiveCards(ActiveCardID);
+ 
+ALTER TABLE Operation.Orders
+ADD FOREIGN KEY (CarID) REFERENCES Clientele.Cars(CarID);
 
 ALTER TABLE Operation.Orders
-ADD FOREIGN KEY (CarID) REFERENCES Clientele.Cars(CarID)
+ADD FOREIGN KEY (EmployeeOnEntry) REFERENCES Staff.Employees(EmployeeID);
 
 ALTER TABLE Operation.Orders
-ADD FOREIGN KEY (EmployeeOnEntry) REFERENCES Staff.Employees(EmployeeID)
+ADD FOREIGN KEY (EmployeeOnExit) REFERENCES Staff.Employees(EmployeeID);
 
 ALTER TABLE Operation.Orders
-ADD FOREIGN KEY (EmployeeOnExit) REFERENCES Staff.Employees(EmployeeID)
+ADD FOREIGN KEY (DateEntry) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Operation.Orders
-ADD FOREIGN KEY (DateEntry) REFERENCES Services.CalendarDates(DateID)
-
-ALTER TABLE Operation.Orders
-ADD FOREIGN KEY (DateExit) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (DateExit) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Clientele.Clients
-ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
-
-
-
-
+ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID);
 
 ALTER TABLE Operation.Orders
  ADD FOREIGN KEY (ZoneID) REFERENCES Parking.Zones(ZoneID);
 
-
 ALTER TABLE Operation.Tariffs
  ADD FOREIGN KEY(ZoneID) REFERENCES Parking.Zones(ZoneID);
-
-
 
 ALTER TABLE Operation.Tariffs
  ADD FOREIGN KEY (TariffNameID) REFERENCES Operation.TariffNames(TariffNameID);
@@ -341,69 +324,53 @@ ALTER TABLE Operation.Tariffs
  ALTER TABLE Operation.Orders
  ADD FOREIGN KEY (ZoneID) REFERENCES Parking.Zones(ZoneID);
 
-
 ALTER TABLE Operation.Tariffs
  ADD FOREIGN KEY(ZoneID) REFERENCES Parking.Zones(ZoneID);
-
-
 
 ALTER TABLE Operation.Tariffs
  ADD FOREIGN KEY (TariffNameID) REFERENCES Operation.TariffNames(TariffNameID);
 
-
 --(reference CalendarDate --> Operation.Tariffs)
 ALTER TABLE Operation.Tariffs
-ADD FOREIGN KEY (TariffStartDate) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (TariffStartDate) REFERENCES Services.CalendarDates(DateID);
 
 --(reference CalendarDate --> Operation.HourlyTariffs)
 ALTER TABLE Operation.Tariffs
-ADD FOREIGN KEY (TariffEndDate) REFERENCES Services.CalendarDates(DateID)
-
-
-
-
-
-
+ADD FOREIGN KEY (TariffEndDate) REFERENCES Services.CalendarDates(DateID);
 
 ALTER TABLE Parking.Lots
-ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID)
+ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID);
 
+ALTER TABLE Parking.Lots
+    ADD FOREIGN KEY (ManagerId) REFERENCES Staff.Employees(EmployeeID);
 
 --(reference ParkingZones --> ParkingLots)
 ALTER TABLE Parking.Zones
-    ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots (LotID)
-
+    ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots (LotID);
 
 --(reference ParkingZones --> ZoneTypes)
 ALTER TABLE Parking.Zones
-    ADD FOREIGN KEY (ZoneTypeID) REFERENCES Parking.ZoneTypes (ZoneTypeID)
-
+    ADD FOREIGN KEY (ZoneTypeID) REFERENCES Parking.ZoneTypes (ZoneTypeID);
 
 --(reference Parking.Slots --> ParkingZones)
 ALTER TABLE Parking.Slots
-    ADD FOREIGN KEY (ZoneID) REFERENCES Parking.Zones (ZoneID)
-
+    ADD FOREIGN KEY (ZoneID) REFERENCES Parking.Zones (ZoneID);
 
 --(reference ZoneTypes --> SlotSizes)
 ALTER TABLE Parking.ZoneTypes
     ADD FOREIGN KEY (SlotSizeID) REFERENCES Parking.SlotSizes (SlotSizeID)
-
-
+	
 	--(link Clients --> Membership.Cards )
-ALTER TABLE Membership.Cards
+ALTER TABLE Membership.ActiveCards
 ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID);
 
 --(link Membership.Tariffs --> Membership.Cards )
-ALTER TABLE Membership.Cards
+ALTER TABLE Membership.AllCards
 ADD FOREIGN KEY (TariffID) REFERENCES Membership.Tariffs(TariffID);
 
 --(link Parking.Zones --> Membership.Tariffs)
 ALTER TABLE Membership.Tariffs
 ADD FOREIGN KEY (ZoneID) REFERENCES Parking.Zones(ZoneID);
-
---(link Membership.DayTimes --> Membership.Tariffs)
-ALTER TABLE Membership.Tariffs
-ADD FOREIGN KEY (DayTimeID) REFERENCES Membership.DayTimes(DayTimeID);
 
 --(link Membership.Periods --> Membership.Tariffs )
 ALTER TABLE Membership.Tariffs
@@ -411,37 +378,31 @@ ADD FOREIGN KEY (PeriodID) REFERENCES Membership.Periods(PeriodID);
 
 --(link CALENDAR!!!!!!!!!!!)
 --(link Services.CalendarDates --> Membership.Cards )
-ALTER TABLE Membership.Cards
-ADD FOREIGN KEY (StartDate) REFERENCES Services.CalendarDates(DateID)
-
+ALTER TABLE Membership.ActiveCards
+ADD FOREIGN KEY (StartDate) REFERENCES Services.CalendarDates(DateID);
 
 --(link CALENDAR!!!!!!!!!!!)
 --(link Services.CalendarDates --> Membership.Cards )
-ALTER TABLE Membership.Cards
-ADD FOREIGN KEY (ExpiryDate) REFERENCES Services.CalendarDates(DateID)
-
-
+ALTER TABLE Membership.ActiveCards
+ADD FOREIGN KEY (ExpiryDate) REFERENCES Services.CalendarDates(DateID);
 
 --(reference ParkingLot --> Membership.Orders)
 ALTER TABLE Membership.Orders
-ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots(LotID)
-
+ADD FOREIGN KEY (LotID) REFERENCES Parking.Lots(LotID);
 
 --(reference Employee --> Membership.Orders)
 ALTER TABLE Membership.Orders
-ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID)
-
+ADD FOREIGN KEY (EmployeeID) REFERENCES Staff.Employees(EmployeeID);
 
 --(reference MembershipCard --> Membership.Orders)
 ALTER TABLE Membership.Orders
-ADD FOREIGN KEY (CardID) REFERENCES Membership.Cards(CardID)
-
-
---(reference MembershipTariff --> Membership.Orders)
-ALTER TABLE Membership.Orders
-ADD FOREIGN KEY (TariffID) REFERENCES Membership.Tariffs(TariffID)
+ADD FOREIGN KEY (AllCardID) REFERENCES Membership.AllCards(AllCardID);
 
 --(reference CalendarDate --> Membership.Orders)
 ALTER TABLE Membership.Orders
-ADD FOREIGN KEY (PurchaseDate) REFERENCES Services.CalendarDates(DateID)
+ADD FOREIGN KEY (PurchaseDate) REFERENCES Services.CalendarDates(DateID);
+
+ALTER TABLE Location.Cities
+ADD FOREIGN KEY (ClosestCityWithParking) REFERENCES Location.Cities(CityID);
+
 
