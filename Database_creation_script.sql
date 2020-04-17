@@ -21,7 +21,6 @@ CREATE TABLE Parking.Lots (
     LotName varchar (50)  NULL,
     CityID int NULL,
     Address varchar(50) NULL,
-    ManagerId int  NULL,
     PhoneNumber varchar (30) NULL,
     Email varchar (50) NULL
 );
@@ -323,8 +322,6 @@ ADD FOREIGN KEY (TariffEndDate) REFERENCES Services.CalendarDates(DateID);
 ALTER TABLE Parking.Lots
 ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID);
 
-ALTER TABLE Parking.Lots
-    ADD FOREIGN KEY (ManagerId) REFERENCES Staff.Employees(EmployeeID);
 
 --(reference ParkingZones --> ParkingLots)
 ALTER TABLE Parking.Zones
