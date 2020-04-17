@@ -139,6 +139,7 @@ DECLARE @MaxMaleNumber INT
 DECLARE @MaxFemaleNumber INT
 DECLARE @RandomCitizen INT
 DECLARE @CityCursor INT
+DECLARE @IsCurrentPicker INT
 
 SET @MaleCounter = 1
 SET @FemaleCounter = 1
@@ -150,7 +151,7 @@ BEGIN
 
     -- Randomly generate 0 or 1
     DECLARE @TablePick BIT
-    SET @TablePick = (SELECT FLOOR(RAND()*2));
+    SET @TablePick = (SELECT FLOOR(RAND()*2))
 
     -- Insert a record from table with male clients
     IF @TablePick = 0 AND @MaleCounter <= @MaxMaleNumber
@@ -187,6 +188,12 @@ BEGIN
     -- Add CityID to the inserted record.
     UPDATE Clientele.Clients
         SET CityID = @CityCursor
+        WHERE ClientID = IDENT_CURRENT('Clientele.Clients')
+
+    -- Randomly mark of the Client is a current one
+    SET @IsCurrentPicker = (SELECT FLOOR(RAND()*2))
+    UPDATE Clientele.Clients
+        SET IsCurrent = @IsCurrentPicker
         WHERE ClientID = IDENT_CURRENT('Clientele.Clients')
 END
 
