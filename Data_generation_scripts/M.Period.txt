@@ -1,0 +1,6 @@
+  INSERT INTO [Membership].[Periods] (PeriodName)
+  VALUES
+   ('MonthFull')
+  ,('QuaterFull')
+  ,('YearFull'),
+   ('VIP');
