@@ -1,10 +1,9 @@
 INSERT INTO Staff.Positions (Title)
-VALUES 
-('Parking attendant'),
-('Parking manager'),
-('Sector manager'),
-('Chief manager'),
-('Accountant'),
-('Chief accountant'),
-('Head of Human Resources'),
-('Lawyer');
+	VALUES 
+	('Parking attendant'),
+	('Parking manager'),
+	('Chief manager'),
+	('Accountant'),
+	('Chief accountant'),
+	('Human Resources'),
+	('Lawyer');
