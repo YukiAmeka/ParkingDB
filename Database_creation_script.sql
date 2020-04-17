@@ -88,7 +88,8 @@ CREATE TABLE Staff.PositionChanges (
     EmployeeID int NULL,
     PositionID int NULL,
     PositionStartDateID int NULL,
-    PositionEndDateID int NULL
+    PositionEndDateID int NULL,
+    NewEmployeeID int NULL
 );
 CREATE TABLE Staff.SalaryChanges (
    SalaryChangeID int NOT NULL PRIMARY KEY IDENTITY,
