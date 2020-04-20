@@ -18,9 +18,9 @@ BEGIN
 END
 
 
-EXEC STP_GenerationTariffId @HigherId = 34,  @LowerId =1,  @LineCounter = 450
-EXEC STP_GenerationTariffId @HigherId = 68,  @LowerId =35,  @LineCounter = 300
-EXEC STP_GenerationTariffId @HigherId = 102,  @LowerId =69,  @LineCounter = 200
-EXEC STP_GenerationTariffId @HigherId = 103,  @LowerId =103,  @LineCounter = 50
+EXEC STP_GenerationTariffId @HigherId = 34,  @LowerId =1,  @LineCounter = 24000
+EXEC STP_GenerationTariffId @HigherId = 68,  @LowerId =35,  @LineCounter = 15000
+EXEC STP_GenerationTariffId @HigherId = 102,  @LowerId =69,  @LineCounter = 10000
+EXEC STP_GenerationTariffId @HigherId = 103,  @LowerId =103,  @LineCounter = 1000
 
 SELECT * FROM Membership.AllCards
