@@ -28,9 +28,9 @@
 
 13. Inserting Operation.TariffNames
 
-14. Inserting Operation.Tariffs
+14. STP_GenerationOldOperationTariffs
 
-14.1 STP_GenerationOldOperationTariffs
+14.1 Inserting Operation.Tariffs
 
 15. Inserting Membership.Periods
 
