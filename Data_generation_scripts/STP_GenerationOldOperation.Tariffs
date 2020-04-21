@@ -26,23 +26,27 @@ BEGIN
 		BEGIN
 			SET @TariffNameID = (SELECT TariffNameID FROM Operation.Tariffs WHERE TariffID = @TariffID)
 			SET @ZoneID = (SELECT [ZoneID] FROM Operation.Tariffs WHERE TariffID = @TariffID)
-			IF @changePrice = 'FALSE' 
+			IF @changePrice = 'True' 
 				BEGIN	
 				SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-				SET @priceIndex = RAND() * 0.08
+				SET @priceIndex = RAND() * 0.05
 				SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
+			--SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
+			--	SET @Price = ROUND(@Price - (@Price * 0.03),1,1)
 				END
 			ELSE 
 				BEGIN	
-				IF @zoneID BETWEEN 57 AND 80
+				IF @zoneID BETWEEN 59 AND 80
 					BEGIN	
 					SET @price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
 					END
 				ELSE
 					BEGIN
 					SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-					SET @priceIndex = RAND() * 0.08
-					SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
+				SET @priceIndex = RAND() * 0.05
+				SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
+					--SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
+					--SET @Price = ROUND(@Price - (@Price * 0.03),1,1)
 					END
 				END
 			INSERT INTO Operation.Tariffs (TariffNameID,[TariffStartDate],[TariffEndDate], [Price], [ZoneID]  )
@@ -52,16 +56,12 @@ BEGIN
 END
 
 
-EXEC STP_GenerationOldOperationTariffs '2019-01-01', '2019-12-31','false'
-EXEC STP_GenerationOldOperationTariffs'2018-01-01', '2018-12-31','true'
-EXEC STP_GenerationOldOperationTariffs '2017-01-01', '2017-12-31','false'
-EXEC STP_GenerationOldOperationTariffs '2016-01-01', '2016-12-31','true'
-EXEC STP_GenerationOldOperationTariffs '2015-01-01', '2015-12-31','true'
+
 
 SELECT TariffID, TariffNameID, TariffStartDate, TariffEndDate,  Price, T.ZoneID, c.theDate, C1.TheDate, L.LOTNAME, LC.CITYNAME
 	FROM Operation.Tariffs t
 	JOIN
-    Services.CalendarDates c ON
+        Services.CalendarDates c ON
 	t.TariffStartDate = c.DateID
 	JOIN Services.CalendarDates C1
 	ON T.TariffEndDate = C1.DateID
