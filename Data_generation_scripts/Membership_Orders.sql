@@ -71,7 +71,7 @@ EXEC STP_GenerateMembershipLogByPeriod @PeriodID = 2, @ClientNumberDrop = 0.03, 
 EXEC STP_GenerateMembershipLogByPeriod @PeriodID = 3, @ClientNumberDrop = 0.10, @PeriodInDays = 365 -- yearly cards
 
 /* Sort #MOrders chronologically */
-SELECT * FROM #MOrders ORDER BY PurchaseDate, PurchaseTime
+SELECT * INTO Membership.Orders FROM #MOrders ORDER BY PurchaseDate, PurchaseTime
 
 --SELECT ClientID, COUNT(AllCardID) AS Q FROM #MOrders GROUP BY ClientID ORDER BY Q DESC
 
