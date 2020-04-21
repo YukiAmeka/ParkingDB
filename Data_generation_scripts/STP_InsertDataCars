@@ -1,0 +1,50 @@
+CREATE PROCEDURE [dbo].[STP_InsertDataCars]
+AS
+
+DECLARE @plateID int
+DECLARE @client int
+DECLARE @model int
+DECLARE @cycle int
+DECLARE @plate VARCHAR(50)
+
+SET @cycle = (SELECT count(*) from Clientele.Clients)
+SET @client = (SELECT TOP 1 ClientID FROM Clientele.Clients) 
+SET @plateID = 1
+
+WHILE @cycle > 0
+	BEGIN
+	SET @model = (SELECT TOP 1 CarModelID FROM Clientele.CarModels
+		ORDER BY NEWID())
+	SET @plate = (SELECT plate from carplates WHERE PlateId = @plateID)
+	INSERT INTO Clientele.Cars (Plate, ClientID, CarModelID) VALUES (@plate, @client, @model)
+	SET @cycle = @cycle - 1
+	SET @plateID = @plateID + 1
+	SET @client = @client + 1
+	END
+
+SET @cycle = 1000
+WHILE @cycle > 0
+	BEGIN
+	SET @model = (SELECT TOP 1 CarModelID FROM Clientele.CarModels
+		ORDER BY NEWID())
+	SET @plate = (SELECT plate from carplates WHERE PlateId = @plateID)
+	SET @client = (SELECT TOP 1 ClientID FROM Clientele.Clients
+		ORDER BY NEWID())
+	INSERT INTO Clientele.Cars (Plate, ClientID, CarModelID) VALUES (@plate, @client, @model)
+	SET @cycle = @cycle - 1
+	SET @plateID = @plateID + 1
+	END
+
+SET @cycle = 97400
+WHILE @cycle > 0
+	BEGIN
+	SET @model = (SELECT TOP 1 CarModelID FROM Clientele.CarModels
+		ORDER BY NEWID())
+	SET @plate = (SELECT plate from carplates WHERE PlateId = @plateID)
+	INSERT INTO Clientele.Cars (Plate,  CarModelID) VALUES (@plate,  @model)
+	SET @cycle = @cycle - 1
+	SET @plateID = @plateID + 1
+	END
+GO
+
+
