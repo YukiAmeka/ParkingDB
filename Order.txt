@@ -1,0 +1,55 @@
+1. Creating Database structure
+
+2. Generating Calendar
+
+3. Inserting Cityes
+
+4. Inserting Lots
+
+5. Inserting Positions
+
+6. Creating & inserting TempEmployees  
+
+7. STP_GeneratingCurEmployees
+
+7.1  STP_FireAtt
+
+7.2  STP_PosChanges
+
+8. STP_GeneratingShifts
+
+9. Inserting Parking.SlotSizes
+
+10. Inserting Parking.ZoneTypes
+
+11. Inserting Parking.Zones
+
+12. STP_InsertDataSlots
+
+13. Inserting Operation.TariffNames
+
+14. Inserting Operation.Tariffs
+
+14.1 STP_GenerationOldOperationTariffs
+
+15. Inserting Membership.Periods
+
+16. STP_GenerationOldMembershipTariffs  (DO NOT EXECUTE, ONLY CREATE)
+
+16.1  Inserting Membership.Tariffs
+
+17. Inserting Clientele.Clients
+
+17.1 Importing CarPlates.csv
+
+17.2 Importing  CarBrand.csv
+
+17.3 STP_InsertDataCars
+
+18. STP_GenerationTariffId (AllCards)
+
+19. STP_GenerateMembershipDates (DO NOT EXECUTE, ONLY CREATE)
+
+20. Inserting Membership.ActiveCards 
+
+21. STP_GenerateRandomTime
