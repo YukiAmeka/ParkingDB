@@ -112,12 +112,12 @@ CityID int NULL,
 );
 CREATE TABLE Clientele.CarModels(
 CarModelID int not null PRIMARY KEY IDENTITY,
-Model varchar(30) NULL,
-Brand varchar (30) NULL
+Model varchar(50) NULL,
+Brand varchar (50) NULL
 );
 CREATE TABLE Clientele.Cars(
 CarID int not null PRIMARY KEY IDENTITY,
-Plate varchar(20) NULL,
+Plate char(7) NULL,
 ClientID int NULL,
 CarModelID int NULL
 );
