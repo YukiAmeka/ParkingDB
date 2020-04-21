@@ -40,7 +40,8 @@ DECLARE
 @RandEmpID INT,
 @ManagerID INT,
 @NewAttedID INT,
-@DateStep INT
+@DateStep INT,
+@DateHired INT
 
 
 
@@ -52,7 +53,7 @@ DECLARE
 
  SET @DateStep = 185
  
-WHILE @StartDate <= @EndDate                     --WHILE 2
+WHILE @StartDate <= @EndDate                     --WHILE 1
 BEGIN
 
 
@@ -136,6 +137,17 @@ BEGIN
 	    
 --      Get EmployeeID for new manager 
 		SET @ManagerID = (SELECT IDENT_CURRENT('Staff.Employees'))
+
+--########################################################################
+-- Generating PositionChanges table:
+--Generating first row with old data and second row with new data:
+SET @DateHired = (SELECT DateHired FROM #ChangePosition) 
+INSERT INTO Staff.PositionChanges
+VALUES
+(@EmployeeID, 1, @DateHired, @StartDate, @ManagerID),
+(@ManagerID, 2, @StartDate + 1, NULL, NULL)
+
+--########################################################################
 
 	
 
