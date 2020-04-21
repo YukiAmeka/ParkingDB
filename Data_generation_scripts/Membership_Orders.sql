@@ -6,6 +6,7 @@ DECLARE @StartDate DATE
 DECLARE @TariffID INT
 DECLARE @LotID INT
 DECLARE @PurchaseTime TIME(0)
+DECLARE @ExpiryDate DATE
 
 /* Create temporary table with the same structure as Membership.Orders that will accumulate records
 for them to be sorted chronologically before being inserted into Membership.Orders */
@@ -18,14 +19,15 @@ CREATE TABLE #MOrders
     ClientID int NULL,
     PurchaseDate DATE NULL,
     PurchaseTime time (0) NULL,
-    TariffID INT
+    TariffID int NULL,
+    ExpiryDate date NULL
 )
 
 /* Record purchases of all active cards listed in Membership.ActiveCards table */
 
 /* Create cursor to go through all records in Membership.ActiveCards + info about related Tariffs, Lots & Zones one by one */
 DECLARE ActiveClients CURSOR
-    FOR SELECT ClientID, Membership.ActiveCards.AllCardID, Membership.ActiveCards.StartDate, Membership.AllCards.TariffID, Parking.Zones.LotID
+    FOR SELECT ClientID, Membership.ActiveCards.AllCardID, Membership.ActiveCards.StartDate, Membership.AllCards.TariffID, Parking.Zones.LotID, Membership.ActiveCards.ExpiryDate
         FROM Membership.ActiveCards
 		INNER JOIN Membership.AllCards ON Membership.ActiveCards.AllCardID = Membership.AllCards.AllCardID
 		INNER JOIN Membership.Tariffs ON Membership.AllCards.TariffID = Membership.Tariffs.TariffID
@@ -35,7 +37,7 @@ DECLARE ActiveClients CURSOR
 OPEN ActiveClients
 
 FETCH NEXT FROM ActiveClients
-    INTO @ClientID, @AllCardID, @StartDate, @TariffID, @LotID
+    INTO @ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @ExpiryDate
 
 /* Go through all records in ActiveClients, store data in variables,
 generate random time of purchase; add new records into table #MOrders */
@@ -45,11 +47,11 @@ WHILE @@FETCH_STATUS = 0
         /* Generate random time when the purchase occurs */
         EXEC STP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
 
-        INSERT INTO #MOrders (ClientID, AllCardID, PurchaseDate, TariffID, LotID, PurchaseTime)
-            VALUES (@ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @PurchaseTime)
+        INSERT INTO #MOrders (ClientID, AllCardID, PurchaseDate, TariffID, LotID, PurchaseTime, ExpiryDate)
+            VALUES (@ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @PurchaseTime, @ExpiryDate)
 
         FETCH NEXT FROM ActiveClients
-            INTO @ClientID, @AllCardID, @StartDate, @TariffID, @LotID
+            INTO @ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @ExpiryDate
     END
 
 /* Close cursor */
@@ -72,7 +74,7 @@ EXEC STP_GenerateMembershipLogByPeriod @PeriodID = 3, @ClientNumberDrop = 0.10, 
 
 /* Sort #MOrders chronologically and copy all data into Membership.Orders */
 INSERT INTO Membership.Orders
-SELECT * FROM #MOrders
+SELECT LotID, EmployeeID, AllCardID, ClientID, PurchaseDate, PurchaseTime, TariffID, ExpiryDate FROM #MOrders
 ORDER BY PurchaseDate, PurchaseTime
 
 --SELECT ClientID, COUNT(AllCardID) AS Q FROM #MOrders GROUP BY ClientID ORDER BY Q DESC

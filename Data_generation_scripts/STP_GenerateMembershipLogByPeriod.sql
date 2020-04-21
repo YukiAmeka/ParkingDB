@@ -21,6 +21,7 @@ BEGIN
     DECLARE @TariffID INT
     DECLARE @LotID INT
     DECLARE @PurchaseTime TIME(0)
+    DECLARE @ExpiryDate DATE
 
     /* Create temporary table to hold all active clients who currently have membership cards of @PeriodID sorted randomly
     with information about the type of their cards, when and where they were purchased */
@@ -86,9 +87,12 @@ BEGIN
                 /* Generate random time when the purchase occurs */
                 EXEC STP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
 
+                /* Calculate expiry date */
+                SET @ExpiryDate = (DATEADD(DAY, @PeriodInDays, @NewStartDate))
+
                 /* Create new record about card purchase in #MOrders using copied or calculated data */
-                INSERT INTO #MOrders (ClientID, AllCardID, PurchaseDate, TariffID, LotID, PurchaseTime)
-                    VALUES (@ClientID, @AllCardID, @NewStartDate, @TariffID, @LotID, @PurchaseTime)
+                INSERT INTO #MOrders (ClientID, AllCardID, PurchaseDate, TariffID, LotID, PurchaseTime, ExpiryDate)
+                    VALUES (@ClientID, @AllCardID, @NewStartDate, @TariffID, @LotID, @PurchaseTime, @ExpiryDate)
 
                 /* Fetch next line by cursor */
                 FETCH NEXT FROM MembershipPurchaseLog
