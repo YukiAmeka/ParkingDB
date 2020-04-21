@@ -1,4 +1,4 @@
-CREATE PROCEDURE STP_GenerationOldOperation.Tariffs
+CREATE PROCEDURE STP_GenerationOldOperationTariffs
 
 (
         @TariffStartDate as DATE,
