@@ -182,11 +182,12 @@ CREATE TABLE Operation.Orders(
 CREATE TABLE Operation.Tariffs (
     TariffID INT PRIMARY KEY IDENTITY NOT NULL,
     TariffNameID INT NULL,
-    TariffStartDate INT NULL,
-    TariffEndDate INT NULL,
+    TariffStartDate INT NOT NULL DEFAULT 1827 ,
+    TariffEndDate INT NOT NULL DEFAULT 2192,
     Price decimal(10,2) NULL,
     ZoneID INT NULL
 );
+
 CREATE TABLE Operation.TariffNames (
     TariffNameID INT PRIMARY KEY IDENTITY NOT NULL,
     Name VARCHAR( 30) NULL,
