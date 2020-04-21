@@ -180,3 +180,9 @@ INSERT INTO Operation.Tariffs (TariffNameID,  Price, ZoneID) VALUES
 (3,  18.00,88),
 (4,  11.00,88),
 (5,  25.00,88)
+
+EXEC STP_GenerationOldOperationTariffs '2019-01-01', '2019-12-31','false'
+EXEC STP_GenerationOldOperationTariffs'2018-01-01', '2018-12-31','true'
+EXEC STP_GenerationOldOperationTariffs '2017-01-01', '2017-12-31','false'
+EXEC STP_GenerationOldOperationTariffs '2016-01-01', '2016-12-31','true'
+EXEC STP_GenerationOldOperationTariffs '2015-01-01', '2015-12-31','true'
