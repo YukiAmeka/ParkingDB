@@ -5,8 +5,8 @@ AS
 
 BEGIN
 
-DELETE FROM Staff.Shifts
-DBCC CHECKIDENT('Staff.Shifts', RESEED, 0)
+-- DELETE FROM Staff.Shifts
+-- DBCC CHECKIDENT('Staff.Shifts', RESEED, 0)
 
 DECLARE 
 @CurAttendantsID int,
@@ -41,10 +41,10 @@ WHILE
 		SET @FirstDateID = @FirstDateID + 1
 
 		-- Insert filtered employees into temporary variable table
-			SELECT @CurAttendantsID = (SELECT EmployeeID FROM Staff.Employees
+			SET @CurAttendantsID = (SELECT EmployeeID FROM Staff.Employees
 
-				WHERE PositionID = 1 AND LotID = @LotID AND ((DateFired IS NULL  AND   DateHired <  @FirstDateID  ) OR
-									     ( DateFired IS NOT NULL AND DateHired <  @FirstDateID AND DateFired > @FirstDateID))
+				WHERE PositionID = 1 AND LotID = @LotID AND ((DateFired IS NULL  AND   DateHired <=  @FirstDateID  ) OR
+									     ( DateFired IS NOT NULL AND DateHired <=  @FirstDateID AND DateFired >= @FirstDateID))
 
 					ORDER BY EmployeeID
 					OFFSET @K ROWS FETCH NEXT 1 ROWS ONLY)		
@@ -64,8 +64,9 @@ WHILE
        ELSE
          BEGIN
 		    -- Insert filtered employees into temporary variable table
-			SELECT @CurAttendantsID = (SELECT EmployeeID FROM Staff.Employees
-				WHERE PositionID = 1 AND (DateFired IS NULL  AND   DateHired <  1900) AND LotID = @LotID --@CurDateId)
+			SET @CurAttendantsID = (SELECT EmployeeID FROM Staff.Employees
+				WHERE PositionID = 1 AND LotID = @LotID AND ((DateFired IS NULL  AND   DateHired <=  @FirstDateID  ) OR
+									     ( DateFired IS NOT NULL AND DateHired <=  @FirstDateID AND DateFired >= @FirstDateID))
 					ORDER BY EmployeeID
 					OFFSET @K ROWS FETCH NEXT 1 ROWS ONLY)
 		
@@ -115,6 +116,7 @@ END
 
 END
  
+ --EXECUTE STP_GeneratingShifts @ShiftEndDate = '2020-04-28'
 
 
 
