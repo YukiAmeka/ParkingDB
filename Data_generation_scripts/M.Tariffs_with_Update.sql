@@ -1,4 +1,5 @@
 ﻿INSERT INTO Membership.Tariffs (Price, ZoneID, PeriodID)
+INSERT INTO Membership.Tariffs (Price, ZoneID, PeriodID)
   VALUES 
 ('204', 1, 1), 
 ('252', 2, 1), 
@@ -106,9 +107,10 @@
 
 UPDATE [Membership].[Tariffs] SET [StartDate] = '2020-01-01', [EndDate] = '2020-12-31'
 
-EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2019-01-01', @TariffEndDate = '2019-12-31'
-EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2018-01-01', @TariffEndDate = '2018-12-31'
-EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2017-01-01', @TariffEndDate = '2017-12-31'
-EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2016-01-01', @TariffEndDate = '2016-12-31'
-EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2015-01-01', @TariffEndDate = '2015-12-31'
+EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2019-01-01', @TariffEndDate = '2019-12-31', @ChangeProc = 0.03
+EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2018-01-01', @TariffEndDate = '2018-12-31', @ChangeProc = 0.05
+EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2017-01-01', @TariffEndDate = '2017-12-31', @ChangeProc = 0.08
+EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2016-01-01', @TariffEndDate = '2016-12-31', @ChangeProc = 0.04
+EXEC STP_GenerationOldMembershipTariffs @TariffStartDate = '2015-01-01', @TariffEndDate = '2015-12-31', @ChangeProc = 0.02
+
 
