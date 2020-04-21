@@ -52,11 +52,11 @@ BEGIN
 END
 
 
-EXEC STP_GenerationOldMembershipTariffs '2019-01-01', '2019-12-31','false'
-EXEC STP_GenerationOldMembershipTariffs '2018-01-01', '2018-12-31','true'
-EXEC STP_GenerationOldMembershipTariffs '2017-01-01', '2017-12-31','false'
-EXEC STP_GenerationOldMembershipTariffs '2016-01-01', '2016-12-31','true'
-EXEC STP_GenerationOldMembershipTariffs '2015-01-01', '2015-12-31','true'
+EXEC STP_GenerationOldOperationTariffs '2019-01-01', '2019-12-31','false'
+EXEC STP_GenerationOldOperationTariffs'2018-01-01', '2018-12-31','true'
+EXEC STP_GenerationOldOperationTariffs '2017-01-01', '2017-12-31','false'
+EXEC STP_GenerationOldOperationTariffs '2016-01-01', '2016-12-31','true'
+EXEC STP_GenerationOldOperationTariffs '2015-01-01', '2015-12-31','true'
 
 SELECT TariffID, TariffNameID, TariffStartDate, TariffEndDate,  Price, T.ZoneID, c.theDate, C1.TheDate, L.LOTNAME, LC.CITYNAME
 	FROM Operation.Tariffs t
