@@ -8,7 +8,7 @@
 
 5. Inserting Positions
 
-6. Creating & inserting TempEmployees  
+6. Creating & inserting TempEmployees
 
 7. STP_GeneratingCurEmployees
 
@@ -50,6 +50,12 @@
 
 19. STP_GenerateMembershipDates (DO NOT EXECUTE, ONLY CREATE)
 
-20. Inserting Membership.ActiveCards 
+20. Inserting Membership.ActiveCards
 
 21. STP_GenerateRandomTime
+
+22. STP_EmployeeIDForMembershipPurchase (DO NOT EXECUTE, ONLY CREATE)
+
+23. STP_GenerateMembershipLogByPeriod (DO NOT EXECUTE, ONLY CREATE)
+
+24. Inserting Membership.Orders

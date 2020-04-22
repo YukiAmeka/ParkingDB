@@ -7,6 +7,7 @@ DECLARE @TariffID INT
 DECLARE @LotID INT
 DECLARE @PurchaseTime TIME(0)
 DECLARE @ExpiryDate DATE
+DECLARE @EmployeeID INT
 
 /* Create temporary table with the same structure as Membership.Orders that will accumulate records
 for them to be sorted chronologically before being inserted into Membership.Orders */
@@ -47,8 +48,10 @@ WHILE @@FETCH_STATUS = 0
         /* Generate random time when the purchase occurs */
         EXEC STP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
 
-        INSERT INTO #MOrders (ClientID, AllCardID, PurchaseDate, TariffID, LotID, PurchaseTime, ExpiryDate)
-            VALUES (@ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @PurchaseTime, @ExpiryDate)
+        EXEC STP_EmployeeIDForMembershipPurchase @PurchaseDate = @StartDate, @PurchaseTime = @PurchaseTime, @LotID = @LotID, @EmployeeID = @EmployeeID OUTPUT
+
+        INSERT INTO #MOrders (EmployeeID, ClientID, AllCardID, PurchaseDate, TariffID, LotID, PurchaseTime, ExpiryDate)
+            VALUES (@EmployeeID, @ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @PurchaseTime, @ExpiryDate)
 
         FETCH NEXT FROM ActiveClients
             INTO @ClientID, @AllCardID, @StartDate, @TariffID, @LotID, @ExpiryDate
