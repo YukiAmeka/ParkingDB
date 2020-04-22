@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE STP_GenerationOldMembershipTariffs
+﻿CREATE PROCEDURE STP_HLP_OldMembershipTariffs
 
 (
         @TariffStartDate as DATE,
