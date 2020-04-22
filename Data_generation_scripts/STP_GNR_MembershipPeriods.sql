@@ -2,5 +2,5 @@
   VALUES
    ('MonthFull')
   ,('QuaterFull')
-  ,('YearFull'),
-   ('VIP');
+  ,('YearFull')
+  ,('VIP');
