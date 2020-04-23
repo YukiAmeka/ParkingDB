@@ -1,6 +1,9 @@
-﻿CREATE PROCEDURE STP_GNR_MembershipTariffs
+﻿    select * from [Membership].[Tariffs]
+    /* generation of data for all years of DB existence taking into account changes in tariffs */
+CREATE PROCEDURE STP_GNR_MembershipTariffs
 AS
 BEGIN
+     /* the data was generated manually */
   INSERT INTO Membership.Tariffs (Price, ZoneID, PeriodID)
     VALUES
   ('204', 1, 1),
@@ -107,12 +110,8 @@ BEGIN
   ('1440', 86, 3),
   ('5000', NULL, 4);
 
-  UPDATE [Membership].[Tariffs] SET [StartDate] = '2020-01-01', [EndDate] = '2020-12-31'
+  /* prices for tariffs between current dates */
 
-  EXEC STP_HLP_OldMembershipTariffs @TariffStartDate = '2019-01-01', @TariffEndDate = '2019-12-31', @ChangeProc = 0.03
-  EXEC STP_HLP_OldMembershipTariffs @TariffStartDate = '2018-01-01', @TariffEndDate = '2018-12-31', @ChangeProc = 0.05
-  EXEC STP_HLP_OldMembershipTariffs @TariffStartDate = '2017-01-01', @TariffEndDate = '2017-12-31', @ChangeProc = 0.08
-  EXEC STP_HLP_OldMembershipTariffs @TariffStartDate = '2016-01-01', @TariffEndDate = '2016-12-31', @ChangeProc = 0.04
-  EXEC STP_HLP_OldMembershipTariffs @TariffStartDate = '2015-01-01', @TariffEndDate = '2015-12-31', @ChangeProc = 0.02
+  UPDATE [Membership].[Tariffs] SET [StartDate] = '2020-01-01', [EndDate] = '2020-12-31'
 
 END
