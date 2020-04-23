@@ -7,7 +7,7 @@
 
 
 
-/* Data generation procedures */
+/* Data generation procedures. Create next */
 /* EXECUTE IN THIS ORDER */
 EXEC STP_GNR_LocationCities;
 EXEC STP_GNR_ClienteleClients;
