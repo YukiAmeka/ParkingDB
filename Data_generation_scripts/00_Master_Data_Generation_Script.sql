@@ -13,4 +13,4 @@ EXEC STP_GNR_LocationCities;
 EXEC STP_GNR_ClienteleClients;
 EXEC STP_GNR_MembershipPeriods;
 EXEC STP_GNR_MembershipTariffs;
-EXEC STP_GNR_MembershipAllCards @TotalNumber = 50000;
+EXEC STP_GNR_MembershipAllCards;

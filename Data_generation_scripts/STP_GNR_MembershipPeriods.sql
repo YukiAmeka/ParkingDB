@@ -1,3 +1,5 @@
+
+    /* generating data in a table MembershipPeriods*/
 CREATE PROCEDURE STP_GNR_MembershipPeriods
 AS
 BEGIN
