@@ -35,7 +35,8 @@ CREATE TABLE Parking.Zones (
   Capacity int NULL,
   LotID int NULL,
   ZoneTypeID int NULL,
-  FreeSlots int NULL
+  FreeSlots int NULL,
+  MemberReservedSlots int DEFAULT 0
 );
 CREATE TABLE Parking.ZoneTypes(
     ZoneTypeID int NOT NULL PRIMARY KEY IDENTITY,

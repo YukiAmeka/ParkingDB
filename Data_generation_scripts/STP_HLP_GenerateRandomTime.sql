@@ -1,6 +1,6 @@
 /* Generate random time within given limits */
 
-CREATE PROCEDURE STP_GenerateRandomTime
+CREATE PROCEDURE STP_HLP_GenerateRandomTime
 (
     @StartTime TIME(0)
     , @EndTime TIME(0)
