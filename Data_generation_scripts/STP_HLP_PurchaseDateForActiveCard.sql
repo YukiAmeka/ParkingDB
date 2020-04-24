@@ -13,7 +13,7 @@ BEGIN
     DECLARE @EarliestDate DATE
 
     SET @EarliestDate = (DATEADD(DAY, @PeriodInDays * -1 + 1, @TargetDate))
-    SET @PurchaseDate = (DATEADD(DAY, ABS(CHECKSUM(NEWID()) % @PeriodInDays - 2), @EarliestDate))
+    SET @PurchaseDate = (DATEADD(DAY, ABS(CHECKSUM(NEWID()) % (@PeriodInDays - 1)), @EarliestDate))
     SET @ExpiryDate = (DATEADD(DAY, @PeriodInDays, @PurchaseDate))
 END
 
