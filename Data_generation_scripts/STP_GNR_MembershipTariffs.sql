@@ -1,7 +1,7 @@
 ﻿     /* generation of data for all years of DB existence taking into account changes in tariffs */
 CREATE PROCEDURE STP_GNR_MembershipTariffs
 AS
-BEGIN
+    BEGIN
      /* the data was generated manually */
   INSERT INTO Membership.Tariffs (Price, ZoneID, PeriodID)
     VALUES
