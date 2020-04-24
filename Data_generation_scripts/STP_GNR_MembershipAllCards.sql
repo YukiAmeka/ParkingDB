@@ -7,7 +7,7 @@ AS
 BEGIN
 	DECLARE @TotalNumber int
 	SET @TotalNumber = 0
-		WHILE @TotalNumber < 50000
+		WHILE @TotalNumber < 20000
 		BEGIN
 			declare @Lower int
 			SET @Lower = 1000000

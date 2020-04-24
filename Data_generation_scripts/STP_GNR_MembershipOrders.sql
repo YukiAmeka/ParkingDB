@@ -59,7 +59,7 @@ BEGIN
     DECLARE @HomeCityID INT
 
     SET @ZonesForMembers = (SELECT COUNT(ZoneID) FROM #Capacity)
-    SET @TargetDate = '2020-04-28'
+    SET @TargetDate = (SELECT CONVERT(DATE, getdate())) -- the date of data generation
 
     WHILE @TargetDate >= '2016-01-01'
     BEGIN
@@ -146,6 +146,18 @@ BEGIN
     INSERT INTO Membership.Orders
     SELECT LotID, EmployeeID, AllCardID, ClientID, PurchaseDate, PurchaseTime, TariffID, ExpiryDate FROM #MOrders
     ORDER BY PurchaseDate, PurchaseTime
+
+
+    DELETE FROM Clientele.Clients WHERE CityID IS NULL
+
+    SET @TargetDate = (SELECT CONVERT(DATE, getdate()))
+    UPDATE Clientele.Clients
+        SET IsCurrent = 0
+    UPDATE Clientele.Clients
+        SET IsCurrent = 1
+        WHERE ClientID IN (SELECT ClientID FROM Membership.Orders
+            WHERE @TargetDate BETWEEN PurchaseDate AND ExpiryDate)
+
 
     /* Drop all temporary objects */
     DROP TABLE #MOrders
