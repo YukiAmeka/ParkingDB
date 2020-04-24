@@ -150,6 +150,9 @@ BEGIN
     SELECT LotID, EmployeeID, AllCardID, ClientID, PurchaseDate, PurchaseTime, TariffID, ExpiryDate FROM #MOrders
     ORDER BY PurchaseDate, PurchaseTime
 
+    DELETE FROM Membership.Orders
+        WHERE PurchaseDate < '2015-01-01' OR TariffID IS NULL
+
 
     SET @TargetDate = (SELECT CONVERT(DATE, getdate())) -- the date of data generation
 
@@ -158,17 +161,14 @@ BEGIN
 
     WHILE @ZoneCounter <= 88
     BEGIN
-        UPDATE #Capacity
+        UPDATE Parking.Zones
             SET MemberReservedSlots = (SELECT COUNT(OrderID) FROM Membership.Orders
+                INNER JOIN Membership.Tariffs ON Membership.Orders.TariffID = Membership.Tariffs.TariffID
                 WHERE (ZoneID = @ZoneCounter) AND (@TargetDate BETWEEN PurchaseDate AND ExpiryDate))
             WHERE ZoneID = @ZoneCounter
         SET @ZoneCounter += 1
     END
 
-    UPDATE Parking.Zones
-        SET MemberReservedSlots = (SELECT MemberReservedSlots FROM #Capacity
-            WHERE (ZoneID = @ZoneCounter))
-        WHERE ZoneID = @ZoneCounter
 
     /* Post-processing of table Clientele.Clients: delete unused records;
     mark only clients that have active cards to date as current ones */

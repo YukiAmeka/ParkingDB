@@ -1,5 +1,5 @@
 ﻿  /* part of the process of generating data in this procedure */
-	
+
 CREATE PROCEDURE STP_HLP_OldMembershipTariffs
 	 /* @ChangeProc - variable percentage */
 (
@@ -19,7 +19,7 @@ BEGIN
 
 
 	SET @CurrentIdent = (SELECT IDENT_CURRENT('Membership.Tariffs'))
-	SET @TariffID = (@CurrentIdent + 1) - 103
+	SET @TariffID = (@CurrentIdent + 1) - 109
 	WHILE @TariffID <= @CurrentIdent
 
 		BEGIN
@@ -36,6 +36,5 @@ BEGIN
 			SET @TariffID += 1
 		END
 END
-	
 
- 
+

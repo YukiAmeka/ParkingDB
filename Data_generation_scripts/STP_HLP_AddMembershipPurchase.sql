@@ -15,7 +15,7 @@ BEGIN
     DECLARE @PurchaseTime TIME(0)
     DECLARE @TariffID INT
 
-    SET @EmployeeID = 1 -- temporary placeholder!
+    SET @EmployeeID = NULL -- temporary placeholder!
 
     EXEC STP_HLP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
 
