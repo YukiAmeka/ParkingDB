@@ -27,6 +27,9 @@ BEGIN
     IF OBJECT_ID ('#Capacity') IS NOT NULL
         DROP TABLE #Capacity
 
+    UPDATE Parking.Zones
+        SET MemberReservedSlots = 0
+
     CREATE TABLE #Capacity (
     CapacityID INT IDENTITY,
     ZoneID INT,
@@ -148,9 +151,29 @@ BEGIN
     ORDER BY PurchaseDate, PurchaseTime
 
 
+    SET @TargetDate = (SELECT CONVERT(DATE, getdate())) -- the date of data generation
+
+    /* Post-processing of table Parking.Zones: fill in MemberReservedSlots with up-to-date info */
+    SET @ZoneCounter = 1
+
+    WHILE @ZoneCounter <= 88
+    BEGIN
+        UPDATE #Capacity
+            SET MemberReservedSlots = (SELECT COUNT(OrderID) FROM Membership.Orders
+                WHERE (ZoneID = @ZoneCounter) AND (@TargetDate BETWEEN PurchaseDate AND ExpiryDate))
+            WHERE ZoneID = @ZoneCounter
+        SET @ZoneCounter += 1
+    END
+
+    UPDATE Parking.Zones
+        SET MemberReservedSlots = (SELECT MemberReservedSlots FROM #Capacity
+            WHERE (ZoneID = @ZoneCounter))
+        WHERE ZoneID = @ZoneCounter
+
+    /* Post-processing of table Clientele.Clients: delete unused records;
+    mark only clients that have active cards to date as current ones */
     DELETE FROM Clientele.Clients WHERE CityID IS NULL
 
-    SET @TargetDate = (SELECT CONVERT(DATE, getdate()))
     UPDATE Clientele.Clients
         SET IsCurrent = 0
     UPDATE Clientele.Clients
