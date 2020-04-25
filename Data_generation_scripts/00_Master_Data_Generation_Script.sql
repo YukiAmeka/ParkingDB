@@ -17,8 +17,10 @@ EXEC STP_GNR_ClienteleClients;
 --Parking.ZoneTypes.sql
 --Parking.Lots.sql
 --Parking.Zones.sql
---spGeneratingCalendarData.sql
+EXEC STP_GNR_CalendarData;
 EXEC STP_GNR_MembershipPeriods;
 EXEC STP_GNR_MembershipTariffs;
 EXEC STP_GNR_MembershipAllCards;
+
+
 EXEC STP_GNR_MembershipOrders;
