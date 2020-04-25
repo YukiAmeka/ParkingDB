@@ -120,7 +120,8 @@ CREATE TABLE Clientele.Cars(
 CarID int not null PRIMARY KEY IDENTITY,
 Plate char(7) NULL,
 ClientID int NULL,
-CarModelID int NULL
+CarModelID int NULL,
+CityID int NULL
 );
 
 
