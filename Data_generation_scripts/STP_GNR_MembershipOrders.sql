@@ -46,9 +46,6 @@ BEGIN
     IF OBJECT_ID ('#Capacity') IS NOT NULL
         DROP TABLE #Capacity
 
-    UPDATE Parking.Zones
-        SET MemberReservedSlots = 0
-
     CREATE TABLE #Capacity (
         CapacityID INT IDENTITY
         , ZoneID INT
@@ -56,7 +53,7 @@ BEGIN
         , MemberReservedSlots INT
     )
     INSERT INTO #Capacity
-    SELECT ZoneID, Capacity, MemberReservedSlots
+    SELECT ZoneID, Capacity, 0
     FROM Parking.Zones
     INNER JOIN Parking.Lots ON Parking.Lots.LotID = Parking.Zones.LotID
     WHERE (ZoneTypeID BETWEEN 1 AND 2) AND Capacity > 0

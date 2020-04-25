@@ -17,8 +17,6 @@ BEGIN
     DECLARE @PurchaseTime TIME(0)
     DECLARE @TariffID INT
 
-    SET @EmployeeID = NULL -- temporary placeholder!
-
     /* Generate random time in the working hours */
     EXEC STP_HLP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
 
@@ -37,11 +35,11 @@ BEGIN
         WHERE AllCardID = @AllCardID
 
     /* Identify, which Employee was on shift at Purchase Time */
-    /*EXEC STP_HLP_FindEmployeeOnShift
+    EXEC STP_HLP_FindEmployeeOnShift
         @PurchaseDate = @PurchaseDate
         , @PurchaseTime = @PurchaseTime
         , @LotID = @LotID
-        , @EmployeeID = @EmployeeID OUTPUT*/
+        , @EmployeeID = @EmployeeID OUTPUT
 
     /* Compile and insert 1 record into #MOrders */
     INSERT INTO #MOrders (LotID, ZoneID, EmployeeID, AllCardID, ClientID, PurchaseDate, PurchaseTime, TariffID, ExpiryDate)
