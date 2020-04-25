@@ -1,6 +1,6 @@
 
 
-ALTER PROCEDURE STP_GenerateSalaryChanges 
+CREATE PROCEDURE STP_GNR_SalaryChanges
 
 AS
 
@@ -41,23 +41,23 @@ SET @DateStep = 366
 
 
 SET @A = (SELECT IDENT_CURRENT('Staff.Employees'))  -- takes last EmployeeID 
---PRINT @A
+
 WHILE @DateStart <= @EndDate      
-BEGIN               --WHILE 1  generates for all years
+BEGIN                   --WHILE 1  generates for all years
 SET @Cycle = 1
-WHILE @Cycle <=  @A  ---WHILE 2 generates for all employees
+WHILE @Cycle <=  @A     --WHILE 2 generates for all employees
 BEGIN
 	SET @EmployeeID = @Cycle
 	SET @DateFired = (SELECT DateFired FROM Staff.Employees WHERE EmployeeID = @Cycle)
 	SET @DateHired = (SELECT DateHired FROM Staff.Employees WHERE EmployeeID = @EmployeeID)
-	IF  (@DateFired IS NULL AND @DateStart >= @DateHired + 180 )    --- checks if emp was not fired before salary increase and is working
-		OR  (@DateFired >  @DateStart AND @DateStart >= @DateHired + 180)  ----for the company for at least 180 days
+	IF  (@DateFired IS NULL AND @DateStart >= @DateHired + 180 ) 
+		OR  (@DateFired >  @DateStart AND @DateStart >= @DateHired + 180)  
 		BEGIN
 			SET @SalaryOld = (SELECT salary FROM Staff.Employees WHERE EmployeeID = @EmployeeID)
-			IF EXISTS (SELECT EmployeeID FROM Staff.SalaryChanges WHERE EmployeeID = @EmployeeId) ----checks if emp has already 
-				BEGIN                                                                               ----data in salaryChanges table
-					SET @SalaryStartDateID = (SELECT TOP (1)SalaryEndDateID FROM Staff.SalaryChanges
-								WHERE EmployeeID = @EmployeeId ORDER BY SalaryChangeID DESC) 
+			IF EXISTS (SELECT EmployeeID FROM Staff.SalaryChanges WHERE EmployeeID = @EmployeeId)
+				BEGIN
+					SET @SalaryStartDateID = (SELECT TOP (1)SalaryEndDateID FROM Staff.SalaryChanges   
+								WHERE EmployeeID = @EmployeeId ORDER BY SalaryChangeID DESC) + 1   
 					SET @SalaryEndDateID = @DateStart
 				END
 			ELSE
@@ -109,33 +109,7 @@ END   --WHILE 1
 
 END
 
---EXEC [dbo].[STP_GenerateSalaryChanges]
-	--SELECT * FROM #SalaryChangesTemp 
-	
-	--TRUNCATE TABLE #SalaryChangesTemp
 
---DECLARE @A INT
---SET @A = 263
---WHILE @A > 0
---	begin
---	UPDATE STAFF.Employees
---		SET Salary = (SELECT TOP(1) salary FROM #SalaryChangesTemp WHERE EmployeeID = @a) WHERE EmployeeID = @a
---	SET @a = @a - 1
---	END
-    
---UPDATE STAFF.Employees 
---	SET Salary = 1000
 
 --TRUNCATE TABLE Staff.SalaryChanges
---SELECT THEDATE FROM Services.CalendarDates
---WHERE DateID= 368
-
---SELECT DATEID FROM Services.CalendarDates
---	WHERE TheDate = '2015-07-02'
---SELECT 1000 * 1.15*1.15*1.15*1.15*1.15
---SELECT 1000 * 1.06*1.06*1.06*1.06*1.06
-----SELECT * FROM Staff.Employees
-----	WHERE EmployeeID = 132
-
---SELECT * FROM staff.SalaryChanges
---WHERE EmployeeID = 1
+--DBCC CHECKIDENT('[Staff].[SalaryChanges]', RESEED, 0)
