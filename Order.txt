@@ -59,3 +59,5 @@
 23. STP_GenerateMembershipLogByPeriod (DO NOT EXECUTE, ONLY CREATE)
 
 24. Inserting Membership.Orders
+
+25. STP_GNR_SalaryChanges.sql
