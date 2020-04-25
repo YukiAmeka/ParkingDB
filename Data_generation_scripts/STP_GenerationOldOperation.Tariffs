@@ -18,8 +18,8 @@ BEGIN
 	DECLARE @TariffStartDateID INT
 	DECLARE @TariffEndDateID INT
 	DECLARE @priceIndex DECIMAL (3,2)
-	SET @TariffEndDateID = (SELECT dATEid FROM Services.CalendarDates WHERE TheDate = @TariffEndDate)
-	SET @TariffStartDateID = (SELECT dATEid FROM Services.CalendarDates WHERE TheDate = @TariffStartDate)
+	SET @TariffEndDateID = (SELECT DateID FROM Services.CalendarDates WHERE TheDate = @TariffEndDate)
+	SET @TariffStartDateID = (SELECT DateID FROM Services.CalendarDates WHERE TheDate = @TariffStartDate)
 	SET @CurrentIdent = (SELECT IDENT_CURRENT('Operation.Tariffs'))
 	SET @TariffID = (@CurrentIdent + 1) - 180
 	WHILE @TariffID <= @CurrentIdent
@@ -31,8 +31,6 @@ BEGIN
 				SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
 				SET @priceIndex = RAND() * 0.05
 				SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
-			--SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-			--	SET @Price = ROUND(@Price - (@Price * 0.03),1,1)
 				END
 			ELSE 
 				BEGIN	
@@ -43,10 +41,8 @@ BEGIN
 				ELSE
 					BEGIN
 					SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-				SET @priceIndex = RAND() * 0.05
-				SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
-					--SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-					--SET @Price = ROUND(@Price - (@Price * 0.03),1,1)
+					SET @priceIndex = RAND() * 0.05
+					SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
 					END
 				END
 			INSERT INTO Operation.Tariffs (TariffNameID,[TariffStartDate],[TariffEndDate], [Price], [ZoneID]  )
@@ -54,7 +50,6 @@ BEGIN
 			SET @TariffID += 1
 		END
 END
-
 
 
 
