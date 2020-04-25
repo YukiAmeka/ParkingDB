@@ -36,7 +36,7 @@ CREATE TABLE Parking.Zones (
   LotID int NULL,
   ZoneTypeID int NULL,
   FreeSlots int NULL,
-  MemberReservedSlots int DEFAULT 0
+  MemberReservedSlots int NULL
 );
 CREATE TABLE Parking.ZoneTypes(
     ZoneTypeID int NOT NULL PRIMARY KEY IDENTITY,
@@ -52,7 +52,7 @@ CREATE TABLE Parking.SlotSizes (
 CREATE TABLE Location.Cities (
     CityID int NOT NULL PRIMARY KEY IDENTITY,
     CityName varchar(50) NULL,
-    ClosestCityWithParking INT NULL
+    ClosestCityWithParking int NULL
 );
 
 	CREATE TABLE Staff.Employees (
@@ -77,9 +77,9 @@ CREATE TABLE Staff.Shifts (
     ShiftID int NOT NULL PRIMARY KEY IDENTITY,
     EmployeeID int NULL,
     DateStart int NULL,
-    TimeStart time(7) NULL,
+    TimeStart time(0) NULL,
     DateEnd int NULL,
-    TimeEnd time(7) NULL
+    TimeEnd time(0) NULL
 );
 CREATE TABLE Staff.Positions (
    PositionID int NOT NULL PRIMARY KEY IDENTITY,
@@ -123,8 +123,6 @@ ClientID int NULL,
 CarModelID int NULL
 );
 
-
-
 CREATE TABLE Membership.AllCards (
 AllCardID INT NOT NULL PRIMARY KEY IDENTITY,
 IsUsed BIT DEFAULT 0 NULL,
@@ -133,13 +131,14 @@ TariffID INT NULL
 );
 
 
-CREATE TABLE Membership.ActiveCards (
+/* CREATE TABLE Membership.ActiveCards (
     ActiveCardID INT NOT NULL PRIMARY KEY IDENTITY,
     ClientID INT NULL,
     AllCardID INT NULL,
     StartDate DATE NULL,
     ExpiryDate DATE NULL
-);
+); */
+
 CREATE TABLE Membership.Tariffs (
     TariffID INT NOT NULL PRIMARY KEY IDENTITY,
     ZoneID INT NULL,
@@ -160,7 +159,7 @@ CREATE TABLE Membership.Orders (
    AllCardID int NULL,
    ClientID int NULL,
    PurchaseDate DATE NULL,
-   PurchaseTime time (0) NULL,
+   PurchaseTime time(0) NULL,
    TariffID int NULL,
    ExpiryDate date NULL
 );
@@ -173,9 +172,9 @@ CREATE TABLE Operation.Orders(
     EmployeeOnEntry int NULL,
     EmployeeOnExit int NULL,
     DateEntry int NULL,
-    TimeEntry time NULL,
+    TimeEntry time(0) NULL,
     DateExit int NULL,
-    TimeExit time NULL,
+    TimeExit time(0) NULL,
     TotalCost decimal(6, 2) NULL,
     AllCardID int NULL
 );
@@ -271,8 +270,8 @@ ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID);
 ALTER TABLE Membership.AllCards
 ADD FOREIGN KEY (TariffID) REFERENCES Membership.Tariffs(TariffID);
 
-ALTER TABLE Membership.ActiveCards
-ADD FOREIGN KEY (AllCardID)  REFERENCES Membership.AllCards(AllCardID)
+/* ALTER TABLE Membership.ActiveCards
+ADD FOREIGN KEY (AllCardID)  REFERENCES Membership.AllCards(AllCardID) */
 
 ALTER TABLE Clientele.Clients
 ADD FOREIGN KEY (CityID) REFERENCES Location.Cities(CityID);
@@ -344,9 +343,9 @@ ALTER TABLE Parking.Slots
 ALTER TABLE Parking.ZoneTypes
     ADD FOREIGN KEY (SlotSizeID) REFERENCES Parking.SlotSizes (SlotSizeID)
 
-	--(link Clients --> Membership.Cards )
+/* 	--(link Clients --> Membership.Cards )
 ALTER TABLE Membership.ActiveCards
-ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID);
+ADD FOREIGN KEY (ClientID) REFERENCES Clientele.Clients(ClientID); */
 
 --(link Membership.Tariffs --> Membership.Cards )
 ALTER TABLE Membership.AllCards
