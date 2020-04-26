@@ -1,6 +1,6 @@
 CREATE PROCEDURE STP_GNR_ClienteleCars
 AS
- BEGIN
+ BEGIN  
 DECLARE @plateID INT
 DECLARE @client INT
 DECLARE @model INT
@@ -57,5 +57,12 @@ WHILE @cycle <= 100000
 	SET @cycle = @cycle + 1
 	SET @plateID = @plateID + 1
 	END
+
+	DROP TABLE CarPlates 
+
 END
-GO
+
+
+
+
+
