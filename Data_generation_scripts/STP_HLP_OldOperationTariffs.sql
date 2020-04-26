@@ -1,4 +1,4 @@
-CREATE PROCEDURE STP_GenerationOldOperationTariffs
+CREATE PROCEDURE STP_HLP_OldOperationTariffs
 
 (
         @TariffStartDate as DATE,
@@ -18,30 +18,30 @@ BEGIN
 	DECLARE @TariffStartDateID INT
 	DECLARE @TariffEndDateID INT
 	DECLARE @priceIndex DECIMAL (3,2)
-	SET @TariffEndDateID = (SELECT dATEid FROM Services.CalendarDates WHERE TheDate = @TariffEndDate)
-	SET @TariffStartDateID = (SELECT dATEid FROM Services.CalendarDates WHERE TheDate = @TariffStartDate)
+	SET @TariffEndDateID = (SELECT DateID FROM Services.CalendarDates WHERE TheDate = @TariffEndDate)
+	SET @TariffStartDateID = (SELECT DateID FROM Services.CalendarDates WHERE TheDate = @TariffStartDate)
 	SET @CurrentIdent = (SELECT IDENT_CURRENT('Operation.Tariffs'))
 	SET @TariffID = (@CurrentIdent + 1) - 180
 	WHILE @TariffID <= @CurrentIdent
 		BEGIN
 			SET @TariffNameID = (SELECT TariffNameID FROM Operation.Tariffs WHERE TariffID = @TariffID)
 			SET @ZoneID = (SELECT [ZoneID] FROM Operation.Tariffs WHERE TariffID = @TariffID)
-			IF @changePrice = 'FALSE' 
+			IF @changePrice = 'True' 
 				BEGIN	
 				SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-				SET @priceIndex = RAND() * 0.08
+				SET @priceIndex = RAND() * 0.05
 				SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
 				END
 			ELSE 
 				BEGIN	
-				IF @zoneID BETWEEN 57 AND 80
+				IF @zoneID BETWEEN 59 AND 80
 					BEGIN	
 					SET @price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
 					END
 				ELSE
 					BEGIN
 					SET @Price = (SELECT Price FROM Operation.Tariffs WHERE TariffID = @TariffID)
-					SET @priceIndex = RAND() * 0.08
+					SET @priceIndex = RAND() * 0.05
 					SET @Price = ROUND(@Price * (1 - @priceIndex),1,1)
 					END
 				END
@@ -52,25 +52,5 @@ BEGIN
 END
 
 
-EXEC STP_GenerationOldOperationTariffs '2019-01-01', '2019-12-31','false'
-EXEC STP_GenerationOldOperationTariffs'2018-01-01', '2018-12-31','true'
-EXEC STP_GenerationOldOperationTariffs '2017-01-01', '2017-12-31','false'
-EXEC STP_GenerationOldOperationTariffs '2016-01-01', '2016-12-31','true'
-EXEC STP_GenerationOldOperationTariffs '2015-01-01', '2015-12-31','true'
 
-SELECT TariffID, TariffNameID, TariffStartDate, TariffEndDate,  Price, T.ZoneID, c.theDate, C1.TheDate, L.LOTNAME, LC.CITYNAME
-	FROM Operation.Tariffs t
-	JOIN
-    Services.CalendarDates c ON
-	t.TariffStartDate = c.DateID
-	JOIN Services.CalendarDates C1
-	ON T.TariffEndDate = C1.DateID
-	join parking.zoneS z 
-	ON T.ZONEID = Z.ZONEID
-	JOIN PARKING.LOTS L
-	ON Z.LOTID = L.LOTID
-	JOIN LOCATION.CITIES LC
-	ON L.CITYID = LC.CITYID
-	WHERE LC.CITYNAME LIKE 'lon%'
-	AND L.LotName = 'l-1'
-	ORDER BY T.TariffID
+

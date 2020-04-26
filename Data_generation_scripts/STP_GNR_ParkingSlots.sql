@@ -1,13 +1,7 @@
-USE [Lv_501_Parking_TEST5]
-GO
-/****** Object:  StoredProcedure [dbo].[STP_InsertDataSlots]    Script Date: 4/17/2020 4:35:26 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[STP_InsertDataSlots]
-AS
 
+CREATE PROCEDURE STP_GNR_ParkingSlots
+AS
+BEGIN
 DECLARE @cap INT --capacity of each zone
 DECLARE @SLOT INT --slot number of each slot
 DECLARE @ZONE INT --zoneID
@@ -29,3 +23,4 @@ ELSE WHILE @cap>0
 	SET @CAP = @CAP - 1
 	SET @SLOT = @SLOT + 1
 	END
+END

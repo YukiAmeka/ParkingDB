@@ -1,3 +1,8 @@
+CREATE PROCEDURE STP_GNR_OperationTariffs
+ AS 
+   BEGIN
+
+
 INSERT INTO Operation.Tariffs (TariffNameID,  Price, ZoneID) VALUES
 
 (1,6.50,3),
@@ -180,3 +185,11 @@ INSERT INTO Operation.Tariffs (TariffNameID,  Price, ZoneID) VALUES
 (3,  18.00,88),
 (4,  11.00,88),
 (5,  25.00,88)
+
+EXEC STP_HLP_OldOperationTariffs '2019-01-01', '2019-12-31','false'
+EXEC STP_HLP_OldOperationTariffs '2018-01-01', '2018-12-31','true'
+EXEC STP_HLP_OldOperationTariffs '2017-01-01', '2017-12-31','false'
+EXEC STP_HLP_OldOperationTariffs '2016-01-01', '2016-12-31','true'
+EXEC STP_HLP_OldOperationTariffs '2015-01-01', '2015-12-31','true'
+
+END

@@ -1,0 +1,54 @@
+1. Creating Database structure
+
+2. STP_GNR_CalendarData
+
+3. STP_GNR_LocationCities
+
+4. STP_GNR_ParkingLots
+
+5. STP_GNR_StaffPositions
+
+6. STP_GNR_EmployeesReserve
+
+7. STP_GNR_CurrentEmployees
+
+8. STP_GNR_FiredAttendants
+
+9. STP_GNR_PositionChanges
+
+10. STP_GNR_StaffShifts
+
+11. STP_GNR_SalaryChanges
+
+12. STP_GNR_ParkingSlotSizes
+
+13. STP_GNR_ParkingZoneTypes
+
+14. STP_GNR_ParkingZones
+
+15. STP_GNR_ParkingSlots
+
+16. STP_GNR_OperationTariffNames
+
+17. STP_GNR_OperationTariffs
+
+18. STP_GNR_MembershipPeriods
+
+19. STP_GNR_MembershipTariffs
+
+20. STP_GNR_ClienteleClients
+
+21. STP_GNR_ClienteleCars
+
+22. STP_GNR_MembershipAllCards
+
+23. STP_GNR_MembershipOrders
+
+24. STP_GNR_OperationOrdersUnregularClients  --Set last date (1 year)
+
+25. STP_GNR_OperationOrdersUnregularRestClients  --Set last date (1 year)
+
+26. STP_GNR_OperationOrdersMembers
+
+
+27. STP_GNR_MembershipActiveCards

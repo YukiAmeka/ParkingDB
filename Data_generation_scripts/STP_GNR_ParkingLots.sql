@@ -1,3 +1,7 @@
+CREATE PROCEDURE STP_GNR_ParkingLots
+AS
+BEGIN
+
 INSERT INTO Parking.Lots
  ( LotName, CityId, Address,  PhoneNumber,Email)
 Values ('L-1','1','Great Portland St.', '+44-7871234567','jbu3@parkinglot.com'),
@@ -22,3 +26,5 @@ Values ('L-1','1','Great Portland St.', '+44-7871234567','jbu3@parkinglot.com'),
 	   ('P-2','51','  Browning St.', '+44-9564461237','jo3@parkinglot.com'),
 	   ('Ox-1','61','National Cycle St.', '+44-9512461237','tiu3@parkinglot.com'),
 	   ('Cam-1','71',' Clare St. ', '+44-9532651237','mca4@parkinglot.com')
+
+END
