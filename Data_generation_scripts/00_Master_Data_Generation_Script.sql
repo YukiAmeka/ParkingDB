@@ -14,10 +14,11 @@
 EXEC STP_GNR_LocationCities;
 EXEC STP_GNR_ClienteleClients;
 EXEC STP_GNR_ParkingSlotSizes;   --Parking.SlotSizes.sql
-EXEC STP_GNR_ParkingZoneTypes    --Parking.ZoneTypes.sql
-EXEC STP_GNR_ParkingLots         --Parking.Lots.sql
-EXEC STP_GNR_ParkingZones        --Parking.Zones.sql
-EXEC STP_GNR_StaffPositions      --StaffPositions.txt 
+EXEC STP_GNR_ParkingZoneTypes;    --Parking.ZoneTypes.sql
+EXEC STP_GNR_ParkingLots;         --Parking.Lots.sql
+EXEC STP_GNR_ParkingZones;       --Parking.Zones.sql
+EXEC STP_GNR_OperationTariffNames;
+EXEC STP_GNR_StaffPositions;   --StaffPositions.txt 
 EXEC STP_GNR_CalendarData;
 EXEC STP_GNR_MembershipPeriods;
 EXEC STP_GNR_MembershipTariffs;
