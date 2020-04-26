@@ -1,69 +1,54 @@
 1. Creating Database structure
 
-2. Generating Calendar
+2. STP_GNR_CalendarData
 
-3. Inserting Cityes
+3. STP_GNR_LocationCities
 
-4. Inserting Lots
+4. STP_GNR_ParkingLots
 
-5. Inserting Positions
+5. STP_GNR_StaffPositions
 
-6. Creating & inserting TempEmployees
+6. STP_GNR_EmployeesReserve
 
-7. STP_GeneratingCurEmployees
+7. STP_GNR_CurrentEmployees
 
-7.1  STP_FireAtt
+8. STP_GNR_FiredAttendants
 
-7.2  STP_PosChanges
+9. STP_GNR_PositionChanges
 
-8. STP_GeneratingShifts
+10. STP_GNR_StaffShifts
 
-8.1 STP_GNR_SalaryChanges
+11. STP_GNR_SalaryChanges
 
-9. Inserting Parking.SlotSizes
+12. STP_GNR_ParkingSlotSizes
 
-10. Inserting Parking.ZoneTypes
+13. STP_GNR_ParkingZoneTypes
 
-11. Inserting Parking.Zones
+14. STP_GNR_ParkingZones
 
-12. STP_InsertDataSlots
+15. STP_GNR_ParkingSlots
 
-13. Inserting Operation.TariffNames
+16. STP_GNR_OperationTariffNames
 
-14. STP_GenerationOldOperationTariffs
+17. STP_GNR_OperationTariffs
 
-14.1 Inserting Operation.Tariffs
+18. STP_GNR_MembershipPeriods
 
-15. Inserting Membership.Periods
+19. STP_GNR_MembershipTariffs
 
-16. STP_GenerationOldMembershipTariffs  (DO NOT EXECUTE, ONLY CREATE)
+20. STP_GNR_ClienteleClients
 
-16.1  Inserting Membership.Tariffs
+21. STP_GNR_ClienteleCars
 
-17. Inserting Clientele.Clients
+22. STP_GNR_MembershipAllCards
 
-17.1 Importing CarPlates.csv
+23. STP_GNR_MembershipOrders
 
-17.2 Importing  CarBrand.csv
+24. STP_GNR_OperationOrdersUnregularClients  --Set last date (1 year)
 
-17.3 STP_InsertDataCars
+25. STP_GNR_OperationOrdersUnregularRestClients  --Set last date (1 year)
 
-18. STP_GenerationTariffId (AllCards)
+26. STP_GNR_OperationOrdersMembers
 
-19. STP_GenerateMembershipDates (DO NOT EXECUTE, ONLY CREATE)
 
-20. Inserting Membership.ActiveCards
-
-21. STP_GenerateRandomTime
-
-22. STP_EmployeeIDForMembershipPurchase (DO NOT EXECUTE, ONLY CREATE)
-
-23. STP_GenerateMembershipLogByPeriod (DO NOT EXECUTE, ONLY CREATE)
-
-24. Inserting Membership.Orders
-
-25. STP_GNR_OperationOrdersUnregularClients  --Set last date (1 year)
-
-26. STP_GNR_OperationOrdersUnregularRestClients  --Set last date (1 year)
-
-27. STP_GNR_OperationOrdersMembers
+27. STP_GNR_MembershipActiveCards
