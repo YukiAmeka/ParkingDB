@@ -1,4 +1,4 @@
-CREATE PROCEDURE STP_PositionChanges
+CREATE PROCEDURE STP_GNR_PositionChanges
 AS
 
 	BEGIN

@@ -18,6 +18,8 @@
 
 8. STP_GeneratingShifts
 
+8.1 STP_GNR_SalaryChanges
+
 9. Inserting Parking.SlotSizes
 
 10. Inserting Parking.ZoneTypes
@@ -59,3 +61,9 @@
 23. STP_GenerateMembershipLogByPeriod (DO NOT EXECUTE, ONLY CREATE)
 
 24. Inserting Membership.Orders
+
+25. STP_GNR_OperationOrdersUnregularClients  --Set last date (1 year)
+
+26. STP_GNR_OperationOrdersUnregularRestClients  --Set last date (1 year)
+
+27. STP_GNR_OperationOrdersMembers
