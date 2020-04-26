@@ -3,6 +3,8 @@ CREATE PROCEDURE STP_GNR_MembershipOrders
 AS
 BEGIN
 
+    SET NOCOUNT ON;
+
     DECLARE @MaxCapacity INT
     DECLARE @WantedCapacity INT
     DECLARE @MemberReservedSlots INT

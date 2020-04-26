@@ -26,7 +26,7 @@ BEGIN
         WHERE LotID = @LotID
 
     /* Find EmployeeID of the parking attendant whose shift started before & ended after @PurchaseDateTime */
-    SET @EmployeeID = (SELECT EmployeeID
+    SET @EmployeeID = (SELECT TOP 1 EmployeeID
         FROM #FullShifts
         WHERE @PurchaseDateTime BETWEEN
         CAST(DateStart AS DATETIME) + CAST(TimeStart AS DATETIME) AND
