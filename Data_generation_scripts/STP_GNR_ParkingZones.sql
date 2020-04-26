@@ -1,3 +1,8 @@
+CREATE PROCEDURE STP_GNR_ParkingZones
+AS
+
+BEGIN
+
 INSERT INTO Parking.Zones (Capacity, LotID, ZoneTypeID)
 VALUES
 (65,  1, 1),
@@ -88,3 +93,5 @@ VALUES
 (5,  22, 2),
 (70, 22, 3),
 (5,  22, 4);
+
+END

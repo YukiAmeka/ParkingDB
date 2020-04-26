@@ -13,10 +13,10 @@
 /* EXECUTE IN THIS ORDER */
 EXEC STP_GNR_LocationCities;
 EXEC STP_GNR_ClienteleClients;
---Parking.SlotSizes.sql
---Parking.ZoneTypes.sql
---Parking.Lots.sql
---Parking.Zones.sql
+EXEC STP_GNR_ParkingSlotSizes;   --Parking.SlotSizes.sql
+EXEC STP_GNR_ParkingZoneTypes    --Parking.ZoneTypes.sql
+EXEC STP_GNR_ParkingLots         --Parking.Lots.sql
+EXEC STP_GNR_ParkingZones        --Parking.Zones.sql
 EXEC STP_GNR_CalendarData;
 EXEC STP_GNR_MembershipPeriods;
 EXEC STP_GNR_MembershipTariffs;
