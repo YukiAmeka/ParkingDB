@@ -1,6 +1,7 @@
 /* Helper procedures */
 /* CREATE FIRST. DO NOT EXECUTE */
 
+-- STP_HLP_BulkCarsInsert	- Add folder path to git csv file !!!
 -- STP_HLP_GenerateRandomTime - Generate random time within given limits
 -- STP_HLP_FindEmployeeOnShift - Find the Employee who is/was on shift at a given Parking Lot at a given date & time
 -- STP_HLP_OldMembershipTariffs
@@ -11,28 +12,38 @@
 
 /* Data generation procedures. Create next */
 /* EXECUTE IN THIS ORDER */
-EXEC STP_GNR_LocationCities;
-EXEC STP_GNR_ClienteleClients;
-EXEC STP_GNR_ParkingSlotSizes;   --Parking.SlotSizes.sql
-EXEC STP_GNR_ParkingZoneTypes;    --Parking.ZoneTypes.sql
-EXEC STP_GNR_ParkingLots;         --Parking.Lots.sql
-EXEC STP_GNR_ParkingZones;       --Parking.Zones.sql
-EXEC STP_GNR_ParkingSlots
-EXEC STP_GNR_OperationTariffNames;
-EXEC STP_GNR_StaffPositions;   --StaffPositions.txt 
 EXEC STP_GNR_CalendarData;
-EXEC STP_GNR_MembershipPeriods;
-EXEC STP_GNR_MembershipTariffs;
-EXEC STP_GNR_MembershipAllCards;
-EXEC STP_GNR_MembershipOrders;
-
-
+EXEC STP_GNR_LocationCities;
+EXEC STP_GNR_ParkingLots;
+EXEC STP_GNR_StaffPositions;
 EXEC STP_GNR_EmployeesReserve
 EXEC STP_GNR_CurrentEmployees
 EXEC STP_GNR_FiredAttendants
 EXEC STP_GNR_PositionChanges
 EXEC STP_GNR_StaffShifts
 EXEC STP_GNR_SalaryChanges
+EXEC STP_GNR_ParkingSlotSizes;  
+EXEC STP_GNR_ParkingZoneTypes;  
+EXEC STP_GNR_ParkingZones;  
+EXEC STP_GNR_ParkingSlots;
+EXEC STP_GNR_OperationTariffNames
+EXEC STP_HLP_OldOperationTariffs
+EXEC STP_GNR_OperationTariffs
+EXEC STP_GNR_MembershipPeriods;
+EXEC STP_GNR_MembershipTariffs;
+EXEC STP_GNR_ClienteleClients; 
+						     
+EXEC STP_GNR_ClienteleCars
+;
+
+
+   
+
+
+EXEC STP_GNR_MembershipAllCards;
+EXEC STP_GNR_MembershipOrders;
+
+
 
 
 
