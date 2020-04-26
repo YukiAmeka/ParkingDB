@@ -1,4 +1,4 @@
-CREATE PROCEDURE STP_GeneratingCurEmployees
+CREATE PROCEDURE STP_GNR_CurrentEmployees
 AS
 
 BEGIN
