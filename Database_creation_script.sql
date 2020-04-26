@@ -118,7 +118,7 @@ Model varchar(50) NULL
 );
 CREATE TABLE Clientele.Cars(
 CarID int not null PRIMARY KEY IDENTITY,
-Plate char(7) NULL,
+Plate char(7) UNIQUE,
 ClientID int NULL,
 CarModelID int NULL,
 CityID int NULL
