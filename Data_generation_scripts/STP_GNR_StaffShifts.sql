@@ -1,4 +1,4 @@
-CREATE PROCEDURE STP_GeneratingShifts(
+CREATE PROCEDURE STP_GNR_StaffShifts(
 @ShiftEndDate DATE 
 )
 AS 

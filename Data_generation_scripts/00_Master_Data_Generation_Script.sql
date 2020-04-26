@@ -1,6 +1,7 @@
 /* Helper procedures */
 /* CREATE FIRST. DO NOT EXECUTE */
 
+-- STP_HLP_OldOperationTariffs
 -- STP_HLP_BulkCarsInsert	- Add folder path to git csv file !!!
 -- STP_HLP_GenerateRandomTime - Generate random time within given limits
 -- STP_HLP_FindEmployeeOnShift - Find the Employee who is/was on shift at a given Parking Lot at a given date & time
@@ -27,27 +28,27 @@ EXEC STP_GNR_ParkingZoneTypes;
 EXEC STP_GNR_ParkingZones;  
 EXEC STP_GNR_ParkingSlots;
 EXEC STP_GNR_OperationTariffNames
-EXEC STP_HLP_OldOperationTariffs
 EXEC STP_GNR_OperationTariffs
 EXEC STP_GNR_MembershipPeriods;
 EXEC STP_GNR_MembershipTariffs;
-EXEC STP_GNR_ClienteleClients; 
-						     
-EXEC STP_GNR_ClienteleCars
-;
-
-
-   
-
-
+EXEC STP_GNR_ClienteleClients; 						     
+EXEC STP_GNR_ClienteleCars;
 EXEC STP_GNR_MembershipAllCards;
 EXEC STP_GNR_MembershipOrders;
-
-
-
-
-
 EXEC STP_GNR_OperationOrdersUnregularClients
 EXEC STP_GNR_OperationOrdersUnregularRestClients
 EXEC STP_GNR_OperationOrdersMembers
+
+EXEC STP_GNR_MembershipActiveCards
+   
+
+
+
+
+
+
+
+
+
+
 
