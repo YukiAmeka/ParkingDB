@@ -33,10 +33,6 @@ SELECT  Price, TariffID, TariffStartDate, TariffEndDate, z.LotID, z.ZoneID, tn.N
 		ON s.DateEnd = c1.DateID) q
 						
 
-
-
-
-
 DECLARE 
 @ZoneID INT,
 @CarID INT,
@@ -101,7 +97,7 @@ BEGIN
 --##############################################
 -- Using Generation STP
 
-EXECUTE STP_GeneratingDateTime @StartShift = @ShiftStart, 
+EXECUTE STP_HLP_DateTime @StartShift = @ShiftStart, 
                                @EndShift = @ShiftEnd,
 							   @TimeEntry = @TimeEntry OUTPUT,
 							   @TimeExit = @TimeExit OUTPUT,

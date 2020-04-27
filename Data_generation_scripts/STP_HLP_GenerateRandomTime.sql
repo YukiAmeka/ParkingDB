@@ -19,5 +19,5 @@ END
 /* TEST CODE AND EXAMPLE OF USE*/
 
 --DECLARE @PurchaseTime TIME(0)
---EXEC STP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
+--EXEC STP_HLP_GenerateRandomTime @StartTime = '08:00:00', @EndTime = '22:00:00', @RandomTime = @PurchaseTime OUTPUT
 --PRINT @PurchaseTime
