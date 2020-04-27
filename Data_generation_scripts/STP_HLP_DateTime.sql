@@ -41,18 +41,6 @@ END
 
 
 
-DECLARE 
-@timeEntry DATETIME,
-@TimeExit DATETIME,
-@TIMEDIFFERENCE DECIMAL(6,2)
-
-EXECUTE STP_GeneratingDateTime @startShift = '2015-01-01 06:00:00', 
-                               @endShift = '2015-01-02 06:00:00',
-							   @timeEntry = @timeEntry OUTPUT,
-							   @TimeExit = @TimeExit OUTPUT,
-							   @TIMEDIFFERENCE = @TIMEDIFFERENCE OUTPUT
-
-SELECT @timeEntry, @TimeExit, @TIMEDIFFERENCE
 
 
 

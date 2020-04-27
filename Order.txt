@@ -1,5 +1,7 @@
 1. Creating Database structure
 
+1.1 STP_HLP
+
 2. STP_GNR_CalendarData
 
 3. STP_GNR_LocationCities
@@ -44,11 +46,12 @@
 
 23. STP_GNR_MembershipOrders
 
-24. STP_GNR_OperationOrdersUnregularClients  --Set last date (1 year)
+24. STP_GNR_MembershipActiveCards
 
-25. STP_GNR_OperationOrdersUnregularRestClients  --Set last date (1 year)
+25. STP_GNR_OperationOrdersUnregularClients  --Set last date (1 year)
 
-26. STP_GNR_OperationOrdersMembers
+26. STP_GNR_OperationOrdersUnregularRestClients  --Set last date (1 year)
+
+27. STP_GNR_OperationOrdersMembers
 
 
-27. STP_GNR_MembershipActiveCards
