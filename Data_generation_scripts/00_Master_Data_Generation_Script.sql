@@ -12,12 +12,14 @@
 
 
 
+
 /*
 -- STP_HLP_BulkCarsInsert	- Add folder path to git csv file !!!     -- Volodymyr
 */
 
 /* Data generation procedures. Create next */
 /* EXECUTE IN THIS ORDER */
+
 
 EXEC STP_GNR_CalendarData; -- Stas
 EXEC STP_GNR_LocationCities; 
@@ -51,7 +53,8 @@ EXEC STP_GNR_OperationOrdersMembers -- Sergiy\Anna
 
 
 
-   
+
+
 
 
 
