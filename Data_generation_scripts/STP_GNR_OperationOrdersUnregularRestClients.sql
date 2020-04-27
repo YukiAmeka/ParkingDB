@@ -3,6 +3,7 @@ CREATE PROCEDURE STP_GNR_OperationOrdersUnregularRestClients
   AS
 	BEGIN
 
+	-- Creating tempTable to keep and loop all zones 
 CREATE TABLE #Zones (
 ID INT IDENTITY, 
 ZoneID INT)
@@ -10,6 +11,26 @@ ZoneID INT)
 INSERT INTO #Zones (ZoneID)
 SELECT DISTINCT(ZoneID) FROM Operation.Tariffs
 ORDER BY ZoneID
+
+
+SELECT  Price, TariffID, TariffStartDate, TariffEndDate, z.LotID, z.ZoneID, tn.Name 
+    INTO #Tariffs
+		FROM Operation.Tariffs AS t
+		JOIN Parking.Zones AS z
+		ON t.ZoneID = z.ZoneID
+		JOIN Operation.TariffNames AS tn
+		ON tn.TariffNameID = t.TariffNameID
+
+
+	SELECT * INTO #TempShifts
+	FROM(
+		SELECT s.EmployeeID, CAST(c.TheDate AS DATETIME) + CAST(s.TimeStart AS DATETIME) AS DateTimeStart, 
+		CAST(c1.TheDate AS DATETIME)  + CAST(s.TimeEnd AS DATETIME) AS DateTimeEnd
+		FROM Staff.Shifts s
+		JOIN Services.CalendarDates c
+		ON s.DateStart = c.DateID
+		JOIN Services.CalendarDates c1
+		ON s.DateEnd = c1.DateID) q
 
 --TRUNCATE TABLE #Zones
 
@@ -54,7 +75,7 @@ SET @ShiftStart = '2015-01-02 00:00:00'
 SET @ShiftEnd = DATEADD(hh, 6, @ShiftStart)
 
 
-WHILE @DateEntry <= 3              -- WHILE 1
+WHILE @DateEntry <= 365             -- WHILE 1
 BEGIN
 
 	SET @NextZone = 1
@@ -82,12 +103,12 @@ BEGIN
 	SET @TimeCheckStart = '00:00:01'
 	SET @TimeCheckEnd = DATEADD(hh, 3, @TimeCheckStart)
 
-	Print @TimeCheckStart
+	
 
 	WHILE @TimeCheckStart <= '21:00:00'       --WHILE 3
 		BEGIN
 			SET @CarNumber = 0
-			SET @CarOccupied = (SELECT COUNT(*) FROM Operation.OrdersTest
+			SET @CarOccupied = (SELECT COUNT(*) FROM Operation.Orders
 						     WHERE DateEntry = @DateEntry AND TimeEntry >= @TimeCheckStart AND TimeEntry < @TimeCheckEnd AND TimeExit >= @TimeCheckEnd)
 			WHILE  @CarNumber <= (@Capacity - @CarOccupied) *0.8         --WHILE  4
 
@@ -95,9 +116,8 @@ BEGIN
 					
 					--##############################################
 					-- Using Generation STP
-					PRINT @ShiftStart
-					PRINT @ShiftEnd
-					EXECUTE STP_GeneratingDateTime	@StartShift = @ShiftStart, 
+
+					EXECUTE STP_HLP_DateTime        @StartShift = @ShiftStart, 
 													@EndShift = @ShiftEnd,
 													@TimeEntry = @TimeEntry OUTPUT,
 													@TimeExit = @TimeExit OUTPUT,
@@ -109,47 +129,27 @@ BEGIN
 					SET @CurrentTimeExit = CONVERT(TIME(0), @TimeExit)
 
 
-					SET @Tariff1 = (SELECT Price FROM Operation.Tariffs AS t
-								JOIN Parking.Zones AS z
-								ON t.ZoneID = z.ZoneID
-								JOIN Operation.TariffNames AS tn
-								ON tn.TariffNameID = t.TariffNameID
-								WHERE tn.Name = 'DayHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    --DATE!!!!!!!!!!!!!
-								AND z.LotID = @LotID AND z.ZoneID = @ZoneID) 
+					SET @Tariff1 = (SELECT Price FROM  #Tariffs
+								WHERE Name = 'DayHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    --DATE!?
+								AND LotID = @LotID AND ZoneID = @ZoneID)  
 
-					SET @Tariff2 = (SELECT Price FROM Operation.Tariffs AS t
-								JOIN Parking.Zones AS z
-								ON t.ZoneID = z.ZoneID
-								JOIN Operation.TariffNames AS tn
-								ON tn.TariffNameID = t.TariffNameID
-								WHERE tn.Name = 'DayShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      --DATE!!!!!!!!!!!!!
-								AND z.LotID = @LotID AND z.ZoneID = @ZoneID)
+					SET @Tariff2 = (SELECT Price FROM #Tariffs
+								WHERE Name = 'DayShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365     
+								AND LotID = @LotID AND ZoneID = @ZoneID)
 
-					SET @Tariff3 = (SELECT Price FROM Operation.Tariffs AS t
-								JOIN Parking.Zones AS z
-								ON t.ZoneID = z.ZoneID
-								JOIN Operation.TariffNames AS tn
-								ON tn.TariffNameID = t.TariffNameID
-								WHERE tn.Name = 'NightHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    --DATE!!!!!!!!!!!!!
-								AND z.LotID = @LotID AND z.ZoneID = @ZoneID)
+					SET @Tariff3 = (SELECT Price FROM  #Tariffs
+								WHERE Name = 'NightHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    
+								AND LotID = @LotID AND ZoneID = @ZoneID)
 
 
-					SET @Tariff4 = (SELECT Price FROM Operation.Tariffs AS t
-								JOIN Parking.Zones AS z
-								ON t.ZoneID = z.ZoneID
-								JOIN Operation.TariffNames AS tn
-								ON tn.TariffNameID = t.TariffNameID
-								WHERE tn.Name = 'NightShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      --DATE!!!!!!!!!!!!!
-								AND z.LotID = @LotID AND z.ZoneID = @ZoneID)
+					SET @Tariff4 = (SELECT Price FROM #Tariffs
+								WHERE Name = 'NightShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
+								AND LotID = @LotID AND ZoneID = @ZoneID)
 
 
-					SET @Tariff5 = (SELECT Price FROM Operation.Tariffs AS t
-								JOIN Parking.Zones AS z
-								ON t.ZoneID = z.ZoneID
-								JOIN Operation.TariffNames AS tn
-								ON tn.TariffNameID = t.TariffNameID
-								WHERE tn.Name = 'AllDay' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      --DATE!!!!!!!!!!!!!
-								AND z.LotID = @LotID AND z.ZoneID = @ZoneID)
+					SET @Tariff5 = (SELECT Price FROM #Tariffs
+								WHERE Name = 'AllDay' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
+								AND LotID = @LotID AND ZoneID = @ZoneID)
 
 
 --#####################################################
@@ -188,29 +188,28 @@ SET @TotalCost = CEILING(@TimeDifference/24)*@Tariff5
 --####################################################
 
 SET @EmployeeOnEntry = (SELECT s.EmployeeID
-                        FROM Staff.Shifts AS s
+                        FROM #TempShifts AS s
 						JOIN Staff.Employees AS e
 						ON s.EmployeeID = e.EmployeeID
 						JOIN Parking.Lots AS l
 						ON e.LotID = l.LotID
 						JOIN Parking.Zones AS z
 						ON l.LotID = z.LotID
-	                    WHERE s.DateStart = @CurrentDateEntry 
-						AND s.TimeStart > '06:00:00' AND s.TimeEnd < '18:00:00'
+	                    WHERE DateTimeStart <= @TimeEntry  AND DateTimeEnd > @TimeEntry AND (DateTimeEnd < @TimeExit OR DateTimeEnd >@TimeExit )					
 						AND l.LotID = @LotID 
 						AND z.ZoneID = @ZoneID) 
 
 
 SET @EmployeeOnExit = (SELECT s.EmployeeID
-                        FROM Staff.Shifts AS s
+                        FROM #TempShifts AS s
 						JOIN Staff.Employees AS e
 						ON s.EmployeeID = e.EmployeeID
 						JOIN Parking.Lots AS l
 						ON e.LotID = l.LotID
 						JOIN Parking.Zones AS z
 						ON l.LotID = z.LotID
-	                    WHERE s.DateStart = @CurrentDateExit 
-						AND s.TimeStart > '06:00:00' AND s.TimeEnd < '18:00:00'
+	                    WHERE DateTimeStart  <= @TimeExit 
+						AND DateTimeEnd > @TimeEntry AND DateTimeEnd > @TimeExit
 						AND l.LotID = @LotID 
 						AND z.ZoneID = @ZoneID) 
 
@@ -220,7 +219,7 @@ SET @EmployeeOnExit = (SELECT s.EmployeeID
 
 
 
-					INSERT INTO Operation.OrdersTest (ZoneID, CarID, EmployeeOnEntry, DateEntry, TimeEntry, 
+					INSERT INTO Operation.Orders (ZoneID, CarID, EmployeeOnEntry, DateEntry, TimeEntry, 
 													  EmployeeOnExit, DateExit, TimeExit, TotalCost)
 					VALUES (@ZoneID, @CarID, @EmployeeOnEntry, @CurrentDateEntry, @CurrentTimeEntry, 
 													@EmployeeOnExit, @CurrentDateExit, @CurrentTimeExit, @TotalCost)
@@ -239,12 +238,9 @@ SET @EmployeeOnExit = (SELECT s.EmployeeID
 
 			SET @TimeCheckEnd = DATEADD(hh, 3, @TimeCheckStart)
 
-			
-
-
 		
-			 PRINT @ShiftStart
-			 PRINT @ShiftEnd
+
+	
 		END                                                   --WHILE 3
 		
 		SET @NextZone = @NextZone + 1
@@ -256,5 +252,9 @@ SET @EmployeeOnExit = (SELECT s.EmployeeID
 		SET @ShiftStart = DATEADD(dd, 1, @ShiftStart)
 			SET @ShiftEnd = DATEADD(dd, 1, @ShiftEnd)
 END                                                 -- WHILE @DateEntry 1
+
+DROP TABLE #Zones
+DROP TABLE #TempShifts
+DROP TABLE #Tariffs
 
 END
