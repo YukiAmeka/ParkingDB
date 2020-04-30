@@ -116,7 +116,7 @@ END
 
 END
 
- --EXECUTE STP_GNR_StaffShifts @ShiftEndDate = '2020-04-28'
+ --EXECUTE STP_GNR_StaffShifts @ShiftEndDate = '2020-04-30'
 
 
 

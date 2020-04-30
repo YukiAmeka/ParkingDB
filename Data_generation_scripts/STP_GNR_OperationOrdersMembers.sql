@@ -1,4 +1,4 @@
-CREATE PROCEDURE STP_GNR_OperationOrdersMembers
+ALTER PROCEDURE STP_GNR_OperationOrdersMembers
 AS
 
 BEGIN
@@ -43,7 +43,7 @@ SET @LastMemberID = (SELECT IDENT_CURRENT ('[Membership].[Orders]'))
 
 	SET @OrderID = 1
 
- WHILE 	@OrderID <=  @LastMemberID                       --Check amount of MembershipOrders before execution
+ WHILE 	@OrderID <=  2116--@LastMemberID                       --Check amount of MembershipOrders before execution
 
  BEGIN
 
