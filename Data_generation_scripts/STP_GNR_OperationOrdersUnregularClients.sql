@@ -53,6 +53,12 @@ DECLARE
 @Tariff3 decimal(6, 2),
 @Tariff4 decimal(6, 2),
 @Tariff5 decimal(6, 2),
+@TariffID INT,
+@TariffID1 INT,
+@TariffID2 INT,
+@TariffID3 INT,
+@TariffID4 INT,
+@TariffID5 INT,
 @Total decimal(6, 2),
 @TotalCost decimal(6,2),
 @TimeDiff INT,
@@ -117,27 +123,48 @@ BEGIN
 
    -- Get All tariffs for particular lot and zone
  
- SET @Tariff1 = (SELECT Price FROM #Tariffs
-				 WHERE Name = 'DayHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    --DATE!
-				 AND LotID = @LotID AND ZoneID = @ZoneID) 
+					SET @Tariff1 = (SELECT Price FROM  #Tariffs
+								WHERE Name = 'DayHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    --DATE!?
+								AND LotID = @LotID AND ZoneID = @ZoneID)  		
 
- SET @Tariff2 = (SELECT Price FROM #Tariffs
-				 WHERE Name = 'DayShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
-				 AND LotID = @LotID AND ZoneID = @ZoneID)
+					SET @Tariff2 = (SELECT Price FROM #Tariffs
+								WHERE Name = 'DayShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365     
+								AND LotID = @LotID AND ZoneID = @ZoneID)
 
- SET @Tariff3 = (SELECT Price FROM  #Tariffs
-				 WHERE Name = 'NightHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    
-				 AND LotID = @LotID AND ZoneID = @ZoneID)
+					SET @Tariff3 = (SELECT Price FROM  #Tariffs
+								WHERE Name = 'NightHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    
+								AND LotID = @LotID AND ZoneID = @ZoneID)
+
+					SET @Tariff4 = (SELECT Price FROM #Tariffs
+								WHERE Name = 'NightShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
+								AND LotID = @LotID AND ZoneID = @ZoneID)
+
+					SET @Tariff5 = (SELECT Price FROM #Tariffs
+								WHERE Name = 'AllDay' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
+								AND LotID = @LotID AND ZoneID = @ZoneID)
 
 
- SET @Tariff4 = (SELECT Price FROM #Tariffs
-				 WHERE Name = 'NightShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
-				 AND LotID = @LotID AND ZoneID = @ZoneID)
 
 
- SET @Tariff5 = (SELECT Price FROM #Tariffs
-				 WHERE Name = 'AllDay' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
-				 AND LotID = @LotID AND ZoneID = @ZoneID)
+					SET @TariffID1 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'DayHour' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+		
+					SET @TariffID2 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'DayShift' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
+					SET @TariffID3 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'NightHour' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
+					SET @TariffID4 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'NightShift' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
+					SET @TariffID5 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'AllDay' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
 
 
 --#####################################################
@@ -151,9 +178,11 @@ BEGIN
     BEGIN
 			SET @TariffDiff = CEILING(@Tariff2/@Tariff1)
 				IF @TimeDifference < @TariffDiff
-				 SET @TotalCost = @TimeDifference * @Tariff1
+					 SELECT @TotalCost = @TimeDifference * @Tariff1,
+							@TariffID = @TariffID1
 				ELSE
-				 SET @TotalCost = @Tariff2
+					 SELECT @TotalCost = @Tariff2,
+							@TariffID = @TariffID2
 				
 	END	
 	ELSE
@@ -162,21 +191,25 @@ BEGIN
 				BEGIN
 					SET @TariffDiff = CEILING(@Tariff4/@Tariff3)
 					IF @TimeDifference < @TariffDiff
-						SET @TotalCost = @TimeDifference * @Tariff3	
+						SELECT @TotalCost = @TimeDifference * @Tariff3,
+							   @TariffID = @TariffID3	
 					ELSE
-						SET @TotalCost = @Tariff4		
+						SELECT @TotalCost = @Tariff4,
+							   @TariffID = @TariffID4		
 				END
  END
 
 
 
  IF @TimeDifference > 12 AND @TimeDifference <= 24
- SET @TotalCost = @Tariff5
+ SELECT @TotalCost = @Tariff5, 
+		 @TariffID = @TariffID5
 
 
 
  IF @TimeDifference > 24
- SET @TotalCost = CEILING(@TimeDifference/24)*@Tariff5
+  SELECT @TotalCost = CEILING(@TimeDifference/24)*@Tariff5, 
+		@TariffID = @TariffID5
 
 
 --####################################################
@@ -215,8 +248,8 @@ BEGIN
 
 		-- Inseting all generated data in Operation.Orders
 
- INSERT INTO Operation.Orders (ZoneID, CarID, EmployeeOnEntry, DateEntry, TimeEntry, EmployeeOnExit, DateExit, TimeExit, TotalCost)
- VALUES (@ZoneID, @CarID, @EmployeeOnEntry, @CurrentDateEntry, @CurrentTimeEntry, @EmployeeOnExit, @CurrentDateExit, @CurrentTimeExit, @TotalCost)
+ INSERT INTO Operation.Orders (ZoneID, CarID, EmployeeOnEntry, DateEntry, TimeEntry, EmployeeOnExit, DateExit, TimeExit, TotalCost, TariffID)
+ VALUES (@ZoneID, @CarID, @EmployeeOnEntry, @CurrentDateEntry, @CurrentTimeEntry, @EmployeeOnExit, @CurrentDateExit, @CurrentTimeExit, @TotalCost, @TariffID)
 
  SET @CarID = (SELECT TOP(1) c.CarID 
               FROM Clientele.Cars AS c
