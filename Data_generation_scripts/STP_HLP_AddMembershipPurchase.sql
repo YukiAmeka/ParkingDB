@@ -1,5 +1,4 @@
 /* Adds 1 record about a Membership Card purchase into Mambership.Orders table */
-
 CREATE PROCEDURE STP_HLP_AddMembershipPurchase
 (
     @PurchaseDate DATE

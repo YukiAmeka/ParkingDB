@@ -1,7 +1,6 @@
 /* Generate info about possible prior membership cards' purchases by 1 client.
 The procedure goes backwards in time (earliest record can be on 2015-06-01).
 The likelihood that the client had older cards drops off further in the past */
-
 CREATE PROCEDURE STP_HLP_ClientsExpiredMembership
 (
     @LotID INT
