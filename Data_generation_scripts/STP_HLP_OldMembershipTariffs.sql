@@ -5,7 +5,7 @@ CREATE PROCEDURE STP_HLP_OldMembershipTariffs
 (
         @TariffStartDate as DATE,
         @TariffEndDate as DATE,
-		@ChangeProc DECIMAL
+		@ChangeProc DECIMAL(4,2)
 )
 
 AS

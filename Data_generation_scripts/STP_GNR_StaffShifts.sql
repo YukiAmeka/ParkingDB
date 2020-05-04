@@ -1,17 +1,17 @@
 CREATE PROCEDURE STP_GNR_StaffShifts(
-@ShiftEndDate DATE 
+@ShiftEndDate DATE
 )
-AS 
+AS
 
 BEGIN
 
 -- DELETE FROM Staff.Shifts
 -- DBCC CHECKIDENT('Staff.Shifts', RESEED, 0)
 
-DECLARE 
+DECLARE
 @CurAttendantsID int,
 @FirstDateID int,
-@K int, 
+@K int,
 @EntryDay int,
 @ExitDay int,
 @LotID int,
@@ -22,7 +22,7 @@ DECLARE
 -- Control four shifts of parking attendant
 SET @K = 0
 
--- Create cycle to insert data into Staff.Shifts 
+-- Create cycle to insert data into Staff.Shifts
 
 SET @LotID = 1
 
@@ -35,7 +35,7 @@ SET @LastDateID = (SELECT DateID FROM Services.CalendarDates
 
 WHILE
 @FirstDateID <= @LastDateID
-  BEGIN 
+  BEGIN
 	  IF @K = 3
 	    BEGIN
 		SET @FirstDateID = @FirstDateID + 1
@@ -47,7 +47,7 @@ WHILE
 									     ( DateFired IS NOT NULL AND DateHired <=  @FirstDateID AND DateFired >= @FirstDateID))
 
 					ORDER BY EmployeeID
-					OFFSET @K ROWS FETCH NEXT 1 ROWS ONLY)		
+					OFFSET @K ROWS FETCH NEXT 1 ROWS ONLY)
 
 			         SET @EntryDay = @FirstDateID
 					 SET @ExitDay = @FirstDateID + 1
@@ -69,15 +69,15 @@ WHILE
 									     ( DateFired IS NOT NULL AND DateHired <=  @FirstDateID AND DateFired >= @FirstDateID))
 					ORDER BY EmployeeID
 					OFFSET @K ROWS FETCH NEXT 1 ROWS ONLY)
-		
-			    
+
+
 				IF @K = 0
 	              BEGIN
 				     SET @EntryDay = @FirstDateID
 					 SET @ExitDay = @FirstDateID
 					 INSERT INTO [Staff].[Shifts] (EmployeeID, DateStart, TimeStart, DateEnd, TimeEnd  )
 	                 VALUES (@CurAttendantsID, @EntryDay, '06:00:00', @ExitDay, '18:00:00' )
-		
+
 		          END
 
 				IF @K = 1
@@ -86,7 +86,7 @@ WHILE
 					 SET @ExitDay = @FirstDateID + 1
 					 INSERT INTO [Staff].[Shifts] (EmployeeID, DateStart, TimeStart, DateEnd, TimeEnd  )
 	                 VALUES (@CurAttendantsID, @EntryDay, '18:00:00', @ExitDay, '06:00:00' )
-		
+
 		          END
 
 				IF @K = 2
@@ -95,28 +95,28 @@ WHILE
 					 SET @ExitDay = @FirstDateID + 1
 					 INSERT INTO [Staff].[Shifts] (EmployeeID, DateStart, TimeStart, DateEnd, TimeEnd  )
 	                 VALUES (@CurAttendantsID, @EntryDay, '06:00:00', @ExitDay, '18:00:00' )
-		
+
 		          END
-				  				   
+
 
 	          --SELECT * FROM @CurAttendants
 			  SET @K = @K +1
-              
+
           END
-  
- 
- 
- 
+
+
+
+
   --SET @FirstDateID = @FirstDateID + 1
-  
+
   END
 SET @LotID = @LotID + 1
 SET @FirstDateID = 1
 END
 
 END
- 
- --EXECUTE STP_GeneratingShifts @ShiftEndDate = '2020-04-28'
+
+ --EXECUTE STP_GNR_StaffShifts @ShiftEndDate = '2020-04-30'
 
 
 

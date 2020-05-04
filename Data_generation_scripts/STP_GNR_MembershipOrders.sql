@@ -161,11 +161,8 @@ BEGIN
     /* Sort #MOrders chronologically and copy all data into Membership.Orders */
     INSERT INTO Membership.Orders
     SELECT LotID, EmployeeID, AllCardID, ClientID, PurchaseDate, PurchaseTime, TariffID, ExpiryDate FROM #MOrders
+    WHERE PurchaseDate >= '2015-01-01' AND TariffID IS NOT NULL
     ORDER BY PurchaseDate, PurchaseTime
-
-    /* Purge data that is outside of set parameters */
-    DELETE FROM Membership.Orders
-        WHERE PurchaseDate < '2015-01-01' OR TariffID IS NULL
 
     /* Post-processing of table Parking.Zones: fill in MemberReservedSlots with up-to-date info */
     SET @TargetDate = (SELECT CONVERT(DATE, getdate())) -- the date of data generation
@@ -181,16 +178,21 @@ BEGIN
         SET @ZoneCounter += 1
     END
 
-    /* Post-processing of table Clientele.Clients: delete unused records;
-    mark only clients that have active cards to date as current ones */
-    /*DELETE FROM Clientele.Clients WHERE CityID IS NULL */
-
+    /* Post-processing of table Clientele.Clients:
+    mark only clients that have active cards to date as current ones;
+    fill in the remaining NULL entries in CityID column */
     UPDATE Clientele.Clients
         SET IsCurrent = 0
     UPDATE Clientele.Clients
         SET IsCurrent = 1
         WHERE ClientID IN (SELECT ClientID FROM Membership.Orders
             WHERE @TargetDate BETWEEN PurchaseDate AND ExpiryDate)
+
+    UPDATE Clientele.Clients
+	SET CityID = (SELECT TOP 1 v
+		FROM (VALUES(1), (11), (21), (31), (41), (51), (61), (71)) t(v)
+		ORDER BY NEWID())
+	WHERE CityID IS NULL
 
     /* Drop all temporary objects */
     DROP TABLE #MOrders

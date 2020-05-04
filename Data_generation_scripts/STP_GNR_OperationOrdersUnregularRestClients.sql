@@ -3,7 +3,8 @@ CREATE PROCEDURE STP_GNR_OperationOrdersUnregularRestClients
   AS
 	BEGIN
 
-	-- Creating tempTable to keep and loop all zones 
+		-- Creating tempTable to keep and loop through all zones 
+
 CREATE TABLE #Zones (
 ID INT IDENTITY, 
 ZoneID INT)
@@ -12,6 +13,7 @@ INSERT INTO #Zones (ZoneID)
 SELECT DISTINCT(ZoneID) FROM Operation.Tariffs
 ORDER BY ZoneID
 
+		-- Creating tempTable #Tariffs to keep all tariffs with price and other information
 
 SELECT  Price, TariffID, TariffStartDate, TariffEndDate, z.LotID, z.ZoneID, tn.Name 
     INTO #Tariffs
@@ -21,6 +23,7 @@ SELECT  Price, TariffID, TariffStartDate, TariffEndDate, z.LotID, z.ZoneID, tn.N
 		JOIN Operation.TariffNames AS tn
 		ON tn.TariffNameID = t.TariffNameID
 
+		-- Creating #TempShifts and converting DATE and TIME into DATETIME
 
 	SELECT * INTO #TempShifts
 	FROM(
@@ -54,6 +57,12 @@ DECLARE
 @Tariff3 decimal(6, 2),
 @Tariff4 decimal(6, 2),
 @Tariff5 decimal(6, 2),
+@TariffID INT,
+@TariffID1 INT,
+@TariffID2 INT,
+@TariffID3 INT,
+@TariffID4 INT,
+@TariffID5 INT,
 @Total decimal(6, 2),
 @TotalCost decimal(6,2),
 @TimeDiff INT,
@@ -68,15 +77,15 @@ DECLARE
 
 
 
---Check the capacity every 3h
-SET @DateEntry = 2
+	--Check the capacity every 3h
+ SET @DateEntry = 2
 
-SET @ShiftStart = '2015-01-02 00:00:00'
-SET @ShiftEnd = DATEADD(hh, 6, @ShiftStart)
+ SET @ShiftStart = '2015-01-02 00:00:00'
+ SET @ShiftEnd = DATEADD(hh, 6, @ShiftStart)
 
 
-WHILE @DateEntry <= 365             -- WHILE 1
-BEGIN
+ WHILE @DateEntry <= 365             -- WHILE 1   (Set last date of generation)
+ BEGIN
 
 	SET @NextZone = 1
 
@@ -128,10 +137,12 @@ BEGIN
 					SET @CurrentDateExit = (SELECT DateID FROM Services.CalendarDates WHERE TheDate = (CONVERT(Date, @TimeExit)))  
 					SET @CurrentTimeExit = CONVERT(TIME(0), @TimeExit)
 
+					
+					-- Get All tariffs and TariffId for particular lot and zone
 
 					SET @Tariff1 = (SELECT Price FROM  #Tariffs
 								WHERE Name = 'DayHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    --DATE!?
-								AND LotID = @LotID AND ZoneID = @ZoneID)  
+								AND LotID = @LotID AND ZoneID = @ZoneID)  		
 
 					SET @Tariff2 = (SELECT Price FROM #Tariffs
 								WHERE Name = 'DayShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365     
@@ -141,30 +152,54 @@ BEGIN
 								WHERE Name = 'NightHour' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365    
 								AND LotID = @LotID AND ZoneID = @ZoneID)
 
-
 					SET @Tariff4 = (SELECT Price FROM #Tariffs
 								WHERE Name = 'NightShift' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
 								AND LotID = @LotID AND ZoneID = @ZoneID)
-
 
 					SET @Tariff5 = (SELECT Price FROM #Tariffs
 								WHERE Name = 'AllDay' AND TariffStartDate <= @CurrentDateEntry AND TariffEndDate <= 365      
 								AND LotID = @LotID AND ZoneID = @ZoneID)
 
 
+
+
+
+					SET @TariffID1 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'DayHour' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+		
+					SET @TariffID2 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'DayShift' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
+					SET @TariffID3 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'NightHour' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
+					SET @TariffID4 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'NightShift' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate 
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
+					SET @TariffID5 = (SELECT TariffID FROM  #Tariffs
+							WHERE Name = 'AllDay' AND @CurrentDateEntry BETWEEN TariffStartDate  AND TariffEndDate
+							AND LotID = @LotID AND ZoneID = @ZoneID) 
+
 --#####################################################
---Calculating TotalCost
+	--Calculating TotalCost
 
+	--Compare tariffs and get the lowest one
 
-IF @TimeDifference <= 12
-BEGIN                                    
+  IF @TimeDifference <= 12
+  BEGIN                                    
 	IF @CurrentTimeEntry BETWEEN '06:00:00' AND '17:59:59'
 		BEGIN
 			SET @TariffDiff = CEILING(@Tariff2/@Tariff1)
 			IF @TimeDifference < @TariffDiff
-				SET @TotalCost = @TimeDifference * @Tariff1
+				SELECT @TotalCost = @TimeDifference * @Tariff1,
+					   @TariffID = @TariffID1
 			ELSE
-				SET @TotalCost = @Tariff2
+				SELECT @TotalCost = @Tariff2,
+					   @TariffID = @TariffID2
 		END	
 	ELSE
 			IF (@CurrentTimeEntry > '18:00:00' AND @CurrentTimeEntry <= '23:59:59') 
@@ -172,22 +207,29 @@ BEGIN
 				BEGIN
 					SET @TariffDiff = CEILING(@Tariff4/@Tariff3)
 					IF @TimeDifference < @TariffDiff
-						SET @TotalCost = @TimeDifference * @Tariff3	
+
+						SELECT @TotalCost = @TimeDifference * @Tariff3,
+							   @TariffID = @TariffID3
 					ELSE
-						SET @TotalCost = @Tariff4		
+
+						SELECT @TotalCost = @Tariff4,
+							   @TariffID = @TariffID4		
 				END
-END
+ END
 
-IF @TimeDifference > 12 AND @TimeDifference <= 24
-SET @TotalCost = @Tariff5
+  IF @TimeDifference > 12 AND @TimeDifference <= 24
+  SELECT @TotalCost = @Tariff5, 
+		 @TariffID = @TariffID5
 
-IF @TimeDifference > 24
-SET @TotalCost = CEILING(@TimeDifference/24)*@Tariff5
+  IF @TimeDifference > 24
+ SELECT @TotalCost = CEILING(@TimeDifference/24)*@Tariff5, 
+		@TariffID = @TariffID5
 
 
 --####################################################
 
-SET @EmployeeOnEntry = (SELECT s.EmployeeID
+	 -- Compare car time entry and get employee that was on shift in that time
+	SET @EmployeeOnEntry = (SELECT s.EmployeeID
                         FROM #TempShifts AS s
 						JOIN Staff.Employees AS e
 						ON s.EmployeeID = e.EmployeeID
@@ -198,9 +240,9 @@ SET @EmployeeOnEntry = (SELECT s.EmployeeID
 	                    WHERE DateTimeStart <= @TimeEntry  AND DateTimeEnd > @TimeEntry AND (DateTimeEnd < @TimeExit OR DateTimeEnd >@TimeExit )					
 						AND l.LotID = @LotID 
 						AND z.ZoneID = @ZoneID) 
+	-- Compare car time exit and get employee that was on shift in that time
 
-
-SET @EmployeeOnExit = (SELECT s.EmployeeID
+	SET @EmployeeOnExit = (SELECT s.EmployeeID
                         FROM #TempShifts AS s
 						JOIN Staff.Employees AS e
 						ON s.EmployeeID = e.EmployeeID
@@ -217,15 +259,14 @@ SET @EmployeeOnExit = (SELECT s.EmployeeID
 
 
 
+				-- Inseting all generated data in Operation.Orders
 
+	INSERT INTO Operation.Orders (ZoneID, CarID, EmployeeOnEntry, DateEntry, TimeEntry, EmployeeOnExit, DateExit, TimeExit, TotalCost, TariffID)											  
+	VALUES (@ZoneID, @CarID, @EmployeeOnEntry, @CurrentDateEntry, @CurrentTimeEntry, @EmployeeOnExit, @CurrentDateExit, @CurrentTimeExit, @TotalCost, @TariffID)
+						
+		SET @CarNumber = @CarNumber + 1
 
-					INSERT INTO Operation.Orders (ZoneID, CarID, EmployeeOnEntry, DateEntry, TimeEntry, 
-													  EmployeeOnExit, DateExit, TimeExit, TotalCost)
-					VALUES (@ZoneID, @CarID, @EmployeeOnEntry, @CurrentDateEntry, @CurrentTimeEntry, 
-													@EmployeeOnExit, @CurrentDateExit, @CurrentTimeExit, @TotalCost)
-					SET @CarNumber = @CarNumber + 1
-
-					SET @CarID = (SELECT TOP(1) c.CarID 
+			  SET @CarID = (SELECT TOP(1) c.CarID 
               FROM Clientele.Cars AS c
 			  JOIN Parking.Lots AS l
 			  ON c.CityID = l.CityID
@@ -239,22 +280,20 @@ SET @EmployeeOnExit = (SELECT s.EmployeeID
 			SET @TimeCheckEnd = DATEADD(hh, 3, @TimeCheckStart)
 
 		
-
+		--Increase cycles
 	
-		END                                                   --WHILE 3
-		
-		SET @NextZone = @NextZone + 1
+		END                                                   --WHILE 3		
+		  SET @NextZone = @NextZone + 1
 
 	END                                                   --WHILE 2
 
 	SET @DateEntry = @DateEntry + 1
-
 		SET @ShiftStart = DATEADD(dd, 1, @ShiftStart)
 			SET @ShiftEnd = DATEADD(dd, 1, @ShiftEnd)
-END                                                 -- WHILE @DateEntry 1
+ END                                                 -- WHILE @DateEntry 1
 
 DROP TABLE #Zones
 DROP TABLE #TempShifts
 DROP TABLE #Tariffs
 
-END
+ END

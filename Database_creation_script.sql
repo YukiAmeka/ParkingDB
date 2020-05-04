@@ -177,6 +177,7 @@ CREATE TABLE Operation.Orders(
     DateExit int NULL,
     TimeExit time(0) NULL,
     TotalCost decimal(6, 2) NULL,
+	TariffID int NULL,
     AllCardID int NULL
 );
 
@@ -282,6 +283,9 @@ ADD FOREIGN KEY (AllCardID) REFERENCES Membership.AllCards(AllCardID);
 
 ALTER TABLE Operation.Orders
 ADD FOREIGN KEY (CarID) REFERENCES Clientele.Cars(CarID);
+
+ALTER TABLE Operation.Orders
+ADD FOREIGN KEY (TariffID) REFERENCES Operation.Tariffs(TariffID);
 
 ALTER TABLE Operation.Orders
 ADD FOREIGN KEY (EmployeeOnEntry) REFERENCES Staff.Employees(EmployeeID);
