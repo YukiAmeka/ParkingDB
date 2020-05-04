@@ -1,4 +1,4 @@
-ALTER PROCEDURE STP_GNR_OperationOrdersMembers
+create PROCEDURE STP_GNR_OperationOrdersMembers
 AS
 
 BEGIN
