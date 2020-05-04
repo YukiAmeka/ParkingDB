@@ -173,7 +173,8 @@ UPDATE Operation.Orders
 	SET EmployeeOnExit = @EmployeeOnExitID,
 		DateExit = @DateExitID,
 		TimeExit = @TimeExit,
-		TotalCost = @TotalCost
+		TotalCost = @TotalCost,
+		TarriffID = @TariffID
 	WHERE OrderID = @OrderID
 
 -----------END PROCEDURE---------------
