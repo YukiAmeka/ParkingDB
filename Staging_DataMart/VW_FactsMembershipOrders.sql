@@ -1,5 +1,5 @@
 CREATE VIEW VW_FactsMembershipOrders
-
+AS
 SELECT O.OrderID,Z.ZoneID,T.TariffID,A.AllCardID,C.ClientID, PurchaseDate,PurchaseTime FROM Membership.Orders O
 INNER JOIN Membership.AllCards A ON O.AllCardID = A.AllCardID
 INNER JOIN Clientele.Clients C ON O.ClientID =c.ClientID 
