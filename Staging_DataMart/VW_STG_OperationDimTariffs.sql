@@ -6,7 +6,6 @@ SELECT t.TariffID
 	, tn.Name AS TariffName
 	, c.CityName AS City
 	, l.LotName AS ParkingName
-	, zt.ZoneTypeName AS ZoneType
 	, s.SlotDescription AS SlotType
 	, t.Price
 	, cd1.TheDate AS TariffStartDate
