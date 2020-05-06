@@ -6,12 +6,12 @@ Short description: Return AllCardID if the card unused; add a new one if doesn't
                     If non-valid data is entered - rollback & return 0
 Initial ticket number:
 Modifications: <date>, <user>[, <ticket number>] - <changes description> ...
-Sample execution: EXEC @AllCardID = STP_PickOrAddNewCard 1944223, 78
+Sample execution: EXEC @AllCardID = STP_PickOrInsertNewCard 1944223, 78
 */
 -- ===================================================================================================================================================
 
 
-ALTER PROCEDURE STP_PickOrAddNewCard
+ALTER PROCEDURE STP_PickOrInsertNewCard
 (
     @MemberCardNumber INT
     , @TariffID INT
