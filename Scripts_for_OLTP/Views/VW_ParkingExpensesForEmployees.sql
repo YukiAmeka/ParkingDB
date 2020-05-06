@@ -1,9 +1,9 @@
-ALTER VIEW VW_ParkingCostsForEmployees
+CREATE VIEW VW_ParkingCostsForEmployees
 AS
 WITH CTE_ParkingCostsForEmployees(LotName, Position, Salary, [Count Positions], [Cost By Positions])
 		AS
 		(
-			SELECT TOP 1000  L.LotName,  P.Title AS Position, AVG(E.Salary) AS Salary,
+			SELECT TOP 1000 L.LotName,  P.Title AS Position, AVG(E.Salary) AS Salary,
 			COUNT(P.Title) AS [Count Position], 
 			SUM(E.Salary) AS [Total Cost] 
 			FROM [Staff].[Employees] AS E
@@ -15,7 +15,9 @@ WITH CTE_ParkingCostsForEmployees(LotName, Position, Salary, [Count Positions], 
 			ON E.CityID = C.CityID
 			GROUP BY  L.LotName, P.Title
 			ORDER BY L.LotName, Position
-		),
+		)
+		SELECT * FROM CTE_ParkingCostsForEmployees
+		,
 		CTE_ParkingCostsForEmployees2 AS 
 		(
 			SELECT TOP 1000  CTE.LotName, CTE.Position, CTE.Salary, CTE.[Count Positions], CTE.[Cost By Positions],
