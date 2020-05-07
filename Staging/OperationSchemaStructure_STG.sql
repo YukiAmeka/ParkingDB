@@ -45,7 +45,7 @@ CREATE TABLE Operation.FactsOrders(
 	OrderID NVARCHAR(255),
 	ZoneID NVARCHAR(255),
 	CarID NVARCHAR(255),
-	IsCurrent NVARCHAR(255),
+	IsRegular NVARCHAR(255),
 	TariffID NVARCHAR(255),
 	DateTimeEntry NVARCHAR(255),
 	DateTimeExit NVARCHAR(255),
