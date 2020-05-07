@@ -45,12 +45,12 @@ CREATE TABLE Staff.DimEmployees (
 );
 
 
-ALTER TABLE Staff.FactsEmployeesHistory
-ADD FOREIGN KEY (ManagerID) REFERENCES Staff.DimEmployees(EmployeeID);
+--ALTER TABLE Staff.FactsEmployeesHistory
+--ADD FOREIGN KEY (ManagerID) REFERENCES Staff.DimEmployees(EmployeeID);
 
-ALTER TABLE Staff.FactsEmployeesHistory
-ADD FOREIGN KEY (BusinessID) REFERENCES Staff.DimEmployees(EmployeeID);
+--ALTER TABLE Staff.FactsEmployeesHistory
+--ADD FOREIGN KEY (BusinessID) REFERENCES Staff.DimEmployees(EmployeeID);
 
-ALTER TABLE Staff.FactsEmployeesHistory
-ADD FOREIGN KEY (LotID) REFERENCES Staff.DimLots(LotID);
+--ALTER TABLE Staff.FactsEmployeesHistory
+--ADD FOREIGN KEY (LotID) REFERENCES Staff.DimLots(LotID);
 
