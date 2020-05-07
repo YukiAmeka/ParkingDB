@@ -5,7 +5,7 @@ CREATE TABLE Operation.DimClientsCars(
 	ClientID NVARCHAR(255),
 	FirstName NVARCHAR(255),
 	Surname NVARCHAR(255),
-	Gender NVARCHAR(255)L,
+	Gender NVARCHAR(255),
 	Telephone NVARCHAR(255),
 	Email NVARCHAR(255),
 	CityName NVARCHAR(255),
