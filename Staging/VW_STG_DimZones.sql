@@ -1,6 +1,6 @@
 CREATE VIEW VW_STG_DimZones
 AS
-SELECT z.ZoneID, c.CityName AS City, l.LotID AS ParkingID, l.LotName As Parking_Name, ss.SlotDescription as Slot_Type, z.Capacity, 
+SELECT z.ZoneID, c.CityName, l.LotName, zt.ZoneTypeName, z.Capacity, ss.SlotDescription,  
 	l.Address, l.PhoneNumber, l.Email
 	FROM Parking.Zones z
 	JOIN Parking.Lots l ON l.LotID = z.LotID
