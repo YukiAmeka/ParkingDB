@@ -10,7 +10,7 @@ CREATE TABLE Operation.DimClientsCars(
 	Email NVARCHAR(255),
 	CityName NVARCHAR(255),
 	HomeAddress NVARCHAR(255),
-	CurrentMember NVARCHAR(255),
+	IsCurrent NVARCHAR(255),
 	Plate NVARCHAR(255),
 	Brand NVARCHAR(255),
 	Model NVARCHAR(255),
