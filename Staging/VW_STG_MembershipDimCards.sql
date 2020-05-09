@@ -1,4 +1,4 @@
-﻿CREATE VIEW VW_DimCards
+﻿CREATE VIEW VW_STG_MembershipDimCards
 AS
 SELECT
  Membership.AllCards.AllCardID

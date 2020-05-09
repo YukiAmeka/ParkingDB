@@ -1,8 +1,8 @@
 
-CREATE VIEW VW_DimTariffs
+CREATE VIEW VW_STG_MembershipDimTariffs
 AS
 
-SELECT 
+SELECT
  TariffID
 ,ZoneTypeName
 ,SlotDescription
@@ -13,7 +13,7 @@ SELECT
 ,StartDate
 ,EndDate
 
-FROM Membership.Tariffs 
+FROM Membership.Tariffs
 LEFT JOIN Parking.Zones ON Membership.Tariffs.ZoneID = Parking.Zones.ZoneID
 LEFT JOIN Parking.ZoneTypes ON Parking.Zones.ZoneTypeID = Parking.ZoneTypes.ZoneTypeID
 LEFT JOIN Parking.SlotSizes ON Parking.ZoneTypes.SlotSizeID = Parking.SlotSizes.SlotSizeID
