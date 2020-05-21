@@ -1,4 +1,4 @@
-CREATE VIEW  [dbo].[VW_STG_FactsOperationOrders2]
+CREATE VIEW  [dbo].[VW_STG_FactsOperationOrders]
 AS
  	 SELECT  o.OrderID, o.ZoneID, o.CarID,
 		CAST(c.TheDate AS DATETIME) + CAST(o.TimeEntry AS DATETIME) AS DateTimeEntry, 

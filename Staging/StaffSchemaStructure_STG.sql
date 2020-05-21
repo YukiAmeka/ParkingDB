@@ -1,8 +1,3 @@
-CREATE DATABASE Lv_501_Parking_DataMart_Emp
-GO
-
-USE Lv_501_Parking_DataMart_Emp
-GO
 
 CREATE SCHEMA Staff
 GO 
