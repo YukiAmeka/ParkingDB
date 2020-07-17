@@ -1,0 +1,1402 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/15/2020 9:11:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\alevchtc"
+  DTS:DTSID="{9D7C9865-C7DB-4574-AE63-DCCCCF7C8BE1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TXT_MembershipDimClients"
+  DTS:PackageType="5"
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{FD1B01B9-AAD5-4C9E-8075-D7BA2B734B5F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Encrypted]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{15E4B849-210E-443D-9859-EE977D2AA53C}"
+      DTS:ObjectName="Encrypted">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FilePath] + @[User::FileStatus] +  @[User::FileName] + ".gpg"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\alevchtc\Documents\Visual Studio 2019\Parking files\Pending\MembershipDimClients_2020-07-09.txt.gpg">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientID"
+              DTS:DTSID="{33A172F8-A172-445C-A2B2-62A57CBF1A93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{B045C0E6-AA39-43B7-A31C-6483269C15EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surname"
+              DTS:DTSID="{2CB0B53E-4E19-4D7F-A832-B54A3A82163E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{52B6C4BE-14B7-4010-BCF6-45806F0CF10A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telephone"
+              DTS:DTSID="{76DB4CAA-0F09-4349-AB00-9BEB1AB44B8C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{F2B742E0-EE7D-4F0C-A952-E491C988C06F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HomeAddress"
+              DTS:DTSID="{11A82AF0-ED45-42DA-9902-0EA96E700051}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{3F08A9D0-D991-40AB-8214-6C5781FF9EB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstPurchaseDate"
+              DTS:DTSID="{BED73DE6-C916-462F-9B18-A3DCBC3B6421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LatestExpiryDate"
+              DTS:DTSID="{793C3146-F379-4B95-AE6E-5E4549BB0C52}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Pending]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7F02B823-B146-44A9-B830-BB302C4D113E}"
+      DTS:ObjectName="Pending">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FilePath] +  @[User::FileStatus] +  @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\alevchtc\Documents\Visual Studio 2019\Parking files\Pending\MembershipDimClients_2020-07-09.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientID"
+              DTS:DTSID="{9D05F2AF-271A-49A4-8A67-8FCF79975DF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{6256C6A3-AFC5-443D-A534-0B3F1D112CE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surname"
+              DTS:DTSID="{F024D54A-2FD7-462C-99C8-AD35E995A74B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{AD701249-E23C-4D4D-92A1-009706402143}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telephone"
+              DTS:DTSID="{363932A1-5A50-458E-86CC-F1C519B6A631}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{0E2A9F78-A907-42C1-8CA8-F0E7873D64FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HomeAddress"
+              DTS:DTSID="{EC991F51-C6D5-45BB-9CF5-0A8DC5368A2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{79F16876-BE69-4A71-AC35-B55789FB698B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstPurchaseDate"
+              DTS:DTSID="{3B18EDA8-3E74-4539-895F-9CF0251BA05D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LatestExpiryDate"
+              DTS:DTSID="{D00161D8-E8B8-4309-9CF2-2BAF79820B3D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B9F68D97-554D-4008-8B69-41934743C701}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;MembershipDimClients&quot; + &quot;_&quot; + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE() + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MembershipDimClients_2020-07-09.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D02ADBE9-C119-4D2F-9A7F-3375942C126C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\alevchtc\Documents\Visual Studio 2019\Parking files\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1796E8EF-30E2-4E57-A61F-267C1DCC23DC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileStatus">
+      <DTS:VariableValue
+        DTS:DataType="8">Pending\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40A5FADE-3F13-4920-B014-DB2C28825E68}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{058B9F3C-8B39-4BA7-92A4-2C4780273078}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2B21E4CB-98F3-4999-8CDC-81403C8E5CC4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Encrypt flat file"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{be9b09a2-af38-4006-8491-07488a0f7772}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Encrypt flat file"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">"--recipient \"alevchtc\" --output " + "\"" + @[User::FileName] + ".gpg\" " + "--encrypt " + "\"" + @[User::FileName] + "\""</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="WorkingDirectory">@[User::FilePath] +  @[User::FileStatus]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files (x86)\gnupg\bin\gpg.exe"
+          Arguments="--recipient &quot;alevchtc&quot; --output &quot;MembershipDimClients_2020-07-09.txt.gpg&quot; --encrypt &quot;MembershipDimClients_2020-07-09.txt&quot;"
+          WorkingDirectory="C:\Users\alevchtc\Documents\Visual Studio 2019\Parking files\Pending\"
+          WindowStyle="Hidden" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load data from RDB into TXT file"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{57B31C80-9A8E-408F-BF33-996AA3D7527A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load data from RDB into TXT file"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load data from RDB into TXT file.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{3E44679F-D79E-48D8-B756-94FE23CCBABA}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{CF2E59A1-FCD6-49EB-BF53-ADD0CD589799}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="MembershipDimClients TXT file"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Pending]"
+                  connectionManagerRefId="Package.ConnectionManagers[Pending]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[ClientID]"
+                      cachedDataType="i4"
+                      cachedName="ClientID"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[ClientID]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[ClientID]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[Surname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Surname"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Surname]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Surname]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Telephone"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Telephone]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Telephone]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[HomeAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="HomeAddress"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[HomeAddress]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[HomeAddress]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[FirstPurchaseDate]"
+                      cachedDataType="dbDate"
+                      cachedName="FirstPurchaseDate"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[FirstPurchaseDate]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]" />
+                    <inputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].Columns[LatestExpiryDate]"
+                      cachedDataType="dbDate"
+                      cachedName="LatestExpiryDate"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[LatestExpiryDate]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[FirstPurchaseDate]"
+                      dataType="dbDate"
+                      name="FirstPurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input].ExternalColumns[LatestExpiryDate]"
+                      dataType="dbDate"
+                      name="LatestExpiryDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="MembershipDimClients View in Parking RDB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[VW_STG_MembershipDimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Connections[OleDbConnection]"
+                  connectionManagerID="{426B12FF-562F-45B7-8E06-26FDBA7FEC6F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ParkingRDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      name="ClientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="100"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      length="100"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Surname]"
+                      name="Surname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Telephone]"
+                      length="15"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Telephone]"
+                      name="Telephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="100"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[HomeAddress]"
+                      length="200"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[HomeAddress]"
+                      name="HomeAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      length="50"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[FirstPurchaseDate]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]"
+                      name="FirstPurchaseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[LatestExpiryDate]"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]"
+                      name="LatestExpiryDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[FirstPurchaseDate]"
+                      dataType="dbDate"
+                      name="FirstPurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output].ExternalColumns[LatestExpiryDate]"
+                      dataType="dbDate"
+                      name="LatestExpiryDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      dataType="i4"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      name="ClientID" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      name="Surname" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Telephone]"
+                      name="Telephone" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[HomeAddress]"
+                      name="HomeAddress" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[FirstPurchaseDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[FirstPurchaseDate]"
+                      name="FirstPurchaseDate" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[LatestExpiryDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[LatestExpiryDate]"
+                      name="LatestExpiryDate" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from RDB into TXT file\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsInserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load data from RDB into TXT file\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from RDB into TXT file\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Load data from RDB into TXT file\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load data from RDB into TXT file.Paths[OLE DB Source Output]"
+              endId="Package\Load data from RDB into TXT file\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load data from RDB into TXT file.Paths[Row Count Output 1]"
+              endId="Package\Load data from RDB into TXT file\MembershipDimClients TXT file.Inputs[Flat File Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Load data from RDB into TXT file\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PostExecute Insert Log Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{02067E44-BE45-4F41-89E7-15F397CBE2A1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PostExecute Insert Log Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A22CF642-6C8A-4BA8-9699-29584530372F}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PreExecute Insert Log Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{437F03A1-F11F-4922-BFA1-BD87BAB7C97B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PreExecute Insert Log Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A22CF642-6C8A-4BA8-9699-29584530372F}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove old source file if any"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{14396729-B0C9-408C-A37B-24BD3A95F242}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove old source file if any"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{15E4B849-210E-443D-9859-EE977D2AA53C}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove source file"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{999D48D4-231E-47E7-B24C-769444E57060}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove source file"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{7F02B823-B146-44A9-B830-BB302C4D113E}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FE3D6870-B7DB-4213-9775-1B4A776CFB20}"
+      DTS:From="Package\PreExecute Insert Log Info"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load data from RDB into TXT file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2975BC8D-7C36-4FBF-9277-456E2C1CD4A5}"
+      DTS:From="Package\PreExecute Insert Log Info"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Remove old source file if any" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6463F3BC-1228-4677-9770-A401DAEAC37D}"
+      DTS:From="Package\Encrypt flat file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Remove source file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{D3F9B712-EB28-4303-86CF-C848AFD05E55}"
+      DTS:From="Package\Remove source file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\PostExecute Insert Log Info" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{9DC8F762-DF72-4925-8CF5-929679F7989B}"
+      DTS:From="Package\Remove old source file if any"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Encrypt flat file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{4967D8F6-B17E-4ABE-959C-3CEEC2EDA8C9}"
+      DTS:From="Package\Load data from RDB into TXT file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Encrypt flat file" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{D5A6395B-0A48-4B2B-9ACD-B9283BD73409}"
+      DTS:EventID="3014702"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{F755B4BA-F7D5-4F9C-AC94-FE8BFFC17B44}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Insert info about error into LogError table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{78083005-612D-4597-AA4A-E1AE92A1B6AD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert info about error into LogError table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [LogError] ([LogID], [ErrorMessage], [CodeError], [SourceName]) VALUES ( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A22CF642-6C8A-4BA8-9699-29584530372F}"
+              SQLTask:SqlStatementSource="INSERT INTO [LogError] ([LogID], [ErrorMessage], [CodeError], [SourceName]) VALUES ( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Encrypt flat file"
+          TopLeft="536,266" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Load data from RDB into TXT file"
+          TopLeft="311,146" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\PostExecute Insert Log Info"
+          TopLeft="505,442" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\PreExecute Insert Log Info"
+          TopLeft="489,61" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Remove source file"
+          TopLeft="528,354" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="560,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-129,43"
+              Start="0,0"
+              End="-129,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.3960113960114" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.3960113960114"
+                    Point2="0,17.3960113960114"
+                    Point3="-4,17.3960113960114" />
+                  <mssgle:LineSegment
+                    End="-125,17.3960113960114" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-125,17.3960113960114"
+                    Point2="-129,17.3960113960114"
+                    Point3="-129,21.3960113960114" />
+                  <mssgle:LineSegment
+                    End="-129,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="613,308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="613.25,396">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Remove old source file if any"
+          TopLeft="656,151" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="766,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.666666666667,73"
+              Start="0,0"
+              End="-130.666666666667,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3407601572739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.3407601572739"
+                    Point2="0,43.3407601572739"
+                    Point3="-4,43.3407601572739" />
+                  <mssgle:LineSegment
+                    End="-126.666666666667,43.3407601572739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.666666666667,43.3407601572739"
+                    Point2="-130.666666666667,43.3407601572739"
+                    Point3="-130.666666666667,47.3407601572739" />
+                  <mssgle:LineSegment
+                    End="-130.666666666667,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="627,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139,48"
+              Start="0,0"
+              End="139,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4188034188034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4188034188034"
+                    Point2="0,19.4188034188034"
+                    Point3="4,19.4188034188034" />
+                  <mssgle:LineSegment
+                    End="135,19.4188034188034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135,19.4188034188034"
+                    Point2="139,19.4188034188034"
+                    Point3="139,23.4188034188034" />
+                  <mssgle:LineSegment
+                    End="139,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="431,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.666666666667,78"
+              Start="0,0"
+              End="156.666666666667,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.3093053735256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.3093053735256"
+                    Point2="0,46.3093053735256"
+                    Point3="4,46.3093053735256" />
+                  <mssgle:LineSegment
+                    End="152.666666666667,46.3093053735256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.666666666667,46.3093053735256"
+                    Point2="156.666666666667,46.3093053735256"
+                    Point3="156.666666666667,50.3093053735256" />
+                  <mssgle:LineSegment
+                    End="156.666666666667,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="277,42"
+          Id="Package.EventHandlers[OnError]\Insert info about error into LogError table"
+          TopLeft="445,136" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Load data from RDB into TXT file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load data from RDB into TXT file\Row Count"
+          TopLeft="568,222" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Load data from RDB into TXT file\MembershipDimClients TXT file"
+          TopLeft="517,319" />
+        <NodeLayout
+          Size="298,42"
+          Id="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB"
+          TopLeft="490,125" />
+        <EdgeLayout
+          Id="Package\Load data from RDB into TXT file.Paths[Row Count Output 1]"
+          TopLeft="634.25,264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load data from RDB into TXT file.Paths[OLE DB Source Output]"
+          TopLeft="636.75,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load data from RDB into TXT file.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="277,42"
+          Id="{9E685987-B38D-4D80-9C23-97CC693E413A}"
+          TopLeft="542,151" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from RDB into TXT file\MembershipDimClients View in Parking RDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
