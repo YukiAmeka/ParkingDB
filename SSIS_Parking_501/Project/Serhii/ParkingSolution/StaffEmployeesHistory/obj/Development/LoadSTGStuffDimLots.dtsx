@@ -1,0 +1,1012 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/8/2020 4:06:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IB93396"
+  DTS:CreatorName="DESKTOP-IB93396\User"
+  DTS:DTSID="{1E146BBF-6710-4A90-AA30-FB12658632D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadSTGStuffDimLots"
+  DTS:PackageType="5"
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{82E56544-1D13-4EA9-B864-A82C3E8F9696}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[StaffDimLots TXT_STG]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="StaffDimLots TXT_STG"
+      DTS:DTSID="{415888D1-1946-4CD2-BB48-9B8BADB94DED}"
+      DTS:ObjectName="StaffDimLots TXT_STG">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathPending] +"\\"+ @[User::DimLotsFullFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\StaffDimLots2020-05-20.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_CityName"
+              DTS:DTSID="{260F4F05-D33E-4265-979F-BCEE2A5D3015}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_PhoneNumber"
+              DTS:DTSID="{D64B560C-AD32-49F2-BCED-408B032710D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_Email"
+              DTS:DTSID="{5ADC0FEE-288A-424D-804D-CD271C462D4D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_LotID"
+              DTS:DTSID="{D357CA01-FA9C-4664-8B0A-B59FE9770922}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_LotName"
+              DTS:DTSID="{D00C7469-2A60-4C06-92EF-C11517F7A53D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_Address"
+              DTS:DTSID="{6B2F954C-035F-482C-8572-AD8B491A32D9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5BCBCB0D-FB88-4504-835F-C0F5E074668F}"
+      DTS:ObjectName="DimLotsFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">StaffDimLots</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C74BD523-AF52-4328-BB3F-F86EC023E37D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::DimLotsFileName]  + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE() + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DimLotsFullFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">StaffDimLots2020-05-20.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{828DDEAE-8CC7-43C6-968A-E15DCFFE0B65}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FilePathPending] +&quot;\\&quot;+ @[User::DimLotsFullFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DimLotsFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\StaffDimLots2020-05-20.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E12EE1F8-0D6F-459A-887B-7FA402EA2B0B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E6791FF-4C06-4E8F-8074-0099A7391E36}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FilePathProcessed] +&quot;\\&quot;+(DT_STR,30,1258)(DT_DBDATE)GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NewProcessedFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\2020-05-20</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C7F6C55F-D7AA-4AEA-8AC0-23E32771B0BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F8009BE2-05B8-4980-8365-4EC589A8D5C3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Data To StuffDimLots"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F8EF5D29-0F6F-4B95-8811-3A17E1244DA1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Data To StuffDimLots"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Data_FOR_StaffDimLots"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[StaffDimLots TXT_STG]"
+                  connectionManagerRefId="Package.ConnectionManagers[StaffDimLots TXT_STG]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_CityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_CityName]"
+                      length="50"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_CityName]"
+                      name="nv_CityName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_PhoneNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_PhoneNumber]"
+                      length="50"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_PhoneNumber]"
+                      name="nv_PhoneNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_Email]"
+                      length="50"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_Email]"
+                      name="nv_Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_LotID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_LotID]"
+                      length="50"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_LotID]"
+                      name="nv_LotID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_LotName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_LotName]"
+                      length="50"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_LotName]"
+                      name="nv_LotName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_Address]"
+                      length="50"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_Address]"
+                      name="nv_Address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_CityName]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_PhoneNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_LotID]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_LotID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_LotName]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_LotName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].ExternalColumns[nv_Address]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_Address" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="nText"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data To StuffDimLots\StaffDImLots"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="StaffDImLots"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Staff].[DimLots]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data To StuffDimLots\StaffDImLots.Connections[OleDbConnection]"
+                  connectionManagerID="{DA7F1F1B-CBCF-4041-9D7C-24B301257675}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].Columns[nv_LotID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_LotID"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[LotID]"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_LotID]" />
+                    <inputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].Columns[nv_LotName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_LotName"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_LotName]" />
+                    <inputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].Columns[nv_CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_CityName"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_CityName]" />
+                    <inputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].Columns[nv_Address]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_Address"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_Address]" />
+                    <inputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].Columns[nv_PhoneNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_PhoneNumber"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].Columns[nv_Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_Email"
+                      externalMetadataColumnId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output].Columns[nv_Email]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[LotID]"
+                      dataType="wstr"
+                      length="255"
+                      name="LotID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                      dataType="wstr"
+                      length="255"
+                      name="LotName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="255"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      dataType="wstr"
+                      length="255"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data To StuffDimLots\StaffDImLots.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To StuffDimLots\StaffDImLots.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data To StuffDimLots\StaffDImLots.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To StuffDimLots\StaffDImLots.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Data To StuffDimLots.Paths[Flat File Source Output]"
+              endId="Package\Load Data To StuffDimLots\StaffDImLots.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move txt_file to data directory in Processed"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{57A7CD29-A730-4931-ACAB-3BFBFC0DB67E}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move txt_file to data directory in Processed"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskSourcePath="User::DimLotsFullPath"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::NewProcessedFolder"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NewDirectory with current date in Processed Folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{DBF23E0B-15B0-49A9-B9DF-E817BE9C52A5}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NewDirectory with current date in Processed Folder"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::NewProcessedFolder"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Post Execute Update LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{538E7692-BD1E-498F-BA9B-2F59F6903C60}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Post Execute Update LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9D8BD65F-28F8-40C7-BB22-92E4529F3C36}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre Execute Insert LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{53896704-C9B8-472E-B846-AF8E6F777D60}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre Execute Insert LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9D8BD65F-28F8-40C7-BB22-92E4529F3C36}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE StaffDimLots"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{90E10FFC-655D-40CE-B603-4E51E15A812B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE StaffDimLots"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DA7F1F1B-CBCF-4041-9D7C-24B301257675}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Staff.DimLots" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB1ED9F1-9DC8-40A6-AC0F-9003BCFF33A0}"
+      DTS:From="Package\TRUNCATE StaffDimLots"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Data To StuffDimLots" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D80F4974-EE96-4EBB-8E87-9D018B80A77A}"
+      DTS:From="Package\Load Data To StuffDimLots"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\NewDirectory with current date in Processed Folder" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{70922497-86A8-4412-97B1-2F8FE66B3CCB}"
+      DTS:From="Package\NewDirectory with current date in Processed Folder"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Move txt_file to data directory in Processed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC14F18B-287F-44F0-85F8-90DC7669F6AF}"
+      DTS:From="Package\Pre Execute Insert LogInfo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\TRUNCATE StaffDimLots" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C3C76D2-F8A2-4D63-A015-2F2A4D90518D}"
+      DTS:From="Package\Move txt_file to data directory in Processed"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Post Execute Update LogInfo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{970F458D-CEBF-4D18-89CB-251E86F3D37C}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{6C7F293E-F9B3-402C-9C50-18E7AB55DB30}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Error Log Insert"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A8014C4E-F66D-4BFC-8594-7A130C0FC6A9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Error Log Insert"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9D8BD65F-28F8-40C7-BB22-92E4529F3C36}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Load Data To StuffDimLots"
+          TopLeft="339,110" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\Move txt_file to data directory in Processed"
+          TopLeft="299,277" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\NewDirectory with current date in Processed Folder"
+          TopLeft="281,183" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Post Execute Update LogInfo"
+          TopLeft="679,275" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Pre Execute Insert LogInfo"
+          TopLeft="31,31" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\TRUNCATE StaffDimLots"
+          TopLeft="343,38" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="445,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="445.25,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="444.75,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="240,55.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103,0"
+              Start="0,0"
+              End="95.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="588,297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91,0"
+              Start="0,0"
+              End="83.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package.EventHandlers[OnError]\Error Log Insert"
+          TopLeft="383,102" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Load Data To StuffDimLots">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Load Data To StuffDimLots\Data_FOR_StaffDimLots"
+          TopLeft="23,24" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Load Data To StuffDimLots\StaffDImLots"
+          TopLeft="59,120" />
+        <EdgeLayout
+          Id="Package\Load Data To StuffDimLots.Paths[Flat File Source Output]"
+          TopLeft="127,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data To StuffDimLots\StaffDImLots">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "StaffEmployeesHistory", "StaffEmployeesHistory\StaffEmployeesHistory.dtproj", "{F4A1830F-C537-4585-B8D5-39755A2FC69D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4A1830F-C537-4585-B8D5-39755A2FC69D}.Development|Default.ActiveCfg = Development
+		{F4A1830F-C537-4585-B8D5-39755A2FC69D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A322F756-63AE-4BE1-B8A4-CDA832D13A92}
+	EndGlobalSection
+EndGlobal

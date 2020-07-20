@@ -1,0 +1,1367 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/11/2020 5:53:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IB93396"
+  DTS:CreatorName="DESKTOP-IB93396\User"
+  DTS:DTSID="{1E94954B-147E-40BB-AD14-3105E426BE97}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadSTGFactsEmployeesHistory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{83C32F65-8A53-42A1-8AD1-1A472851FC55}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FactsEmployeesHistory TXT_STG]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="FactsEmployeesHistory TXT_STG"
+      DTS:DTSID="{3EB84DD4-A625-4452-A889-988E11748922}"
+      DTS:ObjectName="FactsEmployeesHistory TXT_STG">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathPending] +"\\"+  @[User::FactEmployeesHistoryFullFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\FactEmployeesHistory2020-05-25.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_EmployeesHistoryID"
+              DTS:DTSID="{1FAF1DAB-5241-4B5E-92C8-8FE810C7E330}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_BusinessID"
+              DTS:DTSID="{04DC0088-5F16-4995-A81E-6B762C8437E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_Salary"
+              DTS:DTSID="{87EAD6A7-EE73-4628-A8D8-F004D2FAF9E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_SalaryStartDate"
+              DTS:DTSID="{AE14E734-E15A-499A-ABCF-0DE0068343C3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_SalaryEndDate"
+              DTS:DTSID="{542415F4-E667-447D-A82F-3E1CFE726317}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_Position"
+              DTS:DTSID="{A002ABC7-970B-4734-BD69-4AE58798B32D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_PositionStartDate"
+              DTS:DTSID="{AFB31AC4-C25D-41E9-ABEA-2998A32686FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_PositionEndDate"
+              DTS:DTSID="{89F5627A-BC8C-4517-A231-C1F9EED63561}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_DateHired"
+              DTS:DTSID="{CE9A37FE-3D14-4379-BAA8-EC51C1219F51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_ DateFired"
+              DTS:DTSID="{527BF425-5CF1-48B5-91FA-5106978A7A48}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_LotID"
+              DTS:DTSID="{170C670C-0393-4002-8AC1-9FD082B98D0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nv_ManagerID"
+              DTS:DTSID="{F0729E5E-2E0D-41D9-A2D0-ED624FEF7F07}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A9FAB01E-9AB9-47D4-A5E4-6E908665A806}"
+      DTS:ObjectName="FactEmployeesHistoryFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">FactEmployeesHistory</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F49414D-60D2-4305-B73B-3C3467BC14CD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FactEmployeesHistoryFileName] + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE() + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FactEmployeesHistoryFullFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">FactEmployeesHistory2020-05-25.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{527736FB-231A-4A45-9540-479E2BC91D3E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FilePathPending] +&quot;\\&quot;+  @[User::FactEmployeesHistoryFullFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FactEmployeesHistoryFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\FactEmployeesHistory2020-05-25.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{16AEEFB7-9EF3-4DA1-8959-E8D90563AD15}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD1D708C-ADF8-4287-BAFE-5B9A3250CD98}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FilePathProcessed] +&quot;\\&quot;+(DT_STR,30,1258)(DT_DBDATE)GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NewProcessedFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\2020-05-25</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3711A10B-25DE-48A2-96D3-4A745FBDBB52}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{209EACB0-F389-44CF-9D81-DE624A427F79}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Data To FactsEmployeesHistory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4C6E30A6-60F1-4C45-95D1-EA6C37572C6F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Data To FactsEmployeesHistory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Data_FOR_FactsEmployeesHistory"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FactsEmployeesHistory TXT_STG]"
+                  connectionManagerRefId="Package.ConnectionManagers[FactsEmployeesHistory TXT_STG]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_EmployeesHistoryID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_EmployeesHistoryID]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_EmployeesHistoryID]"
+                      name="nv_EmployeesHistoryID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_BusinessID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_BusinessID]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_BusinessID]"
+                      name="nv_BusinessID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_Salary]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_Salary]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_Salary]"
+                      name="nv_Salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_SalaryStartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_SalaryStartDate]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_SalaryStartDate]"
+                      name="nv_SalaryStartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_SalaryEndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_SalaryEndDate]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_SalaryEndDate]"
+                      name="nv_SalaryEndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_Position]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_Position]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_Position]"
+                      name="nv_Position"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_PositionStartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_PositionStartDate]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_PositionStartDate]"
+                      name="nv_PositionStartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_PositionEndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_PositionEndDate]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_PositionEndDate]"
+                      name="nv_PositionEndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_DateHired]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_DateHired]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_DateHired]"
+                      name="nv_DateHired"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_ DateFired]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_ DateFired]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_ DateFired]"
+                      name="nv_ DateFired"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_LotID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_LotID]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_LotID]"
+                      name="nv_LotID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_ManagerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_ManagerID]"
+                      length="50"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_ManagerID]"
+                      name="nv_ManagerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_EmployeesHistoryID]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_EmployeesHistoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_BusinessID]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_BusinessID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_Salary]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_Salary" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_SalaryStartDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_SalaryStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_SalaryEndDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_SalaryEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_Position]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_Position" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_PositionStartDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_PositionStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_PositionEndDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_PositionEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_DateHired]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_DateHired" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_ DateFired]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_ DateFired" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_LotID]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_LotID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].ExternalColumns[nv_ManagerID]"
+                      dataType="wstr"
+                      length="50"
+                      name="nv_ManagerID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="nText"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="FactsEmployeesHistory"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Staff].[FactsEmployeesHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Connections[OleDbConnection]"
+                  connectionManagerID="{BEB3F240-012D-413A-B972-276D8BF9DD5E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_EmployeesHistoryID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_EmployeesHistoryID"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[EmployeesHistoryID]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_EmployeesHistoryID]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_BusinessID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_BusinessID"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[BusinessID]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_BusinessID]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_Salary]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_Salary"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_Salary]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_SalaryStartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_SalaryStartDate"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[SalaryStartDate]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_SalaryStartDate]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_SalaryEndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_SalaryEndDate"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[SalaryEndDate]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_SalaryEndDate]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_Position]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_Position"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[Position]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_Position]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_PositionStartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_PositionStartDate"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[PositionStartDate]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_PositionStartDate]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_PositionEndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_PositionEndDate"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[PositionEndDate]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_PositionEndDate]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_DateHired]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_DateHired"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[DateHired]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_DateHired]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_ DateFired]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_ DateFired"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[DateFired]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_ DateFired]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_LotID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_LotID"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[LotID]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_LotID]" />
+                    <inputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].Columns[nv_ManagerID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nv_ManagerID"
+                      externalMetadataColumnId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[ManagerID]"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output].Columns[nv_ManagerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[EmployeesHistoryID]"
+                      dataType="wstr"
+                      length="255"
+                      name="EmployeesHistoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[BusinessID]"
+                      dataType="wstr"
+                      length="255"
+                      name="BusinessID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                      dataType="wstr"
+                      length="255"
+                      name="Salary" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[SalaryStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="SalaryStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[SalaryEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="SalaryEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[Position]"
+                      dataType="wstr"
+                      length="255"
+                      name="Position" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[PositionStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="PositionStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[PositionEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="PositionEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[DateHired]"
+                      dataType="wstr"
+                      length="255"
+                      name="DateHired" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[DateFired]"
+                      dataType="wstr"
+                      length="255"
+                      name="DateFired" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[LotID]"
+                      dataType="wstr"
+                      length="255"
+                      name="LotID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input].ExternalColumns[ManagerID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ManagerID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data To FactsEmployeesHistory\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsInserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Data To FactsEmployeesHistory\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data To FactsEmployeesHistory\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Load Data To FactsEmployeesHistory\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Data To FactsEmployeesHistory.Paths[Flat File Source Output]"
+              endId="Package\Load Data To FactsEmployeesHistory\Row Count.Inputs[Row Count Input 1]"
+              name="Flat File Source Output"
+              startId="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load Data To FactsEmployeesHistory.Paths[Row Count Output 1]"
+              endId="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Load Data To FactsEmployeesHistory\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move txt_file to data directory in Processed"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{A9076B27-25C6-4ED3-8457-0AFEFEF05789}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move txt_file to data directory in Processed"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::FactEmployeesHistoryFullPath"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::NewProcessedFolder"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NewDirectory with current date in Processed Folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{85EDE4BD-658E-4EE1-B1F8-D59708CBFFDD}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NewDirectory with current date in Processed Folder"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::NewProcessedFolder"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Post Execute Update LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A5255EC2-D477-4405-BCC9-CC2E710F77FB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Post Execute Update LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{377F417F-3BC4-4046-9768-127032228082}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre Execute Insert LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{282C5745-ABF7-4626-9C5E-B36524E7A873}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre Execute Insert LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{377F417F-3BC4-4046-9768-127032228082}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE  STG FactsEmployeesHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{31F41952-40BE-4FE4-8F19-CD35FEBD9DC2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE  STG FactsEmployeesHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BEB3F240-012D-413A-B972-276D8BF9DD5E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Staff.FactsEmployeesHistory" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EAE986A0-527D-438D-B361-9496BFD98715}"
+      DTS:From="Package\TRUNCATE  STG FactsEmployeesHistory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Data To FactsEmployeesHistory" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{918E9AC4-F7B3-4C2A-8CCF-BC80EDC4AE5E}"
+      DTS:From="Package\Pre Execute Insert LogInfo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TRUNCATE  STG FactsEmployeesHistory" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{C9912784-538B-4A70-A9FB-4F8BF73FF6E1}"
+      DTS:From="Package\Load Data To FactsEmployeesHistory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\NewDirectory with current date in Processed Folder" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A57986EF-B34A-4E4A-BF3A-20186E839B98}"
+      DTS:From="Package\NewDirectory with current date in Processed Folder"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Move txt_file to data directory in Processed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0222EB0-A516-48AC-A93D-0771A7152D1F}"
+      DTS:From="Package\Move txt_file to data directory in Processed"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Post Execute Update LogInfo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{9D66D976-1A27-43DD-A791-C7DAC0178BD2}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{750E1F0B-6432-43D1-A939-815837619B90}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Error Log Insert"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B68438E0-E15C-42DF-A2F8-DCAB02F55344}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Error Log Insert"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{377F417F-3BC4-4046-9768-127032228082}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Load Data To FactsEmployeesHistory"
+          TopLeft="312,156" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\Move txt_file to data directory in Processed"
+          TopLeft="295,299" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\NewDirectory with current date in Processed Folder"
+          TopLeft="281,226" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Post Execute Update LogInfo"
+          TopLeft="644,298" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Pre Execute Insert LogInfo"
+          TopLeft="35,74" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\TRUNCATE  STG FactsEmployeesHistory"
+          TopLeft="306,73" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="446.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="244,94.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,0"
+              Start="0,0"
+              End="54.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="445,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="442.75,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="584,319.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60,0"
+              Start="0,0"
+              End="52.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package.EventHandlers[OnError]\Error Log Insert"
+          TopLeft="301,78" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Load Data To FactsEmployeesHistory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory"
+          TopLeft="74,194" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Load Data To FactsEmployeesHistory\Data_FOR_FactsEmployeesHistory"
+          TopLeft="39,17" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load Data To FactsEmployeesHistory\Row Count"
+          TopLeft="96,103" />
+        <EdgeLayout
+          Id="Package\Load Data To FactsEmployeesHistory.Paths[Flat File Source Output]"
+          TopLeft="164,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Data To FactsEmployeesHistory.Paths[Row Count Output 1]"
+          TopLeft="162.5,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,49"
+              Start="0,0"
+              End="9,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,24.5"
+                    Point2="9,24.5"
+                    Point3="9,28.5" />
+                  <mssgle:LineSegment
+                    End="9,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data To FactsEmployeesHistory\FactsEmployeesHistory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

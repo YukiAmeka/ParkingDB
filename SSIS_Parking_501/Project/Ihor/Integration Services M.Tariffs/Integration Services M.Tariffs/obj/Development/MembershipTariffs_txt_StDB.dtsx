@@ -1,0 +1,2335 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/14/2020 11:01:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-80DGS4V"
+  DTS:CreatorName="DESKTOP-80DGS4V\ihorp"
+  DTS:DTSID="{A5F27D6E-DDF5-4E39-91C9-B8ED49FEAF8D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1058"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{36E80C43-89E0-4F41-93B1-FB247540DC34}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2C97624F-48CD-4E9E-845C-86492F0E7FCD}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::PendingPath]+"\\"+ @[User::MembershipTariffsFullName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\MembershipTariffs2020-05-25.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TariffID"
+              DTS:DTSID="{71B64628-9BA1-42B1-95D3-9C574F12B3CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZoneTypeName"
+              DTS:DTSID="{70D2B539-4F26-4568-8968-A42A5C58C337}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SlotDescription"
+              DTS:DTSID="{05891546-0B42-45E4-B91D-8FDE393716F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LotName"
+              DTS:DTSID="{6694FB68-FCA4-444C-AF88-D15587E10097}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{D516992E-517D-492A-A7F6-1558B4ACBD21}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PeriodName"
+              DTS:DTSID="{FBF230BC-01EF-448A-B3E2-58DC98A1A507}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Price"
+              DTS:DTSID="{AAD4E952-F4DF-4111-A8DE-3320D0F8306C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{50234360-B901-445C-A611-BCD3F10C0855}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EndDate"
+              DTS:DTSID="{6D7F769C-6C54-4F3B-90CD-DB2FE59CCB00}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FED03E5D-5634-4FE3-B802-66E436E2ACEB}"
+      DTS:ObjectName="MembershipTariffsFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">MembershipTariffs</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBED7566-A3AB-4AD3-82B2-3B92F1C8B4D6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B2A9350-702A-4235-B7FA-6DD50563B147}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::MembershipTariffsFileName] + (Substring((DT_STR,50,1252)getdate(),1,10))+&quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MembershipTariffsFullName">
+      <DTS:VariableValue
+        DTS:DataType="8">MembershipTariffs2020-05-25.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8C09F3AA-ADDD-47E2-AA37-B83B5D639E47}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PendingPath] + &quot;\\&quot; +  @[User::MembershipTariffsFullName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MembershipTariffsFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\MembershipTariffs2020-05-25.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35E47EA5-A60F-4FEA-B86F-5245F2A4189F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::ProcessedPath] + &quot;\\&quot; + (Substring((DT_STR,50,1252)getdate(),1,10))"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="newproceseedfolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\2020-05-25</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{559FD15C-5201-4BF3-B289-7E50BA4A7E05}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Rowsinserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10CB4484-2015-4BB8-83D5-A0C90A043E25}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Rowsupdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8B90F3C5-DBCA-4326-9567-24204C361C16}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[TariffID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TariffID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[TariffID]"
+                      name="TariffID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneTypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ZoneTypeName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneTypeName]"
+                      name="ZoneTypeName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[SlotDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SlotDescription]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[SlotDescription]"
+                      name="SlotDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[LotName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LotName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[LotName]"
+                      name="LotName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[PeriodName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PeriodName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[PeriodName]"
+                      name="PeriodName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Price]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Price]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="50"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ZoneTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ZoneTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SlotDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="SlotDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LotName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LotName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PeriodName]"
+                      dataType="wstr"
+                      length="50"
+                      name="PeriodName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Price]"
+                      dataType="wstr"
+                      length="50"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="nText"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\M_DimTariffs"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="M_DimTariffs"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Membership].[DimTariffs]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\M_DimTariffs.Connections[OleDbConnection]"
+                  connectionManagerID="{3A5F8123-029D-428B-91E0-8219FFE73490}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[TariffID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="TariffID"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[TariffID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[ZoneTypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ZoneTypeName"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[ZoneTypeName]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneTypeName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[SlotDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SlotDescription"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[SlotDescription]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[SlotDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[LotName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LotName"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[LotName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[PeriodName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PeriodName"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[PeriodName]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[PeriodName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffStartDate]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffEndDate]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[ZoneTypeName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZoneTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[SlotDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="SlotDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                      dataType="wstr"
+                      length="255"
+                      name="LotName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[PeriodName]"
+                      dataType="wstr"
+                      length="255"
+                      name="PeriodName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="wstr"
+                      length="255"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffEndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\M_DimTariffs.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\M_DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\M_DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\M_DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Rowsinserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task\M_DimTariffs.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3E90C618-6A86-4489-90EA-1FEDDBEACE07}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[ZoneTypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZoneTypeName"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[ZoneTypeName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[SlotDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SlotDescription"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[SlotDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[LotName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LotName"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[LotName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[PeriodName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PeriodName"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[PeriodName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ZoneTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ZoneTypeName]"
+                      name="Copy of ZoneTypeName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[ZoneTypeName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SlotDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SlotDescription]"
+                      name="Copy of SlotDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[SlotDescription]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LotName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LotName]"
+                      name="Copy of LotName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[LotName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CityName]"
+                      name="Copy of CityName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[CityName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PeriodName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PeriodName]"
+                      name="Copy of PeriodName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[PeriodName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\DimTariffs"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimTariffs"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimTariffs]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\DimTariffs.Connections[OleDbConnection]"
+                  connectionManagerID="{3A5F8123-029D-428B-91E0-8219FFE73490}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[TariffID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[TariffStartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffStartDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffStartDate]"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffStartDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[TariffEndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffEndDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffEndDate]"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffEndDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[Copy of ZoneTypeName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of ZoneTypeName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[ZoneTypeName]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ZoneTypeName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[Copy of SlotDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of SlotDescription"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[SlotDescription]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SlotDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[Copy of LotName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of LotName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LotName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[Copy of PeriodName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of PeriodName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[PeriodName]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PeriodName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].Columns[Copy of CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of CityName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CityName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      dataType="i4"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[ZoneTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZoneTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[SlotDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SlotDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LotName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[PeriodName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="PeriodName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffStartDate]"
+                      dataType="dbDate"
+                      name="TariffStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffEndDate]"
+                      dataType="dbDate"
+                      name="TariffEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[TariffIDSurogat]"
+                      dataType="i4"
+                      name="TariffIDSurogat" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input].ExternalColumns[Current]"
+                      dataType="bool"
+                      name="Current" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\DimTariffs.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\DimTariffs.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\M_DimTariffs"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="M_DimTariffs"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Membership].[DimTariffs]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\M_DimTariffs.Connections[OleDbConnection]"
+                  connectionManagerID="{3A5F8123-029D-428B-91E0-8219FFE73490}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[TariffID]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffID]"
+                      name="TariffID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[ZoneTypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[ZoneTypeName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[ZoneTypeName]"
+                      name="ZoneTypeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[SlotDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[SlotDescription]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[SlotDescription]"
+                      name="SlotDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[LotName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[LotName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[LotName]"
+                      name="LotName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[CityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[PeriodName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[PeriodName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[PeriodName]"
+                      name="PeriodName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[Price]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffStartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[TariffStartDate]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffStartDate]"
+                      name="TariffStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffEndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[TariffEndDate]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].Columns[TariffEndDate]"
+                      name="TariffEndDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[ZoneTypeName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZoneTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[SlotDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="SlotDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[LotName]"
+                      dataType="wstr"
+                      length="255"
+                      name="LotName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[PeriodName]"
+                      dataType="wstr"
+                      length="255"
+                      name="PeriodName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      dataType="wstr"
+                      length="255"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[TariffStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output].ExternalColumns[TariffEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffEndDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[TariffID]"
+                      name="TariffID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[ZoneTypeName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[ZoneTypeName]"
+                      name="ZoneTypeName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[SlotDescription]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[SlotDescription]"
+                      name="SlotDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[LotName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[LotName]"
+                      name="LotName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[PeriodName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[PeriodName]"
+                      name="PeriodName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[TariffStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[TariffStartDate]"
+                      name="TariffStartDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[TariffEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[TariffEndDate]"
+                      name="TariffEndDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Rowsinserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task 1\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1\Row Count.Inputs[Row Count Input 1]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\M_DimTariffs.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task 1\DimTariffs.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task 1\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EXEC STP_Log_Process"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{50365471-325E-449E-9307-1AB302CF84CC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EXEC STP_Log_Process"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FC3FAAE-9348-44CA-913F-4F8F1BBF9ECD}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EXEC STP_UpdateLogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CDFFA5F3-649A-41E3-87A0-28FCF92E12D1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EXEC STP_UpdateLogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\EXEC STP_UpdateLogInfo.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{A784A5B1-1980-4223-BC4B-5646098C18CC}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{2E390115-0194-4480-9811-C62C8E76F704}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\EXEC STP_UpdateLogInfo.EventHandlers[OnError]\Execute SQL Task"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{645138EB-BB24-4496-8821-CEC57D5D9FC2}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute SQL Task"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1FC3FAAE-9348-44CA-913F-4F8F1BBF9ECD}"
+                  SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FC3FAAE-9348-44CA-913F-4F8F1BBF9ECD}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Rowsinserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Rowsupdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\movetxtfile"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{E7360DB2-858E-4F1A-A3C6-7013BD45DADA}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="movetxtfile"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::MembershipTariffsFullPath"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::newproceseedfolder"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\newprocessedfolder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{809CE192-4D1E-46F2-B503-89FEC3D236DB}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="newprocessedfolder"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::newproceseedfolder"
+          TaskIsSourceVariable="True"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table DimTariffs"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{35340696-CE82-4127-AB66-E1AE77CF383B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table DimTariffs"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3A5F8123-029D-428B-91E0-8219FFE73490}"
+          SQLTask:SqlStatementSource="truncate table DimTariffs" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table M_DimTariffs"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{060395B3-ED74-430E-8AA6-D573D2AFD4EF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table M_DimTariffs"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3A5F8123-029D-428B-91E0-8219FFE73490}"
+          SQLTask:SqlStatementSource="truncate table [Membership].[DimTariffs]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8EDB8089-B27B-4D17-AB77-61309DF9C76E}"
+      DTS:From="Package\Truncate table M_DimTariffs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7DA7F44D-B2DD-41BE-AAA3-6AF2BF1BD50E}"
+      DTS:From="Package\Truncate table DimTariffs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow Task 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0251628A-8B3E-4DAC-B3B5-6B9A30A2953A}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Truncate table DimTariffs" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E567987-81F5-4CB4-9476-4E51527ADA49}"
+      DTS:From="Package\Data Flow Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\newprocessedfolder" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BD36CB9E-F584-4096-84FF-31B3F1BB4B33}"
+      DTS:From="Package\newprocessedfolder"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\movetxtfile" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{34C34DAF-5C6B-4B1A-B8D1-04E462D38D4E}"
+      DTS:From="Package\EXEC STP_Log_Process"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Truncate table M_DimTariffs" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{9ADD628F-E332-4137-92B6-60AC2654A786}"
+      DTS:From="Package\movetxtfile"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\EXEC STP_UpdateLogInfo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{FB42C45F-4281-41B7-81C6-893B5EC5E05A}"
+      DTS:EventID="3407923"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D9BA9D5A-B819-43BF-8297-EACB2EE2A2C6}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7C5C608F-0BE0-4E5A-801B-61FAD9C67E67}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3A5F8123-029D-428B-91E0-8219FFE73490}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="121.8666592492,125.226666975233" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Data Flow Task 1"
+          TopLeft="427.199984741211,39.41333365292" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\EXEC STP_Log_Process"
+          TopLeft="145.6,290.4" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\EXEC STP_UpdateLogInfo"
+          TopLeft="500.8,314.4" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\movetxtfile"
+          TopLeft="525.733316988416,241.019261263717" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\newprocessedfolder"
+          TopLeft="536.459239658899,144.752593742982" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Truncate table DimTariffs"
+          TopLeft="297.999989906947,121.706667818281" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Truncate table M_DimTariffs"
+          TopLeft="112.533327081468,207.413335223304" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="207.333327081468,207.413335223304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.866667832268,-40.586668248071"
+              Start="0,0"
+              End="-15.866667832268,-33.086668248071">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-16.2933341240355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-16.2933341240355"
+                    Point2="0,-20.2933341240355"
+                    Point3="-4,-20.2933341240355" />
+                  <mssgle:LineSegment
+                    End="-11.866667832268,-20.2933341240355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.866667832268,-20.2933341240355"
+                    Point2="-15.866667832268,-20.2933341240355"
+                    Point3="-15.866667832268,-24.2933341240355" />
+                  <mssgle:LineSegment
+                    End="-15.866667832268,-33.086668248071" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="386.399989906947,121.706667818281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.199994834264,-40.693334165361"
+              Start="0,0"
+              End="95.199994834264,-33.193334165361">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-20.1730552206174" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-20.1730552206174"
+                    Point2="0,-24.1730552206174"
+                    Point3="4,-24.1730552206174" />
+                  <mssgle:LineSegment
+                    End="91.199994834264,-24.1730552206174" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.199994834264,-24.1730552206174"
+                    Point2="95.199994834264,-24.1730552206174"
+                    Point3="95.199994834264,-28.1730552206174" />
+                  <mssgle:LineSegment
+                    End="95.199994834264,-33.193334165361" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="261.0666592492,144.266667396757">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.933330657747,0"
+              Start="0,0"
+              End="29.433330657747,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.433330657747,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="531.999984741211,81.01333365292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.0592549176881,63.739260090062"
+              Start="0,0"
+              End="90.0592549176881,56.239260090062">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8762369320849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8762369320849"
+                    Point2="0,25.8762369320849"
+                    Point3="4,25.8762369320849" />
+                  <mssgle:LineSegment
+                    End="86.0592549176881,25.8762369320849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.0592549176881,25.8762369320849"
+                    Point2="90.0592549176881,25.8762369320849"
+                    Point3="90.0592549176881,29.8762369320849" />
+                  <mssgle:LineSegment
+                    End="90.0592549176881,56.239260090062" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="622.059239658899,186.352593742982">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.325922670483,54.666667520735"
+              Start="0,0"
+              End="-32.325922670483,47.166667520735">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3333337603675" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3333337603675"
+                    Point2="0,27.3333337603675"
+                    Point3="-4,27.3333337603675" />
+                  <mssgle:LineSegment
+                    End="-28.325922670483,27.3333337603675" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.325922670483,27.3333337603675"
+                    Point2="-32.325922670483,27.3333337603675"
+                    Point3="-32.325922670483,31.3333337603675" />
+                  <mssgle:LineSegment
+                    End="-32.325922670483,47.166667520735" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="234.8,290.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.466672918532,-41.386664776696"
+              Start="0,0"
+              End="-27.466672918532,-33.886664776696">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-16.693332388348" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-16.693332388348"
+                    Point2="0,-20.693332388348"
+                    Point3="-4,-20.693332388348" />
+                  <mssgle:LineSegment
+                    End="-23.466672918532,-20.693332388348" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.466672918532,-20.693332388348"
+                    Point2="-27.466672918532,-20.693332388348"
+                    Point3="-27.466672918532,-24.693332388348" />
+                  <mssgle:LineSegment
+                    End="-27.466672918532,-33.886664776696" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="591.466658494208,282.619261263717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.780738736283"
+              Start="0,0"
+              End="0,24.280738736283">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.280738736283" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="420.8,124.8" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Data Flow Task\M_DimTariffs"
+          TopLeft="316.666654083464,178.186668082767" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="151.999993960063,24.2666668595208" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Data Flow Task\Row Count"
+          TopLeft="167.2,128.8" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="288.8,149.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.866654083464,49.386668082767"
+              Start="0,0"
+              End="20.366654083464,49.386668082767">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="9.93332704173201,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.93332704173201,0"
+                    Point2="13.933327041732,0"
+                    Point3="13.933327041732,4" />
+                  <mssgle:LineSegment
+                    End="13.933327041732,45.386668082767" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.933327041732,45.386668082767"
+                    Point2="13.933327041732,49.386668082767"
+                    Point3="17.933327041732,49.386668082767" />
+                  <mssgle:LineSegment
+                    End="20.366654083464,49.386668082767" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="227.799996980031,65.8666668595208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.9333331404792"
+              Start="0,0"
+              End="0,55.4333331404792">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.4333331404792" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\M_DimTariffs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Data Flow Task 1\Row Count"
+          TopLeft="369.6,228.8" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Data Flow Task 1\M_DimTariffs"
+          TopLeft="97.6,54.4" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task 1\Data Conversion"
+          TopLeft="368.8,124.8" />
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Data Flow Task 1\DimTariffs"
+          TopLeft="132,196" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+          TopLeft="446.8,166.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.4,62.4"
+              Start="0,0"
+              End="-16.4,54.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2"
+                    Point2="0,31.2"
+                    Point3="-4,31.2" />
+                  <mssgle:LineSegment
+                    End="-12.4,31.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.4,31.2"
+                    Point2="-16.4,31.2"
+                    Point3="-16.4,35.2" />
+                  <mssgle:LineSegment
+                    End="-16.4,54.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Row Count Output 1]"
+          TopLeft="369.6,249.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119.2,-32.8"
+              Start="0,0"
+              End="-111.7,-32.8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-55.6,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-55.6,0"
+                    Point2="-59.6,0"
+                    Point3="-59.6,-4" />
+                  <mssgle:LineSegment
+                    End="-59.6,-28.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.6,-28.8"
+                    Point2="-59.6,-32.8"
+                    Point3="-63.6,-32.8" />
+                  <mssgle:LineSegment
+                    End="-111.7,-32.8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+          TopLeft="162.8,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="284,28.8"
+              Start="0,0"
+              End="284,21.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.4"
+                    Point2="0,14.4"
+                    Point3="4,14.4" />
+                  <mssgle:LineSegment
+                    End="280,14.4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="280,14.4"
+                    Point2="284,14.4"
+                    Point3="284,18.4" />
+                  <mssgle:LineSegment
+                    End="284,21.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\M_DimTariffs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\DimTariffs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\EXEC STP_UpdateLogInfo.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\EXEC STP_UpdateLogInfo.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="334.4,129.6" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

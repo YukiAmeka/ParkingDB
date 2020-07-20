@@ -1,0 +1,1301 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/14/2020 11:42:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\mterltc"
+  DTS:DTSID="{C086A1B6-E32B-4256-9925-DD012E9C9C94}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OperationTariffs_STG"
+  DTS:PackageType="5"
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{2F181F0E-8685-4413-8FCF-B94734642437}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[From OperationTariffs TXT]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EE4BC0E8-1B66-4866-BA7B-448D05C9659A}"
+      DTS:ObjectName="From OperationTariffs TXT">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathPending] +"\\"+@[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\OperationTariffs_2020-07-13.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TariffID"
+              DTS:DTSID="{A1D1467D-6BDD-423E-ABD3-343B39563DEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TariffName"
+              DTS:DTSID="{17E82499-E05A-4F7E-8D33-BFC58C914B7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{645D1FFA-75B8-4825-9BC0-50902DB71614}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ParkingName"
+              DTS:DTSID="{1F330D3F-67F0-4DF7-96C9-1BA763BDD49D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SlotType"
+              DTS:DTSID="{E0D7DFD5-B7AF-4741-9CD6-30704DA8CE1F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Price"
+              DTS:DTSID="{2C074217-3CF8-4D0C-8421-FD23277E6799}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TariffStartDate"
+              DTS:DTSID="{648D2FE7-CB39-4CDD-8B41-AE8923D3D397}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TariffEndDate"
+              DTS:DTSID="{41F0D662-B168-4ECA-8928-7CC25A59384F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZoneType"
+              DTS:DTSID="{3018A534-FBEC-43D1-812A-5A9ABEBF0930}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Pending]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{7E3416B8-8895-48FE-B59D-0AE5DCCDEC64}"
+      DTS:ObjectName="Pending">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathPending]+"\\"+ @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\OperationTariffs_2020-07-13.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Processed  Folder]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A75CFDD8-2866-4317-B3B0-480CAA962022}"
+      DTS:ObjectName="Processed  Folder">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathProcessed] +   (DT_STR, 30, 1258) (DT_DBDATE) GETDATE()</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed2020-07-13" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB9478A0-C4D4-48A1-B67E-0E4D68AA83CB}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;OperationTariffs&quot; + &quot;_&quot; + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE() + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">OperationTariffs_2020-07-13.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EEAA71D2-43D6-4663-9E2C-2816CDD36BE6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FilePathPending] + &quot;\\&quot; +  @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullPathToPending">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\OperationTariffs_2020-07-13.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4646DB7E-F82C-408C-BA38-C4283A38BADC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FilePathProcessed] +&quot;\\&quot; + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullPathToProcessed">
+      <DTS:VariableValue
+        DTS:DataType="8">\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\2020-07-13</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC556F9B-7FE0-4858-8D53-943ACE5BF2BE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{204BD068-7395-469A-A4D0-EFB3B0A91975}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20A7DCC6-A8BE-4AD2-B87F-CF1D4FA49B91}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create folder with date in Processed folder if not exsist"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{3D76EC93-BC96-4F03-95BA-9921CD428B20}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create folder with date in Processed folder if not exsist"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{96900CB3-C65B-4F88-A7FE-195E8F859689}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="FolderName">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          OperationName="2020-5-15"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::FullPathToProcessed"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load data from OperationTariffsTXT to Parking STG DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3B27FEA7-E76A-480D-A9A4-13A30F644B90}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load data from OperationTariffsTXT to Parking STG DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="From OperationTariffs TXT"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[From OperationTariffs TXT]"
+                  connectionManagerRefId="Package.ConnectionManagers[From OperationTariffs TXT]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffID]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffID]"
+                      name="TariffID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffName]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffName]"
+                      name="TariffName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[City]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[ParkingName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[ParkingName]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[ParkingName]"
+                      name="ParkingName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[SlotType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[SlotType]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[SlotType]"
+                      name="SlotType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[Price]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[Price]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffStartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffStartDate]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffStartDate]"
+                      name="TariffStartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffEndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffEndDate]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffEndDate]"
+                      name="TariffEndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[ZoneType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[ZoneType]"
+                      length="255"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[ZoneType]"
+                      name="ZoneType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffName]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[ParkingName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ParkingName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[SlotType]"
+                      dataType="wstr"
+                      length="255"
+                      name="SlotType" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[Price]"
+                      dataType="wstr"
+                      length="255"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[TariffEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].ExternalColumns[ZoneType]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZoneType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="nText"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsInserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="To Parking STG DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Operation].[DimTariffs]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BEB3F240-012D-413A-B972-276D8BF9DD5E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[TariffID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffID"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffID]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[ParkingName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ParkingName"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[ParkingName]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[ParkingName]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[SlotType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SlotType"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[SlotType]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[SlotType]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[TariffStartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffStartDate"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[TariffStartDate]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffStartDate]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[TariffEndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffEndDate"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[TariffEndDate]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffEndDate]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[ZoneType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZoneType"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[ZoneType]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[ZoneType]" />
+                    <inputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].Columns[TariffName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffName"
+                      externalMetadataColumnId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[Tariff]"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output].Columns[TariffName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[Tariff]"
+                      dataType="wstr"
+                      length="255"
+                      name="Tariff" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[ParkingName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ParkingName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[ZoneType]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZoneType" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[SlotType]"
+                      dataType="wstr"
+                      length="255"
+                      name="SlotType" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="wstr"
+                      length="255"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[TariffStartDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input].ExternalColumns[TariffEndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffEndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load data from OperationTariffsTXT to Parking STG DB.Paths[Flat File Source Output]"
+              endId="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count.Inputs[Row Count Input 1]"
+              name="Flat File Source Output"
+              startId="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load data from OperationTariffsTXT to Parking STG DB.Paths[Row Count Output 1]"
+              endId="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move TXT file to folder with date"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{3F2AC2B3-491B-493E-AF56-8B93443757A9}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move TXT file to folder with date"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::FullPathToPending"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::FullPathToProcessed"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Post Execute Update LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E1AFDEA5-53FC-46C9-8D68-D4A2BC14735E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Post Execute Update LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{377F417F-3BC4-4046-9768-127032228082}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre Execute Insert LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2DB13280-7C58-4218-A802-AA5AE95D157D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre Execute Insert LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{377F417F-3BC4-4046-9768-127032228082}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimTariffs table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E9FC7C08-7C95-4076-B59C-86DFA5B1FA87}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimTariffs table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BEB3F240-012D-413A-B972-276D8BF9DD5E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Operation].[DimTariffs]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Price Column, add '0' where needed"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{665E7F3C-B8EF-40F9-AF36-D38382033A66}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Price Column, add '0' where needed"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BEB3F240-012D-413A-B972-276D8BF9DD5E}"
+          SQLTask:SqlStatementSource="UPDATE [Operation].[DimTariffs]&#xA;SET Price = '0' + Price&#xA;WHERE Price LIKE '.%' &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A6899EC-0A30-42A9-AA8F-F2E92A713D4B}"
+      DTS:From="Package\Truncate DimTariffs table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load data from OperationTariffsTXT to Parking STG DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2F85392-F4E6-46B6-9746-1254147E414C}"
+      DTS:From="Package\Pre Execute Insert LogInfo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate DimTariffs table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{560A1B50-16C5-4244-8682-C8A746C43695}"
+      DTS:From="Package\Load data from OperationTariffsTXT to Parking STG DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Update Price Column, add '0' where needed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9E9E88D5-F33C-4E9F-88ED-80FE8F8093D2}"
+      DTS:From="Package\Update Price Column, add '0' where needed"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Create folder with date in Processed folder if not exsist" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{7816B10C-9860-4299-80D2-CD9DCB1953D8}"
+      DTS:From="Package\Move TXT file to folder with date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Post Execute Update LogInfo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{26014B87-B438-4175-96D6-40DD5EA5ACEC}"
+      DTS:From="Package\Create folder with date in Processed folder if not exsist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Move TXT file to folder with date" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{626AF6DB-657D-4A32-B893-9311CEF2E2FF}"
+      DTS:EventID="-3"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D2C515F0-6F39-4C70-B3FC-13085ABD2B38}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A5224146-8141-4F03-89AF-4470E2ECAFFA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{377F417F-3BC4-4046-9768-127032228082}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="344,42"
+          Id="Package\Create folder with date in Processed folder if not exsist"
+          TopLeft="289,259" />
+        <NodeLayout
+          Size="352,42"
+          Id="Package\Load data from OperationTariffsTXT to Parking STG DB"
+          TopLeft="284,103" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Move TXT file to folder with date"
+          TopLeft="338,333" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Post Execute Update LogInfo"
+          TopLeft="663,336" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Pre Execute Insert LogInfo"
+          TopLeft="50,19" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Truncate DimTariffs table"
+          TopLeft="363,20" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\Update Price Column, add '0' where needed"
+          TopLeft="312,183" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="462,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="259,40.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104,0"
+              Start="0,0"
+              End="96.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="96.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="459.25,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="459.75,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="574,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89,0"
+              Start="0,0"
+              End="81.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="458.5,301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="365,95" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Load data from OperationTariffsTXT to Parking STG DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB"
+          TopLeft="323,233" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load data from OperationTariffsTXT to Parking STG DB\Row Count"
+          TopLeft="330,143" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Load data from OperationTariffsTXT to Parking STG DB\From OperationTariffs TXT"
+          TopLeft="289,52" />
+        <EdgeLayout
+          Id="Package\Load data from OperationTariffsTXT to Parking STG DB.Paths[Row Count Output 1]"
+          TopLeft="396.5,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,48"
+              Start="0,0"
+              End="14.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="10.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,24"
+                    Point2="14.5,24"
+                    Point3="14.5,28" />
+                  <mssgle:LineSegment
+                    End="14.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load data from OperationTariffsTXT to Parking STG DB.Paths[Flat File Source Output]"
+          TopLeft="395.25,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from OperationTariffsTXT to Parking STG DB\To Parking STG DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

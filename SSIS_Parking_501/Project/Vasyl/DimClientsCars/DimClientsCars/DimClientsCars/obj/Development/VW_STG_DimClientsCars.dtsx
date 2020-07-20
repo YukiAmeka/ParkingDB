@@ -1,0 +1,1330 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/19/2020 12:09:17 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\vandrutc"
+  DTS:DTSID="{5C7225FF-3874-4B3D-8A09-06BDE3D8BD47}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="VW_STG_DimClientsCars"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{4C1FFC06-C986-432A-AADD-7753AEE3098F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3A8F6F5E-5C44-469F-B5A9-D70B68667D4A}"
+      DTS:ObjectName="192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_04_05;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA73p7abEelEuAq03mt/A60wAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAVqcEc94hrz1/5y5jGOC/LAAAAAASAAACgAAAAEAAAAHNZyG3A8ubbCTZbT2IMu8cYAAAAuDUcd3u2eHG4g/12+LM1qLWGLytOHyjtFAAAANF29XcLjoTU/ywT9Ol3upTAKUiB</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C451F7AF-AC85-4E87-9264-E80FE7B6904F}"
+      DTS:ObjectName="192.168.195.147.Lv_501_Parking_04_05.Lv-501DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501DB;Initial Catalog=Lv_501_Parking_04_05;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA73p7abEelEuAq03mt/A60wAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB1Tr+kZUoA8wDASO6pMTM0AAAAAASAAACgAAAAEAAAAHkbT7qMdERNFtkxtq0PvSMYAAAAI9y9CUlcSAhdtIO3oWXD5YeM3n5zJlM6FAAAAE7N9mDunqced1hhqjWJ0fWw8K9h</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_Services.Lv-501.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4437F39F-2C45-48F8-9B70-F8BF6DEA0FBC}"
+      DTS:ObjectName="192.168.195.147.Lv_501_Parking_Services.Lv-501.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_Services;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA73p7abEelEuAq03mt/A60wAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACrYz/5Gvu2YjS57TUtDIxlAAAAAASAAACgAAAAEAAAAJRHJM45KERDjs0hOevEZloYAAAAxGyUvf2eDC9SFV6Z0eJTPd3YfGHHW9bmFAAAAMZE//82NhQFebI1f3U0FsBqajXv</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{76205394-28BA-46A8-B2B6-1C3816B5C1E4}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\20200519\VW_STG_DimClientsCars.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientID"
+              DTS:DTSID="{52BE2A7E-A6E5-41D8-A1CA-B72454838AF8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{E7372C6A-29EB-44FE-B09F-0E46EFF6E0ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surname"
+              DTS:DTSID="{1340E8BA-1C15-4403-AA5D-075650479208}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{F25D4FA3-8110-49F1-82F3-06570F458442}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telephone"
+              DTS:DTSID="{AA1D9370-A6B7-4206-8F56-4D06A7B1206C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{56BF721C-9CF7-425C-9689-3BE1BFE1F082}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{FF976591-F939-47F1-900D-9CDAE63C4BE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HomeAddress"
+              DTS:DTSID="{9D67E0F9-D2CB-4B44-8E4C-7FF9E2A40E81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsCurrent"
+              DTS:DTSID="{7C1A4D2D-CBA0-4CCA-B1CC-38F116A07618}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Plate"
+              DTS:DTSID="{0B4C0053-ED90-4FF7-BC0B-62E41C3D4C42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{CF55BEA8-ECC6-4663-BA27-264D11F72537}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model"
+              DTS:DTSID="{08B4003C-35B5-4B4E-9F86-AC4FBD08BDC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CarID"
+              DTS:DTSID="{C40B3D98-3CEA-44AB-BF85-AC4D64F8B40E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of FirstName"
+              DTS:DTSID="{D13BB9CC-1F00-453F-B16E-D5499D1A7BBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Surname"
+              DTS:DTSID="{2FBFF13F-A560-4A68-B003-49B7347A85FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Gender"
+              DTS:DTSID="{0DE95AFF-516C-4A02-9491-F3634AEBFEC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Telephone"
+              DTS:DTSID="{A23553A6-1C2D-4367-AA49-EFE1FF399B32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Email"
+              DTS:DTSID="{A6D6C86D-D0FB-4086-B4BD-CE6329E0BE2D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CityName"
+              DTS:DTSID="{7B870481-85C1-438C-AB88-CD86D21C753A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of HomeAddress"
+              DTS:DTSID="{78BFF3D4-3F7B-4CF9-8C44-610B5BE8BC6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Plate"
+              DTS:DTSID="{AFC403A0-8C9D-49C9-8B7E-2C1416DF78A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Brand"
+              DTS:DTSID="{2C0F729C-3843-462B-935A-C3985F3D4FCE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Model"
+              DTS:DTSID="{18BCE1E3-3A14-4F5D-A472-799CBF77B318}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D242CA2B-3B19-4487-A60B-EF901A01044C}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\20200519\VW_STG_DimClientsCars.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientID"
+              DTS:DTSID="{D08CEF05-769D-4C92-B111-49D48A9D20DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{04AF29D9-0276-4933-9EF1-90E6F7109705}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surname"
+              DTS:DTSID="{A55F8587-7EFB-4F09-BFB5-D50D8E51D25A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{BEFC3556-180A-421E-AE7F-B4D88FCC379D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telephone"
+              DTS:DTSID="{B1545566-CEFA-4973-9FA1-39571DA73058}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{389300EA-26D4-478F-93E0-74077E38B7B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{8ABB2628-A88B-4D5D-BFF4-962905A64D7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HomeAddress"
+              DTS:DTSID="{FAA33B9E-B61B-40F2-B53C-7CEEEE13C276}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsCurrent"
+              DTS:DTSID="{26692D75-16D5-4FC1-927E-87EE13D90CE0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Plate"
+              DTS:DTSID="{E5554A5A-1B06-47BA-99E0-D90C3389B9E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{5419DC42-2D46-4CBD-82CA-DE98011CA99D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model"
+              DTS:DTSID="{4FE88803-525C-4F7F-AB98-EDC64D8B2B1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CarID"
+              DTS:DTSID="{C9CB8C01-9EF7-4CD2-96B3-E90F6A2EA2A9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D1ACD62-ED33-490E-9D95-73D108B2F841}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D40028DF-4EDE-4F3F-B6AD-1CC88EF47C0F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{52844884-6BB3-44E7-B026-65B75AD9E21F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Post Execute Update LogInfo"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5DB5A00C-1A52-46C3-A72F-8C94B32F089D}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Post Execute Update LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4437F39F-2C45-48F8-9B70-F8BF6DEA0FBC}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre Execute Insert LogInfo"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C477A1B3-5410-479C-B4AB-1CFF516DCA5C}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre Execute Insert LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4437F39F-2C45-48F8-9B70-F8BF6DEA0FBC}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\VW_STG_DimClientsCars"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CDF94B8D-B6D0-4DF3-A094-3561031E65A5}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="VW_STG_DimClientsCars"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\VW_STG_DimClientsCars\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[VW_STG_DimClientsCars]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\VW_STG_DimClientsCars\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      name="ClientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="100"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      length="100"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Surname]"
+                      name="Surname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone]"
+                      length="15"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone]"
+                      name="Telephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="100"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      length="50"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HomeAddress]"
+                      length="200"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomeAddress]"
+                      name="HomeAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Plate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Plate]"
+                      length="7"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Plate]"
+                      name="Plate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Brand]"
+                      length="50"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Brand]"
+                      name="Brand"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Model]"
+                      length="50"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Model]"
+                      name="Model"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarID]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarID]"
+                      name="CarID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Plate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="Plate" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Brand" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Model" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarID]"
+                      dataType="i4"
+                      name="CarID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      dataType="i4"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      name="ClientID" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      name="Surname" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone]"
+                      name="Telephone" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HomeAddress]"
+                      name="HomeAddress" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                      dataType="bool"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                      name="IsCurrent" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Plate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Plate]"
+                      name="Plate" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Brand]"
+                      name="Brand" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Model]"
+                      name="Model" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarID]"
+                      dataType="i4"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarID]"
+                      name="CarID" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="VW_STG_DimClientsCars">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[ClientID]"
+                      cachedDataType="i4"
+                      cachedName="ClientID"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[ClientID]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientID]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Surname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Surname"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Surname]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Surname]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Telephone"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Telephone]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[HomeAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="HomeAddress"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[HomeAddress]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomeAddress]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="IsCurrent"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsCurrent]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Plate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="Plate"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Plate]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Plate]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Brand]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Brand"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Brand]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Brand]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[Model]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Model"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Model]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[Model]" />
+                    <inputColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].Columns[CarID]"
+                      cachedDataType="i4"
+                      cachedName="CarID"
+                      externalMetadataColumnId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[CarID]"
+                      lineageId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Plate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="Plate" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Brand" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Model" />
+                    <externalMetadataColumn
+                      refId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input].ExternalColumns[CarID]"
+                      dataType="i4"
+                      name="CarID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\VW_STG_DimClientsCars.Paths[OLE DB Source Output]"
+              endId="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\VW_STG_DimClientsCars\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A346EBF-001D-4A9B-83D6-535688F127D1}"
+      DTS:From="Package\Pre Execute Insert LogInfo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\VW_STG_DimClientsCars" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0E2A7D97-A828-41A7-B782-BF298F2ABFEE}"
+      DTS:From="Package\VW_STG_DimClientsCars"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Post Execute Update LogInfo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{AB90375A-9B05-4C53-86F8-E749BAB09B38}"
+      DTS:EventID="175277644"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{DB42D8ED-7284-4EE2-997E-961918ACF62E}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8D236AD0-B0BF-4B9B-84F9-96F5F028377E}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4437F39F-2C45-48F8-9B70-F8BF6DEA0FBC}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Post Execute Update LogInfo"
+          TopLeft="295,220" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Pre Execute Insert LogInfo"
+          TopLeft="300,22" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\VW_STG_DimClientsCars"
+          TopLeft="309,121" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="404.75,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="405,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="311,37" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\VW_STG_DimClientsCars">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\VW_STG_DimClientsCars\OLE DB Source"
+          TopLeft="305,18" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\VW_STG_DimClientsCars\VW_STG_DimClientsCars"
+          TopLeft="276,95" />
+        <EdgeLayout
+          Id="Package\VW_STG_DimClientsCars.Paths[OLE DB Source Output]"
+          TopLeft="377,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\VW_STG_DimClientsCars\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

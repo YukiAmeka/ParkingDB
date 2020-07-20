@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "StasProject", "StasProject\StasProject.dtproj", "{882FB0E7-B412-4EAF-94A4-0A8D7F442D97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{882FB0E7-B412-4EAF-94A4-0A8D7F442D97}.Development|Default.ActiveCfg = Development
+		{882FB0E7-B412-4EAF-94A4-0A8D7F442D97}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B1102F8-DEA1-402A-94E8-FFBDD1021C17}
+	EndGlobalSection
+EndGlobal

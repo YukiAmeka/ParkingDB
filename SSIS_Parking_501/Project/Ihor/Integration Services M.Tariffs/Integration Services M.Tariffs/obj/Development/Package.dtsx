@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/19/2020 12:34:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\iprytutc"
+  DTS:DTSID="{B1F4DD50-9CAC-49F6-9ABD-60E70B1B8391}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{E8D62ED1-8ACC-44BF-932C-0A89F0BDAC3A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

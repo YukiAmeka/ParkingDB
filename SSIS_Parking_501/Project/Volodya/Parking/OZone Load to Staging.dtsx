@@ -1,0 +1,1791 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/23/2020 12:46:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-A8OE45V"
+  DTS:CreatorName="DESKTOP-A8OE45V\Vova"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{A5DF2738-AA16-4BE4-BACE-6AD102F30C15}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1058"
+  DTS:ObjectName="Load to Staging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{1E541008-9750-4B4C-8907-C0ED9BB26BDC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-A8OE45V\SQLEXPRESS.Lv_501_Parking_Services]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+      DTS:ObjectName="DESKTOP-A8OE45V\SQLEXPRESS.Lv_501_Parking_Services">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-A8OE45V\SQLEXPRESS;Initial Catalog=Lv_501_Parking_Services;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-A8OE45V\SQLEXPRESS.Lv_501_Parking_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D222881E-1D8B-4264-B77D-920733524D84}"
+      DTS:ObjectName="DESKTOP-A8OE45V\SQLEXPRESS.Lv_501_Parking_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-A8OE45V\SQLEXPRESS;Initial Catalog=Lv_501_Parking_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-A8OE45V\VOVA.Lv_501_Parking_Services]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F0A49777-5A0E-49EF-B425-47682DA4B732}"
+      DTS:ObjectName="DESKTOP-A8OE45V\VOVA.Lv_501_Parking_Services">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-A8OE45V\VOVA;Initial Catalog=Lv_501_Parking_Services;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-A8OE45V\VOVA.Lv_501_Parking_StagingDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E48832EF-85DD-49B2-8173-A982A5BF3937}"
+      DTS:ObjectName="DESKTOP-A8OE45V\VOVA.Lv_501_Parking_StagingDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-A8OE45V\VOVA;Initial Catalog=Lv_501_Parking_StagingDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MembZones]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{843C5A26-D570-4F11-922C-4380F7ADBC11}"
+      DTS:ObjectName="MembZones">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::PendingFolderPath] + "\\"+ @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Vova\Documents\Visual Studio 2012\projects\Documents\Pending\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZoneID"
+              DTS:DTSID="{E14C5AB9-80C8-4D6A-8037-171F90D840FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LotName"
+              DTS:DTSID="{C25FB99C-EB02-4B59-9DE9-67EE35956764}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZoneTypeName"
+              DTS:DTSID="{88DA6799-A703-4845-9965-29CB6BEF3BF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Capacity"
+              DTS:DTSID="{5960EA1B-C3CC-4004-B1D1-4FE219C17FB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SlotDescription"
+              DTS:DTSID="{72DDC30A-759F-4295-980A-B487B98D6FBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{2FD64B99-AFE8-43D6-A09A-72B747775489}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address"
+              DTS:DTSID="{893625C2-BCB9-4A17-A639-1826492D1364}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PhoneNumber"
+              DTS:DTSID="{2CC7F88A-FF4E-4FF3-A74F-00AC48C70399}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{64070CCC-30EE-4045-846F-D3B3C1D7E1FA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OpZones]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ED499255-E35B-4D94-9936-8BE0D01DE479}"
+      DTS:ObjectName="OpZones">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::PendingFolderPath] + "\\"+ @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Vova\Documents\Visual Studio 2012\projects\Documents\Pending\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZoneID"
+              DTS:DTSID="{9A1C516B-ABE4-4309-9353-4AD98E061621}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LotName"
+              DTS:DTSID="{C71B2C0C-1A31-47DA-B553-F455214F5EEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZoneTypeName"
+              DTS:DTSID="{6F06A683-C62A-4A69-BCA7-5E867C3D6623}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Capacity"
+              DTS:DTSID="{1C677B27-E428-472F-889A-EC2BAF852F8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SlotDescription"
+              DTS:DTSID="{5EEB8FA2-08BF-4DA2-A071-EA02098E92FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{D0668353-F031-4770-B958-A941312D89C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address"
+              DTS:DTSID="{5BF9E80E-BA68-4E28-AB95-17EEF4A221DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PhoneNumber"
+              DTS:DTSID="{C160C65C-263E-4DD5-B5B3-452D2B8365C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{9DFD3AD6-A2EF-45A7-AF81-0AA7754E69EF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{660A1CF1-BCBF-4585-BE24-A4FB45F820C2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{697C7795-5C30-4F7C-BC07-DB618F7AF6D8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ProcessedFolderPath]  +&quot;\\&quot;+(DT_STR, 30,1252) (DT_DBDATE) GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Vova\Documents\Visual Studio 2012\projects\Documents\Processed\2020-07-03</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{317A7675-CC66-48D2-92CF-3C214DF66299}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA73B713-F890-4D6C-85EF-4236FB064B1A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogIDPack">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{960D1C7E-154C-4327-93D5-D31EF9F392EE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PendingFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Vova\Documents\Visual Studio 2012\projects\Documents\Pending</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FDD2ABC9-2707-4026-97D6-563F509E5AF4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ProcessedFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Vova\Documents\Visual Studio 2012\projects\Documents\Processed</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{307B20C4-745E-4E74-8B64-361175966C82}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{22232A27-785C-4F3B-AA58-29F2875C8E32}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInsertedPack">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2517287F-C5F2-4353-AF68-71863E1D7038}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{245CFD01-366A-4F41-86B1-BC7BE51858FE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdatedPack">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:DelayValidation="True"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{EE5BCE45-2CD7-4EBE-A695-FBD1B43DD6FE}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{31BC7015-6A94-4EC5-BB29-22B9A0DFCA74}"
+        DTS:ObjectName="{31BC7015-6A94-4EC5-BB29-22B9A0DFCA74}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::PendingFolderPath]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Vova\Documents\Visual Studio 2012\projects\Documents\Pending" />
+            <FEFEProperty
+              FileSpec="*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{A2609765-CADA-4688-BF0A-5898DA8B6DD2}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load OperationZones to StagingDB">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Create new Folder"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{47B519E9-74FE-4DF3-9FEB-9C04E37E815D}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Create new Folder"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="CreateDirectory"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::FullPath"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ProcessedFolderPath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Insert Logging Info"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{26fad13b-27df-484e-a31d-40e0b3147957}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert Logging Info"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+                  SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::FileName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Output"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{D19AF34C-175D-46FC-A7FE-207C6A3AFACC}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Load to Staging"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="2057"
+                      name="Flat File Source"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OpZones]"
+                          connectionManagerRefId="Package.ConnectionManagers[OpZones]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneID]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ZoneID]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneID]"
+                              name="ZoneID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[LotName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LotName]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[LotName]"
+                              name="LotName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneTypeName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ZoneTypeName]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneTypeName]"
+                              name="ZoneTypeName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Capacity]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Capacity]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Capacity]"
+                              name="Capacity"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[SlotDescription]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SlotDescription]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[SlotDescription]"
+                              name="SlotDescription"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[CityName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[CityName]"
+                              name="CityName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Address]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Address]"
+                              name="Address"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[PhoneNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PhoneNumber]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[PhoneNumber]"
+                              name="PhoneNumber"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                              length="50"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                              name="Email"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ZoneID]"
+                              dataType="wstr"
+                              length="50"
+                              name="ZoneID" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LotName]"
+                              dataType="wstr"
+                              length="50"
+                              name="LotName" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ZoneTypeName]"
+                              dataType="wstr"
+                              length="50"
+                              name="ZoneTypeName" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Capacity]"
+                              dataType="wstr"
+                              length="50"
+                              name="Capacity" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SlotDescription]"
+                              dataType="wstr"
+                              length="50"
+                              name="SlotDescription" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                              dataType="wstr"
+                              length="50"
+                              name="CityName" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address]"
+                              dataType="wstr"
+                              length="50"
+                              name="Address" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PhoneNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="PhoneNumber" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                              dataType="wstr"
+                              length="50"
+                              name="Email" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              dataType="nText"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE DB Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[Operation].[DimZones]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1251</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[DESKTOP-A8OE45V\SQLEXPRESS.Lv_501_Parking_Staging]"
+                          connectionManagerRefId="Package.ConnectionManagers[DESKTOP-A8OE45V\SQLEXPRESS.Lv_501_Parking_Staging]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ZoneID]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="ZoneID"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZoneID]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneID]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LotName]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="LotName"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[LotName]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ZoneTypeName]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="ZoneTypeName"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZoneTypeName]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[ZoneTypeName]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Capacity]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Capacity"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Capacity]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Capacity]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SlotDescription]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="SlotDescription"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SlotDescription]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[SlotDescription]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CityName]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="CityName"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[CityName]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="PhoneNumber"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[PhoneNumber]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Email"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Email]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Address]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Address"
+                              externalMetadataColumnId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Address]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZoneID]"
+                              dataType="wstr"
+                              length="255"
+                              name="ZoneID" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                              dataType="wstr"
+                              length="255"
+                              name="CityName" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LotName]"
+                              dataType="wstr"
+                              length="255"
+                              name="LotName" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZoneTypeName]"
+                              dataType="wstr"
+                              length="255"
+                              name="ZoneTypeName" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Capacity]"
+                              dataType="wstr"
+                              length="255"
+                              name="Capacity" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SlotDescription]"
+                              dataType="wstr"
+                              length="255"
+                              name="SlotDescription" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                              dataType="wstr"
+                              length="255"
+                              name="PhoneNumber" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                              dataType="wstr"
+                              length="255"
+                              name="Email" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                              dataType="wstr"
+                              length="255"
+                              name="Address" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="Row Count">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::RowsInserted</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging.Paths[Flat File Source Output]"
+                      endId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count.Inputs[Row Count Input 1]"
+                      name="Flat File Source Output"
+                      startId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source.Outputs[Flat File Source Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging.Paths[Row Count Output 1]"
+                      endId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Move to processed folder"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{5494E072-758B-4636-B09C-CAAC164FB596}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Move to processed folder"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="MoveFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="{ED499255-E35B-4D94-9936-8BE0D01DE479}"
+                  TaskDestinationPath="User::FullPath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB\Update Logging Info"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{979acf7f-2267-401a-aead-fa8434bf2e9f}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Logging Info"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+                  SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::RowsInserted"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::RowsUpdated"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{B24727ED-E68A-45D4-BEC1-E1EEA6A005F4}"
+              DTS:From="Package\Foreach Loop Container\Load OperationZones to StagingDB\Move to processed folder"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Foreach Loop Container\Load OperationZones to StagingDB\Update Logging Info" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{9FBA6D5D-CC9C-4C4F-B438-14D2C3EAFAE6}"
+              DTS:From="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Foreach Loop Container\Load OperationZones to StagingDB\Create new Folder" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{7159235B-9E9F-4BB6-A5A5-55F2DADDD271}"
+              DTS:From="Package\Foreach Loop Container\Load OperationZones to StagingDB\Create new Folder"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Foreach Loop Container\Load OperationZones to StagingDB\Move to processed folder" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{0D1E9474-EA35-4022-9CA9-82EB444697FE}"
+              DTS:From="Package\Foreach Loop Container\Load OperationZones to StagingDB\Insert Logging Info"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{501CC54E-6800-4DB9-A1CF-1804C794D529}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{A44C04CC-F580-4453-8600-C9249094D7ED}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Foreach Loop Container\Load OperationZones to StagingDB.EventHandlers[OnError]\Execute SQL Task"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{392c19fe-5c27-496a-9030-899c7b2b11f3}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Execute SQL Task"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:PropertyExpression
+                    DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_STR, 100,1252) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_STR, 100,1252)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+                      SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Script Task"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="Script Task"
+          DTS:DTSID="{9233832E-70EA-4446-BA63-3BBC99809404}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Script Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_7d6b8f5749934fefb6c0a939cf5b55f9"
+              VSTAMajorVersion="15"
+              VSTAMinorVersion="0"
+              Language="CSharp" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D3763E7A-55B2-45E0-B4EA-F9B94C655BFA}"
+          DTS:EvalOp="3"
+          DTS:Expression="REVERSE(SUBSTRING(REVERSE(@[User::FileName]),15,LEN(@[User::FileName]))) == &quot;OperationZones&quot;"
+          DTS:From="Package\Foreach Loop Container\Script Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Load OperationZones to StagingDB" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Foreach Loop Container.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{D65203D5-E2D9-4D83-A678-B72521869EA0}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{33B10885-6357-4571-8252-DAE314830E20}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C3463440-6EE5-4ED0-9412-52E13844D8B5}"
+          DTS:ObjectName="{C3463440-6EE5-4ED0-9412-52E13844D8B5}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert Logging Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{55401f95-2f5c-4e2c-abb4-c2924aaa0344}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert Logging Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogIDPack"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2c26333a-0307-48e7-8cf0-010bcfe7cd8c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D222881E-1D8B-4264-B77D-920733524D84}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Operation.DimZones" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Logging Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9614672e-9bd4-4f58-9414-25a0882a4c9e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Logging Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogIDPack"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInsertedPack"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdatedPack"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{60F6055E-3FA9-4781-BBD7-763337762EE8}"
+      DTS:From="Package\Truncate table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{32509111-E1B7-43A6-B49F-C122A6D97DB7}"
+      DTS:From="Package\Insert Logging Info"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{85673194-C112-4D22-8E12-A19CFCE9C96D}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Update Logging Info" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{C0E3512E-BF87-4006-B018-344CF2CEFF93}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{1D385F0A-C315-4F99-BE20-80530BE08FCE}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7826d36f-efd8-44a6-acdb-f09a1d24222a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO LogError VALUES( "+(DT_STR, 100,1252) @[User::LogIDPack]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_STR, 100,1252)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3FC64BBC-C42D-4162-8B4F-5FC65C2681C9}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError VALUES( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Foreach Loop Container\Script Task"
+          TopLeft="89.7142890132206,23.4823538763713" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging"
+          TopLeft="46.0952384033982,114.588239661221" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Create new Folder"
+          TopLeft="44.9523812410787,195.905885930705" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint 1]"
+          TopLeft="124.523809822238,156.188239661221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.717646269484"
+              Start="0,0"
+              End="0,32.217646269484">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.217646269484" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196.8,50.4"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Move to processed folder"
+          TopLeft="30.8190504054636,290.305884763856" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint 2]"
+          TopLeft="128.085715823271,237.505885930705">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.7999988331516"
+              Start="0,0"
+              End="0,45.2999988331516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2999988331516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Update Logging Info"
+          TopLeft="40.3428602958214,380.815689786495" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint]"
+          TopLeft="128.580955350643,340.705884763856">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.109805022639"
+              Start="0,0"
+              End="0,32.609805022639">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.609805022639" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Insert Logging Info"
+          TopLeft="45.8666712760918,22.0235232057322" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB.PrecedenceConstraints[Constraint 3]"
+          TopLeft="130.266671276092,63.6235232057322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.1714328726936,50.9647164554884"
+              Start="0,0"
+              End="-8.1714328726936,43.4647164554884">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4823582277442" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4823582277442"
+                    Point2="0,25.4823582277442"
+                    Point3="-4,25.4823582277442" />
+                  <mssgle:LineSegment
+                    End="-4.1714328726936,25.4823582277442" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.1714328726936,25.4823582277442"
+                    Point2="-8.1714328726936,25.4823582277442"
+                    Point3="-8.1714328726936,29.4823582277442" />
+                  <mssgle:LineSegment
+                    End="-8.1714328726936,43.4647164554884" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="249.6,479.2"
+          Size="249.6,522.4"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB"
+          TopLeft="35.4285738030258,153.474512629525" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="157.571431408123,65.0823538763713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88.392158753154"
+              Start="0,0"
+              End="0,80.892158753154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.892158753154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,32.446079376577,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="362.4,742.4"
+          Size="362.4,785.6"
+          Id="Package\Foreach Loop Container"
+          TopLeft="188.7619079765,297.019609802185" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Truncate table"
+          TopLeft="319.047624480968,191.733335910124" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="392.247624480968,233.333335910124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.2857165044676,63.6862738920608"
+              Start="0,0"
+              End="-22.2857165044676,56.1862738920608">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.8431369460304" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.8431369460304"
+                    Point2="0,31.8431369460304"
+                    Point3="-4,31.8431369460304" />
+                  <mssgle:LineSegment
+                    End="-18.2857165044676,31.8431369460304" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.2857165044676,31.8431369460304"
+                    Point2="-22.2857165044676,31.8431369460304"
+                    Point3="-22.2857165044676,35.8431369460304" />
+                  <mssgle:LineSegment
+                    End="-22.2857165044676,56.1862738920608" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.8,48.8"
+          Id="Package\Insert Logging Info"
+          TopLeft="333.523815203686,72.0313594934712" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="417.923815203686,120.831359493471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.6761907227178,70.9019764166527"
+              Start="0,0"
+              End="-25.6761907227178,63.4019764166527">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4509882083264" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.4509882083264"
+                    Point2="0,35.4509882083264"
+                    Point3="-4,35.4509882083264" />
+                  <mssgle:LineSegment
+                    End="-21.6761907227178,35.4509882083264" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.6761907227178,35.4509882083264"
+                    Point2="-25.6761907227178,35.4509882083264"
+                    Point3="-25.6761907227178,39.4509882083264" />
+                  <mssgle:LineSegment
+                    End="-25.6761907227178,63.4019764166527" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Update Logging Info"
+          TopLeft="245.904766092494,1137.521570515" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="369.9619079765,1082.61960980218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.4571418840056,54.9019607128157"
+              Start="0,0"
+              End="-36.4571418840056,47.4019607128157">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4509803564079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4509803564079"
+                    Point2="0,27.4509803564079"
+                    Point3="-4,27.4509803564079" />
+                  <mssgle:LineSegment
+                    End="-32.4571418840056,27.4509803564079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.4571418840056,27.4509803564079"
+                    Point2="-36.4571418840056,27.4509803564079"
+                    Point3="-36.4571418840056,31.4509803564079" />
+                  <mssgle:LineSegment
+                    End="-36.4571418840056,47.4019607128157" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination"
+          TopLeft="193.6,188" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Flat File Source"
+          TopLeft="201.6,20.8" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\Row Count"
+          TopLeft="324,96.8" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging.Paths[Flat File Source Output]"
+          TopLeft="276.8,62.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112,34.4"
+              Start="0,0"
+              End="112,26.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.2"
+                    Point2="0,17.2"
+                    Point3="4,17.2" />
+                  <mssgle:LineSegment
+                    End="108,17.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108,17.2"
+                    Point2="112,17.2"
+                    Point3="112,21.2" />
+                  <mssgle:LineSegment
+                    End="112,26.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging.Paths[Row Count Output 1]"
+          TopLeft="388.8,138.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-110,49.6"
+              Start="0,0"
+              End="-110,42.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8"
+                    Point2="0,24.8"
+                    Point3="-4,24.8" />
+                  <mssgle:LineSegment
+                    End="-106,24.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-106,24.8"
+                    Point2="-110,24.8"
+                    Point3="-110,28.8" />
+                  <mssgle:LineSegment
+                    End="-110,42.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Load OperationZones to StagingDB\Load to Staging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\Foreach Loop Container\Load OperationZones to StagingDB.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Foreach Loop Container\Load OperationZones to StagingDB.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="460,82.4" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="481.6,55.2" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services M.Tariffs", "Integration Services M.Tariffs\Integration Services M.Tariffs.dtproj", "{64304E2C-F033-463F-89A3-7BAC1A952C3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64304E2C-F033-463F-89A3-7BAC1A952C3C}.Development|Default.ActiveCfg = Development
+		{64304E2C-F033-463F-89A3-7BAC1A952C3C}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {623B5B6E-9C5B-4110-A218-7FD0E6874C38}
+	EndGlobalSection
+EndGlobal

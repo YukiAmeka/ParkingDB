@@ -1,0 +1,1391 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/14/2020 7:10:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-4F6U70S"
+  DTS:CreatorName="DESKTOP-4F6U70S\vanya"
+  DTS:DTSID="{28281752-CFDC-4967-83E3-6D6DE6C6D08A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{F6973278-C1FA-4A5C-8438-54AA19C009CC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{76EF1CEE-1F86-481E-9A08-E74115A44919}"
+      DTS:ObjectName="192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_04_05;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANXu34SBs1U2Nh3xXl/77IQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA/3UDC6cmHkRZh1F7C7/OMAAAAAASAAACgAAAAEAAAAPpCSmLRT8eWlXCUogBjxVUYAAAAnkzkJ83ui3ADO3CFKYcmCwemTJNpKz85FAAAAG5vfzynqzMZI/PcJehtv15xq19w</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_Staging.Lv-501.DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E15DE7C5-F129-492E-9AD1-8F21D19A926F}"
+      DTS:ObjectName="192.168.195.147.Lv_501_Parking_Staging.Lv-501.DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_Staging;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANXu34SBs1U2Nh3xXl/77IQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACSQMBl19AaC3OIwGyxxRFsAAAAAASAAACgAAAAEAAAAEGCKgolicgTSc/UlN5f6PMYAAAA5issaTqFijFuXDAPfxsqVxB4z16zp/gWFAAAALYuHiA7C2+t7oTlyP4DhYtWzLrm</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DataMart DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{13CECB80-E9A3-4F96-81C5-B2414FECBEA9}"
+      DTS:ObjectName="DataMart DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_DataMart;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANXu34SBs1U2Nh3xXl/77IQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD40r1H4MHZXXj4fD3EkY+eAAAAAASAAACgAAAAEAAAAFTdcBEuVD/Je3WeHMbTxpMYAAAAMFRGBfk2+mD+kd/n2uhfw7yAcUwiHzCJFAAAAAkBryYuiLH7yEdj+sbYnaksTm/l</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Services DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{986D118F-3FB4-46E6-9914-100EEAAE92F7}"
+      DTS:ObjectName="Services DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_Services;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANXu34SBs1U2Nh3xXl/77IQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADRTo7yaBZbzM0uvKHzroeBAAAAAASAAACgAAAAEAAAAN/3yhksLvr9yrXpLWiwpRIYAAAARqm94Vx2Ah5eldf81DDSJssEZUThGXBDFAAAANAXzoivCqLLp0sK/nwKE/oKor4O</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{AF1CF133-D070-4A47-B44E-C09DE26B2F1A}"
+      DTS:ObjectName="Parameter">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DCC6D85-58DD-4C16-B523-FAB8C9CA9CF6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9E335D3E-AE58-4607-B19A-ED039FD43570}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1406179A-08A2-42C2-836A-4C5A02688680}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute Insert LogInfo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d2e5db30-bd19-4e43-a006-1e8b72138fdf}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Insert LogInfo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{986D118F-3FB4-46E6-9914-100EEAAE92F7}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{01db4fa2-4141-403f-bcc6-d21a50e952d0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{986D118F-3FB4-46E6-9914-100EEAAE92F7}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="0" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LoadToDataMart"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2CDE250F-3E5D-41FC-9127-D6B83C1990AD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadToDataMart"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoadToDataMart\DataMart"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DataMart"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Membership].[FactOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadToDataMart\DataMart.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DataMart DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DataMart DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[ZoneID]"
+                      cachedDataType="i4"
+                      cachedName="ZoneID"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[ZoneID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ZoneID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[TariffID]"
+                      cachedDataType="i4"
+                      cachedName="TariffID"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TariffID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[AllCardID]"
+                      cachedDataType="i4"
+                      cachedName="AllCardID"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[AllCardID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AllCardID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[ClientID]"
+                      cachedDataType="i4"
+                      cachedName="ClientID"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ClientID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[PurchaseDate]"
+                      cachedDataType="dbDate"
+                      cachedName="PurchaseDate"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[PurchaseDate]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[PurchaseTime]"
+                      cachedDataType="dbTime2"
+                      cachedName="PurchaseTime"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTime]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[PurchaseTime]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[TotalCost]"
+                      cachedDataType="numeric"
+                      cachedName="TotalCost"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[TotalCost]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TotalCost]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[ZoneID]"
+                      dataType="i4"
+                      name="ZoneID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      dataType="i4"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[AllCardID]"
+                      dataType="i4"
+                      name="AllCardID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      dataType="dbDate"
+                      name="PurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTime]"
+                      dataType="dbTime2"
+                      name="PurchaseTime" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input].ExternalColumns[TotalCost]"
+                      dataType="numeric"
+                      name="TotalCost"
+                      precision="6"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadToDataMart\DataMart.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadToDataMart\DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadToDataMart\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Dirty].[MFactsOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadToDataMart\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_Staging.Lv-501.DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_Staging.Lv-501.DB 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ZoneID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZoneID"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZoneID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZoneID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TariffID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TariffID"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[TariffID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllCardID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AllCardID"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllCardID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllCardID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClientID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ClientID"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientID]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PurchaseDate"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseTime]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PurchaseTime"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTime]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseTime]" />
+                    <inputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalCost]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TotalCost"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalCost]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalCost]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      dataType="wstr"
+                      length="255"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZoneID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZoneID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllCardID]"
+                      dataType="wstr"
+                      length="255"
+                      name="AllCardID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="PurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTime]"
+                      dataType="wstr"
+                      length="255"
+                      name="PurchaseTime" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalCost]"
+                      dataType="wstr"
+                      length="255"
+                      name="TotalCost" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DirtyValue]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DirtyValue" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadToDataMart\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadToDataMart\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT OrderID,ZoneID,TariffID,AllCardID,ClientID,PurchaseDate,PurchaseTime,TotalCost
+					FROM [Membership].[FactsOrders]
+					WHERE OrderID IS  NULL OR ZoneId  is  null  OR TariffID  is  null OR AllCardID   is  null OR ClientID   is  null OR
+					PurchaseDate   is  null OR PurchaseTime   is null OR ISDATE(PurchaseTime) = 0 OR ISDATE(PurchaseDate) = 0
+					OR ISNUMERIC(OrderID) = 0 OR ISNUMERIC(ZoneID) = 0 OR ISNUMERIC(TariffID) =0 OR ISNUMERIC(AllCardID) = 0 OR
+					ISNUMERIC(ClientID) = 0 OR ISNUMERIC(TotalCost) = 0</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadToDataMart\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_Staging.Lv-501.DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_Staging.Lv-501.DB 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZoneID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ZoneID]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZoneID]"
+                      name="ZoneID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[TariffID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TariffID]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[TariffID]"
+                      name="TariffID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllCardID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllCardID]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllCardID]"
+                      name="AllCardID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      name="ClientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseDate]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseTime]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTime]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseTime]"
+                      name="PurchaseTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalCost]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalCost]"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalCost]"
+                      name="TotalCost"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      dataType="wstr"
+                      length="255"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ZoneID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZoneID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllCardID]"
+                      dataType="wstr"
+                      length="255"
+                      name="AllCardID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="PurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTime]"
+                      dataType="wstr"
+                      length="255"
+                      name="PurchaseTime" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalCost]"
+                      dataType="wstr"
+                      length="255"
+                      name="TotalCost" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZoneID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZoneID]"
+                      name="ZoneID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TariffID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TariffID]"
+                      name="TariffID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllCardID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllCardID]"
+                      name="AllCardID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      name="ClientID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseDate]"
+                      name="PurchaseDate" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseTime]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseTime]"
+                      name="PurchaseTime" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalCost]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalCost]"
+                      name="TotalCost" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadToDataMart\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[VW_FactsMembershipOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadToDataMart\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv_501_Parking_04_05.Lv-501.DB 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ZoneID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ZoneID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ZoneID]"
+                      name="ZoneID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TariffID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[TariffID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TariffID]"
+                      name="TariffID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AllCardID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[AllCardID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AllCardID]"
+                      name="AllCardID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      name="ClientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[PurchaseDate]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[PurchaseTime]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTime]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[PurchaseTime]"
+                      name="PurchaseTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TotalCost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[TotalCost]"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TotalCost]"
+                      name="TotalCost"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ZoneID]"
+                      dataType="i4"
+                      name="ZoneID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[TariffID]"
+                      dataType="i4"
+                      name="TariffID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[AllCardID]"
+                      dataType="i4"
+                      name="AllCardID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[PurchaseDate]"
+                      dataType="dbDate"
+                      name="PurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTime]"
+                      dataType="dbTime2"
+                      name="PurchaseTime" />
+                    <externalMetadataColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[TotalCost]"
+                      dataType="numeric"
+                      name="TotalCost"
+                      precision="12"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ZoneID]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ZoneID]"
+                      name="ZoneID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[TariffID]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[TariffID]"
+                      name="TariffID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[AllCardID]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[AllCardID]"
+                      name="AllCardID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      name="ClientID" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[PurchaseDate]"
+                      dataType="dbDate"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[PurchaseDate]"
+                      name="PurchaseDate" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[PurchaseTime]"
+                      dataType="dbTime2"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[PurchaseTime]"
+                      name="PurchaseTime" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[TotalCost]"
+                      dataType="numeric"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[TotalCost]"
+                      name="TotalCost"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LoadToDataMart.Paths[OLE DB Source Output]"
+              endId="Package\LoadToDataMart\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\LoadToDataMart\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LoadToDataMart.Paths[OLE DB Source Output1]"
+              endId="Package\LoadToDataMart\DataMart.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\LoadToDataMart\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9D7B4B18-4790-49D8-80B1-D7F67F90FBCE}"
+      DTS:From="Package\Execute Insert LogInfo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LoadToDataMart" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D995E465-B85A-4410-BDDA-FC8479CFBB46}"
+      DTS:From="Package\LoadToDataMart"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{053F75EA-2068-4FFC-9E48-B719C53CD47C}"
+      DTS:EventID="3"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{5A4CFB65-C8AE-49CF-87A0-D042A5D7F67B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{fa6b33fc-d19b-41cc-8c2c-c6e3b45ce555}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{986D118F-3FB4-46E6-9914-100EEAAE92F7}"
+              SQLTask:SqlStatementSource="INSERT INTO LogError&#xA;  (LogID, ErrorMessage)&#xA;VALUES  (?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::LogID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,44"
+          Id="Package\Execute Insert LogInfo"
+          TopLeft="313,66" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="309,293" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\LoadToDataMart"
+          TopLeft="314,169" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="393.5,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="396.75,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82"
+              Start="0,0"
+              End="0,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="278,58" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\LoadToDataMart">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\LoadToDataMart\OLE DB Source"
+          TopLeft="48,71" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\LoadToDataMart\DataMart"
+          TopLeft="502,342" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\LoadToDataMart\OLE DB Destination"
+          TopLeft="42,217" />
+        <EdgeLayout
+          Id="Package\LoadToDataMart.Paths[OLE DB Source Output]"
+          TopLeft="128.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104"
+              Start="0,0"
+              End="0,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\LoadToDataMart\OLE DB Source 1"
+          TopLeft="535,159" />
+        <EdgeLayout
+          Id="Package\LoadToDataMart.Paths[OLE DB Source Output1]"
+          TopLeft="618,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54,141"
+              Start="0,0"
+              End="-54,133.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.5"
+                    Point2="0,70.5"
+                    Point3="-4,70.5" />
+                  <mssgle:LineSegment
+                    End="-50,70.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-50,70.5"
+                    Point2="-54,70.5"
+                    Point3="-54,74.5" />
+                  <mssgle:LineSegment
+                    End="-54,133.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadToDataMart\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadToDataMart\DataMart">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadToDataMart\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadToDataMart\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1220 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/15/2020 5:01:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\alevchtc"
+  DTS:DTSID="{D138689B-7AEB-41F1-9218-479F7977F75F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="STG_MembershipDimClients"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{787C50B4-7206-4B85-9FB9-FEA18C0DE1BD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Pending]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7DE05051-5028-4101-834E-93A332184361}"
+      DTS:ObjectName="Pending">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathPending]  + "\\" + @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Pending\MembershipDimClients_2020-05-20.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientID"
+              DTS:DTSID="{EC813635-F9F7-4889-A3AD-599E01EEFE15}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{FEB76A53-C069-4CE3-9E7B-7CC68C1A52E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surname"
+              DTS:DTSID="{A3545A1B-4491-4280-8AB1-1F553C2695EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{8D016D16-3B56-4960-9EAD-7C01EC7A14D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telephone"
+              DTS:DTSID="{E0CE7696-9828-4618-950D-77AFCF5A8C14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{34B1E03C-3ED7-44FF-AD8C-DD5731BB0EC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HomeAddress"
+              DTS:DTSID="{29155C3E-EC9A-4360-AFA7-CECB6DB1A50C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{400E6016-8886-4BEA-9983-42E442E888FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstPurchaseDate"
+              DTS:DTSID="{A55D0526-2DF0-4981-AD07-50674689CF1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LatestExpiryDate"
+              DTS:DTSID="{269E588D-FB33-438A-BA1C-400362618E14}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Processed]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{7E78BE68-3A03-4776-8FA7-194E35641DC6}"
+      DTS:ObjectName="Processed">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FilePathProcessed] + "\\" + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE()</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="\\192.168.195.147\Users\adminaccount\Desktop\SSIS_Parking_501\Processed\2020-05-20" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D6720D7-3619-4FF6-8961-E933BB6CF532}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;MembershipDimClients&quot; + &quot;_&quot; + (DT_STR, 30, 1258) (DT_DBDATE) GETDATE() + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MembershipDimClients_2020-05-20.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{60D99EBD-09F3-4F60-AD03-BD9600B84FB2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{22DAEDE8-77D3-4DC7-B87A-C80A7285021C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FCF84CF7-8CDC-44D0-B49C-BC3BFCCBE79D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load data from TXT file into Staging DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{17af8d9b-5d14-47fe-b7bb-20f3ca4471e1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load data from TXT file into Staging DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load data from TXT file into Staging DB.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{583c44f9-382c-4106-8e51-d118505a0430}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{7a635d31-c238-4925-a195-e9c4df90b8dc}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="MembershipDimClients table in Staging DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Membership].[DimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Connections[OleDbConnection]"
+                  connectionManagerID="{8D6B75D6-4316-4114-8B6E-48C77CA30DC1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[ClientID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ClientID"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[ClientID]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[Surname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Surname"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Surname]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Surname]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[Telephone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Telephone"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Telephone]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Telephone]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[HomeAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="HomeAddress"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[HomeAddress]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[HomeAddress]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[FirstPurchaseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstPurchaseDate"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[FirstPurchaseDate]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[FirstPurchaseDate]" />
+                    <inputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].Columns[LatestExpiryDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LatestExpiryDate"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[LatestExpiryDate]"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[LatestExpiryDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Surname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Telephone]"
+                      dataType="wstr"
+                      length="255"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[HomeAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[FirstPurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstPurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input].ExternalColumns[LatestExpiryDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="LatestExpiryDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="MembershipDimClients TXT file"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Pending]"
+                  connectionManagerRefId="Package.ConnectionManagers[Pending]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[ClientID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[ClientID]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[ClientID]"
+                      name="ClientID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Surname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Surname]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Surname]"
+                      name="Surname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Telephone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Telephone]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Telephone]"
+                      name="Telephone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[HomeAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[HomeAddress]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[HomeAddress]"
+                      name="HomeAddress"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[CityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[FirstPurchaseDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[FirstPurchaseDate]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[FirstPurchaseDate]"
+                      name="FirstPurchaseDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[LatestExpiryDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[LatestExpiryDate]"
+                      length="255"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].Columns[LatestExpiryDate]"
+                      name="LatestExpiryDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Surname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Telephone]"
+                      dataType="wstr"
+                      length="255"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[HomeAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[FirstPurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstPurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output].ExternalColumns[LatestExpiryDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="LatestExpiryDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="nText"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from TXT file into Staging DB\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsInserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load data from TXT file into Staging DB\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from TXT file into Staging DB\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Load data from TXT file into Staging DB\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load data from TXT file into Staging DB.Paths[Flat File Source Output]"
+              endId="Package\Load data from TXT file into Staging DB\Row Count.Inputs[Row Count Input 1]"
+              name="Flat File Source Output"
+              startId="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load data from TXT file into Staging DB.Paths[Row Count Output 1]"
+              endId="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Load data from TXT file into Staging DB\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move TXT file to Processed folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{78393d34-1675-4b6e-a8de-59140f3d6b66}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move TXT file to Processed folder"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{7DE05051-5028-4101-834E-93A332184361}"
+          TaskDestinationPath="{7E78BE68-3A03-4776-8FA7-194E35641DC6}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PostExecute Insert Log Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{fdb37fb7-17ba-4650-9362-b582e06bc878}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PostExecute Insert Log Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{59878CA3-78D3-43C1-92E0-767E8916A630}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PreExecute Insert Log Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e08df67f-8297-4294-9314-51c257667e29}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PreExecute Insert Log Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{59878CA3-78D3-43C1-92E0-767E8916A630}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate target table in Staging DB"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{54c1a5c3-e731-444d-88c8-abd4363b0fa0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate target table in Staging DB"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8D6B75D6-4316-4114-8B6E-48C77CA30DC1}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Membership].[DimClients]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{c15e2f16-ed13-4bcc-85f4-37b3a4e54deb}"
+      DTS:From="Package\Truncate target table in Staging DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load data from TXT file into Staging DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{61fd17bd-8dde-4d91-a96f-e30eda4e86ed}"
+      DTS:From="Package\Load data from TXT file into Staging DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Move TXT file to Processed folder" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6e3049c3-e6d5-4939-b055-d05c28f5fe1e}"
+      DTS:From="Package\Move TXT file to Processed folder"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PostExecute Insert Log Info" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2717fc66-b626-4dad-85d4-671c1f851c6c}"
+      DTS:From="Package\PreExecute Insert Log Info"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Truncate target table in Staging DB" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{0959FE3D-BF3B-40EF-BCFF-9650FF464463}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{F0BDE421-1746-4F6A-B8A5-1E7D8E6BC20E}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Insert info about error into LogError table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ffb65aa0-4db6-49b4-896e-4d5e370ab560}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert info about error into LogError table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [LogError] ([LogID], [ErrorMessage], [CodeError], [SourceName]) VALUES ( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{59878CA3-78D3-43C1-92E0-767E8916A630}"
+              SQLTask:SqlStatementSource="INSERT INTO [LogError] ([LogID], [ErrorMessage], [CodeError], [SourceName]) VALUES ( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="273,42"
+          Id="Package\Load data from TXT file into Staging DB"
+          TopLeft="516,280" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\Move TXT file to Processed folder"
+          TopLeft="526,360" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\PostExecute Insert Log Info"
+          TopLeft="546,434" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\PreExecute Insert Log Info"
+          TopLeft="544,107" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Truncate target table in Staging DB"
+          TopLeft="528,196" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="652.75,238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="650.25,322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="650.5,402">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="650.75,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="277,42"
+          Id="Package.EventHandlers[OnError]\Insert info about error into LogError table"
+          TopLeft="482,165" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Load data from TXT file into Staging DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Load data from TXT file into Staging DB\MembershipDimClients TXT file"
+          TopLeft="557,93" />
+        <NodeLayout
+          Size="290,42"
+          Id="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB"
+          TopLeft="528,310" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load data from TXT file into Staging DB\Row Count"
+          TopLeft="602,198" />
+        <EdgeLayout
+          Id="Package\Load data from TXT file into Staging DB.Paths[Row Count Output 1]"
+          TopLeft="670.75,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load data from TXT file into Staging DB.Paths[Flat File Source Output]"
+          TopLeft="671.25,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load data from TXT file into Staging DB.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="277,42"
+          Id="{9E685987-B38D-4D80-9C23-97CC693E413A}"
+          TopLeft="542,151" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from TXT file into Staging DB\MembershipDimClients table in Staging DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

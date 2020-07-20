@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTransformationsUserConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <Run64BitRuntime>true</Run64BitRuntime>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>{23233690-DB76-4FA5-8941-20BAD3EC3DB0}</Id>
+            <Name>{23233690-DB76-4FA5-8941-20BAD3EC3DB0}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA73p7abEelEuAq03mt/A60wAAAABOAAAAewAyADMAMgAzADMANgA5ADAALQBEAEIANwA2AC0ANABGAEEANQAtADgAOQA0ADEALQAyADAAQgBBAEQAMwBFAEMAMwBEAEIAMAB9AAAAA2YAAMAAAAAQAAAAEOh+K8uDXulzIvchC+duhQAAAAAEgAAAoAAAABAAAAAN1qmb8NFJPQw/fPM1xoXDGAAAADkFGsQWvq7jySt50vvgyeNPlInQaFC+chQAAACujlo7IWH+nolQ4WGwh07EKzHr/Q==</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>{23233690-DB76-4FA5-8941-20BAD3EC3DB0}</Id>
+            <Name>{23233690-DB76-4FA5-8941-20BAD3EC3DB0}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA73p7abEelEuAq03mt/A60wAAAABOAAAAewAyADMAMgAzADMANgA5ADAALQBEAEIANwA2AC0ANABGAEEANQAtADgAOQA0ADEALQAyADAAQgBBAEQAMwBFAEMAMwBEAEIAMAB9AAAAA2YAAMAAAAAQAAAA7RCDu2EKsmGBziZwsjigcQAAAAAEgAAAoAAAABAAAADaH8zK7eCQfb83eO+RS0Y/GAAAAN40mUZ+CMjsAyIj4TLYGJnHXvT4qFxswxQAAAC+RtHhTMl6FmV1iMcLpLJg6etL1Q==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <OfflineMode>false</OfflineMode>
+        <ProgressReporting>true</ProgressReporting>
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2020-05-19T10:35:03.4355102Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
+      </Options>
+    </Configuration>
+  </Configurations>
+</DataTransformationsUserConfiguration>

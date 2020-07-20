@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ParkingToStaging", "..\ParkingToStaging\ParkingToStaging.dtproj", "{7EFEB3EE-5730-4035-8024-9C4F0F189857}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EFEB3EE-5730-4035-8024-9C4F0F189857}.Development|Default.ActiveCfg = Development
+		{7EFEB3EE-5730-4035-8024-9C4F0F189857}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93A91F19-CF85-40CA-BAD2-B5444A071241}
+	EndGlobalSection
+EndGlobal

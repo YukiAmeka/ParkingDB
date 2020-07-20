@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services MembershipCards", "Integration Services MembershipCards\Integration Services MembershipCards.dtproj", "{17208DF7-292E-46CD-8989-91B542FE4D51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17208DF7-292E-46CD-8989-91B542FE4D51}.Development|Default.ActiveCfg = Development
+		{17208DF7-292E-46CD-8989-91B542FE4D51}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86D43794-718C-43C2-B0DC-9D660D564065}
+	EndGlobalSection
+EndGlobal

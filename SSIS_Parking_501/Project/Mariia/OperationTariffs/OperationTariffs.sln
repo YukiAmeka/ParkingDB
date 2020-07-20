@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "OperationTariffs", "OperationTariffs\OperationTariffs.dtproj", "{9D04DBCA-BF3A-4C38-8AFC-79614EF25160}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D04DBCA-BF3A-4C38-8AFC-79614EF25160}.Development|Default.ActiveCfg = Development
+		{9D04DBCA-BF3A-4C38-8AFC-79614EF25160}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13FA6DD3-FFB7-45A0-B935-2255470C48BA}
+	EndGlobalSection
+EndGlobal

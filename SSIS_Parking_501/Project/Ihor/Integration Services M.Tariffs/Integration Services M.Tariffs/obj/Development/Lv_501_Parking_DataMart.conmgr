@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="192.168.195.147.Lv_501_Parking_DataMart.Lv-501.DB"
+  DTS:DTSID="{157427B1-7B78-4284-8A32-E4C65BCF3029}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-501.DB;Initial Catalog=Lv_501_Parking_DataMart;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnBLCNp99l0alfupFb/lrSQAAAAACAAAAAAADZgAAwAAAABAAAADkUMnpxxi1qZaDw0LZqtaWAAAAAASAAACgAAAAEAAAAB3BJtt36+sYGthOjtnS8sh4AAAA/YuP0RhN6Z+xjUwY2TclG1+/5+G5t3pu2V8/D2b7eM9sxOxxdzXlmF/bcT9BC22UGMZbGNyXZ1kGZJZZ3ou5MDG6daan8smDgvGErDZaiQikE3C9IFA3+PxWJBwrQOajCxwOpvxKDOSePomJ/ShVi/+cGF+648KIFAAAAJjqPqQa/03DMVRoE0iz2W11IUIg</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

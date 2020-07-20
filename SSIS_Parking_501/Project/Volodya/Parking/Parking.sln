@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Parking111", "Parking111.dtproj", "{45D5CCF5-53DA-4EE3-9E91-68EC3CDE1D63}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "LoadToDataMart", "..\LoadToDataMart\LoadToDataMart.dtproj", "{0FD1415F-42F5-4885-A188-79FFEB3FAED2}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Parking", "..\..\ParkingToTXT\Parking\Parking.dtproj", "{0679B4E2-20DE-4DD6-86C3-F982587BD69F}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "LoadToStaging", "..\LoadToStaging\LoadToStaging.dtproj", "{374264BE-929F-4822-A7E5-7EEF8164B4D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45D5CCF5-53DA-4EE3-9E91-68EC3CDE1D63}.Development|Default.ActiveCfg = Development
+		{45D5CCF5-53DA-4EE3-9E91-68EC3CDE1D63}.Development|Default.Build.0 = Development
+		{0FD1415F-42F5-4885-A188-79FFEB3FAED2}.Development|Default.ActiveCfg = Development
+		{0FD1415F-42F5-4885-A188-79FFEB3FAED2}.Development|Default.Build.0 = Development
+		{0679B4E2-20DE-4DD6-86C3-F982587BD69F}.Development|Default.ActiveCfg = Development
+		{0679B4E2-20DE-4DD6-86C3-F982587BD69F}.Development|Default.Build.0 = Development
+		{374264BE-929F-4822-A7E5-7EEF8164B4D6}.Development|Default.ActiveCfg = Development
+		{374264BE-929F-4822-A7E5-7EEF8164B4D6}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03FDE261-53D4-4CB3-B4CE-561992255FD4}
+	EndGlobalSection
+EndGlobal

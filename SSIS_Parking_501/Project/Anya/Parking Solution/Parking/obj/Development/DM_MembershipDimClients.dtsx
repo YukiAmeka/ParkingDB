@@ -1,0 +1,1811 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/15/2020 11:38:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\alevchtc"
+  DTS:DTSID="{9B1B7287-C384-451E-B576-EE2A3F8A00DE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DM_MembershipDimClients"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{C08104F7-E584-4F05-9E61-8B278FB28790}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4066D8BD-13C5-4FA6-9BC2-95DC4E74B6BE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2AB4F522-1D61-468D-8B3A-C33B69D19016}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{14FAA36D-C3B8-4C10-939E-863D0E46C755}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load data from Staging DB into DataMart"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ade148d1-09e4-4d7f-ac81-0571c29ed4b3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load data from Staging DB into DataMart"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load data from Staging DB into DataMart.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{ea5aeead-65fc-4a24-a8d0-676ae57434e5}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{a74feef4-f259-4554-a7d0-6f19eed3d67a}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load data from Staging DB into DataMart\Find new records"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Find new records"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Membership].[DimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Membership].[DimClients]) [refTable]
+where [refTable].[ClientID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClientID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FirstName" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Surname" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Gender" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Telephone" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Email" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="HomeAddress" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CityName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FirstPurchaseDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LatestExpiryDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[ClientID_dm]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from Staging DB into DataMart\Find new records.Connections[OleDbConnection]"
+                  connectionManagerID="{A1BF7356-BDE2-456A-B986-21C70F12A310}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DataMart DB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from Staging DB into DataMart\Find new records.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\Find new records.Inputs[Lookup Input].Columns[ClientID_dm]"
+                      cachedDataType="i4"
+                      cachedName="ClientID_dm"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[ClientID_dm]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ClientID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\Find new records.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Match Output].Columns[ClientID_lookup]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Match Output].Columns[ClientID_lookup]"
+                      name="ClientID_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ClientID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\Find new records.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\Find new records.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="MembershipDimClients table in DataMart"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Membership].[DimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Connections[OleDbConnection]"
+                  connectionManagerID="{A1BF7356-BDE2-456A-B986-21C70F12A310}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DataMart DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[ClientID_dm]"
+                      cachedDataType="i4"
+                      cachedName="ClientID_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[ClientID_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[FirstName_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FirstName_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstName_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[Surname_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Surname_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Surname]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Surname_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[Gender_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Gender_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[Telephone_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Telephone_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Telephone]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Telephone_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[Email_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Email_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[HomeAddress_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="HomeAddress_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[HomeAddress]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[HomeAddress_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[CityName_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CityName_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[CityName_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[FirstPurchaseDate_dm]"
+                      cachedDataType="date"
+                      cachedName="FirstPurchaseDate_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[FirstPurchaseDate]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstPurchaseDate_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].Columns[LatestExpiryDate_dm]"
+                      cachedDataType="date"
+                      cachedName="LatestExpiryDate_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[LatestExpiryDate]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[LatestExpiryDate_dm]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                      dataType="i4"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[FirstPurchaseDate]"
+                      dataType="dbDate"
+                      name="FirstPurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input].ExternalColumns[LatestExpiryDate]"
+                      dataType="dbDate"
+                      name="LatestExpiryDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="MembershipDimClients table in Staging DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Membership].[DimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Connections[OleDbConnection]"
+                  connectionManagerID="{8D6B75D6-4316-4114-8B6E-48C77CA30DC1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Staging DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[ClientID]"
+                      name="ClientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Surname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Surname]"
+                      name="Surname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Telephone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Telephone]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Telephone]"
+                      name="Telephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[HomeAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[HomeAddress]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[HomeAddress]"
+                      name="HomeAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[CityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[FirstPurchaseDate]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]"
+                      name="FirstPurchaseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[LatestExpiryDate]"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]"
+                      name="LatestExpiryDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClientID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Telephone]"
+                      dataType="wstr"
+                      length="255"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[HomeAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="HomeAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[FirstPurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstPurchaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].ExternalColumns[LatestExpiryDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="LatestExpiryDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[ClientID]"
+                      name="ClientID" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      name="Surname" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Telephone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Telephone]"
+                      name="Telephone" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[HomeAddress]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[HomeAddress]"
+                      name="HomeAddress" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[FirstPurchaseDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[FirstPurchaseDate]"
+                      name="FirstPurchaseDate" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[LatestExpiryDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[LatestExpiryDate]"
+                      name="LatestExpiryDate" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="NVARCHAR -&gt; Relevant Data Types"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[ClientID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ClientID"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[ClientID]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[Surname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Surname"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Surname]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[Telephone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Telephone"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Telephone]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[HomeAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="HomeAddress"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[HomeAddress]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[FirstPurchaseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstPurchaseDate"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input].Columns[LatestExpiryDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LatestExpiryDate"
+                      lineageId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[ClientID_dm]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[ClientID_dm]"
+                      name="ClientID_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[ClientID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstName_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstName_dm]"
+                      name="FirstName_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Surname_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Surname_dm]"
+                      name="Surname_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Surname]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Gender_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Gender_dm]"
+                      name="Gender_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Gender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Telephone_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Telephone_dm]"
+                      name="Telephone_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Telephone]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Email_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Email_dm]"
+                      name="Email_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[Email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[HomeAddress_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[HomeAddress_dm]"
+                      name="HomeAddress_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[HomeAddress]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[CityName_dm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[CityName_dm]"
+                      name="CityName_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[CityName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstPurchaseDate_dm]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstPurchaseDate_dm]"
+                      name="FirstPurchaseDate_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[FirstPurchaseDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[LatestExpiryDate_dm]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[LatestExpiryDate_dm]"
+                      name="LatestExpiryDate_dm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output].Columns[LatestExpiryDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from Staging DB into DataMart\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC STP_UpdateMembershipDimClients ?,?,?,?,?,?,?,?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{A1BF7356-BDE2-456A-B986-21C70F12A310}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DataMart DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[ClientID_dm]"
+                      cachedDataType="i4"
+                      cachedName="ClientID_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@ClientID]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[ClientID_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[FirstName_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FirstName_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@FirstName]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[FirstName_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[Surname_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Surname_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Surname]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Surname_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[Telephone_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Telephone_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Telephone]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Telephone_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[Email_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Email]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[Email_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[HomeAddress_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="HomeAddress_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@HomeAddress]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[HomeAddress_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[CityName_dm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CityName_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@CityName]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[CityName_dm]" />
+                    <inputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].Columns[LatestExpiryDate_dm]"
+                      cachedDataType="date"
+                      cachedName="LatestExpiryDate_dm"
+                      externalMetadataColumnId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@LatestExpiryDate]"
+                      lineageId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output].Columns[LatestExpiryDate_dm]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@ClientID]"
+                      dataType="i4"
+                      name="@ClientID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="@FirstName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="@Surname">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="@Telephone">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="@Email">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@HomeAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="@HomeAddress">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="@CityName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@LatestExpiryDate]"
+                      dataType="dbDate"
+                      name="@LatestExpiryDate">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from Staging DB into DataMart\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from Staging DB into DataMart\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from Staging DB into DataMart\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsInserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load data from Staging DB into DataMart\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from Staging DB into DataMart\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Load data from Staging DB into DataMart\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load data from Staging DB into DataMart.Paths[Data Conversion Output]"
+              endId="Package\Load data from Staging DB into DataMart\Find new records.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load data from Staging DB into DataMart.Paths[Lookup Match Output]"
+              endId="Package\Load data from Staging DB into DataMart\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load data from Staging DB into DataMart.Paths[Lookup No Match Output]"
+              endId="Package\Load data from Staging DB into DataMart\Row Count.Inputs[Row Count Input 1]"
+              name="Lookup No Match Output"
+              startId="Package\Load data from Staging DB into DataMart\Find new records.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load data from Staging DB into DataMart.Paths[OLE DB Source Output]"
+              endId="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load data from Staging DB into DataMart.Paths[Row Count Output 1]"
+              endId="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Load data from Staging DB into DataMart\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PostExecute Insert Log Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{56a21c03-7596-449e-94fb-67a7b9760c3b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PostExecute Insert Log Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{59878CA3-78D3-43C1-92E0-767E8916A630}"
+          SQLTask:SqlStatementSource="EXEC STP_UpdateLogInfo ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PreExecute Insert Log Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f2562586-9f44-4705-bb46-0695279d50c8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PreExecute Insert Log Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{59878CA3-78D3-43C1-92E0-767E8916A630}"
+          SQLTask:SqlStatementSource="EXEC STP_Log_Process ?, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{892DB17C-10B5-4ECD-A3C2-DCB2781D3602}"
+      DTS:From="Package\PreExecute Insert Log Info"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load data from Staging DB into DataMart" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4C1E76B5-75A9-4648-A3BC-E1F9FB8735B1}"
+      DTS:From="Package\Load data from Staging DB into DataMart"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\PostExecute Insert Log Info" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{E77698B2-D1A2-4913-947F-D335A7DDB0EE}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{58D93AA0-2E99-4A73-A309-BC4E42A321AC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Insert info about error into LogError table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{28abdf7e-ef3b-403a-9033-fae0d28f2a0b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert info about error into LogError table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [LogError] ([LogID], [ErrorMessage], [CodeError], [SourceName]) VALUES ( "+(DT_WSTR, 12) @[User::LogID]+" ,'"+Replace(@[System::ErrorDescription],"'","")+"', "+(DT_WSTR, 12)@[System::ErrorCode]+",'"+@[System::SourceName]+"' )"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{59878CA3-78D3-43C1-92E0-767E8916A630}"
+              SQLTask:SqlStatementSource="INSERT INTO [LogError] ([LogID], [ErrorMessage], [CodeError], [SourceName]) VALUES ( 0 ,'', 0,'' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="280,42"
+          Id="Package\Load data from Staging DB into DataMart"
+          TopLeft="495,278" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\PostExecute Insert Log Info"
+          TopLeft="525,432" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\PreExecute Insert Log Info"
+          TopLeft="523,105" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="631.25,147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131"
+              Start="0,0"
+              End="0,123.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="633.5,320">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,112"
+              Start="0,0"
+              End="0,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="277,42"
+          Id="Package.EventHandlers[OnError]\Insert info about error into LogError table"
+          TopLeft="502,179" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Load data from Staging DB into DataMart">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="290,42"
+          Id="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB"
+          TopLeft="522,66" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load data from Staging DB into DataMart\Row Count"
+          TopLeft="596,370" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Load data from Staging DB into DataMart\NVARCHAR -&gt; Relevant Data Types"
+          TopLeft="534,164" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load data from Staging DB into DataMart\Find new records"
+          TopLeft="576,258" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart"
+          TopLeft="524,458" />
+        <EdgeLayout
+          Id="Package\Load data from Staging DB into DataMart.Paths[Lookup No Match Output]"
+          TopLeft="660,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,25.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load data from Staging DB into DataMart.Paths[Data Conversion Output]"
+          TopLeft="660.5,206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load data from Staging DB into DataMart.Paths[Row Count Output 1]"
+          TopLeft="663,412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load data from Staging DB into DataMart.Paths[OLE DB Source Output]"
+          TopLeft="665.25,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Load data from Staging DB into DataMart\OLE DB Command"
+          TopLeft="874,258" />
+        <EdgeLayout
+          Id="Package\Load data from Staging DB into DataMart.Paths[Lookup Match Output]"
+          TopLeft="739,279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,0"
+              Start="0,0"
+              End="127.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="127.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.55861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load data from Staging DB into DataMart.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="277,42"
+          Id="{9E685987-B38D-4D80-9C23-97CC693E413A}"
+          TopLeft="542,151" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from Staging DB into DataMart\MembershipDimClients table in DataMart">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from Staging DB into DataMart\Find new records">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Membership].[DimClients]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from Staging DB into DataMart\MembershipDimClients table in Staging DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

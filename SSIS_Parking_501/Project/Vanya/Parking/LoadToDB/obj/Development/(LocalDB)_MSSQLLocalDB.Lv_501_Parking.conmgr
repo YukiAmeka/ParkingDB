@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="(LocalDB)_MSSQLLocalDB.Lv_501_Parking"
+  DTS:DTSID="{383C7E4D-12F3-4237-B29D-0D5BC4086D13}"
+  DTS:CreationName="ADO">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Lv_501_Parking;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
